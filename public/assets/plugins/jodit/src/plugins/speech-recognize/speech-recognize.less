@@ -1,0 +1,48 @@
+@import (reference) '../../styles/mixins';
+@import (reference) '../../styles/variables';
+
+@keyframes jd-speak-animation {
+	0% {
+		fill: green;
+		opacity: 0.3;
+	}
+
+	100% {
+		fill: #4285f4;
+	}
+}
+
+svg.jodit-icon_speechRecognize {
+	stroke: none !important;
+}
+
+.jodit-toolbar-button {
+	&_pulse_true {
+		svg {
+			animation-duration: 0.7s;
+			animation-iteration-count: infinite;
+			animation-name: jd-speak-animation;
+		}
+	}
+}
+
+.jodit-speech-recognize {
+	&__list-item {
+		display: flex;
+		padding: var(--padding-default);
+	}
+
+	&__popup {
+		.font();
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		padding: 8px 16px;
+		border-radius: 8px;
+		background-color: rgb(240 240 240 / 40%);
+		font-size: 32px;
+		line-height: 1.5;
+		transform: translate(-50%, -50%);
+	}
+}

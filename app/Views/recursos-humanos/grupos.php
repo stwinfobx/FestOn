@@ -1,0 +1,963 @@
+<?php 
+	$this->extend('templates/template_default');
+	$this->section('content'); 
+
+	$event_hashkey = (isset($rs_event->event_hashkey) ? $rs_event->event_hashkey : "");
+	$event_titulo = (isset($rs_event->event_titulo) ? $rs_event->event_titulo : "");
+	$grevt_id = (isset($rs_group->grevt_id) ? $rs_group->grevt_id : "");
+	$grp_hashkey = (isset($rs_group->grp_hashkey) ? $rs_group->grp_hashkey : "");
+?>
+	<section class="pt-3 pb-4">
+		<div class="container">
+
+			<?php if( !empty($event_hashkey) ){ ?>
+			<div class="row">
+				<div class="col-12 col-md-12">
+					<h3>Inscrições > <?php echo( $event_titulo ); ?></h3>
+				</div>
+			</div>
+			<?php } ?>
+
+			<div class="row pt-3 pb-5">
+				<div class="col-12 col-md-12">
+
+					<FORM action="<?php echo(current_url()); ?>" method="post" name="formFieldsInscricao" id="formFieldsInscricao" ref="formFieldsInscricao" enctype="multipart/form-data">
+						<div class="d-flex mb-3" style="gap: 16px;">
+							<div>
+								event_hashkey
+								<input type="text" name="event_hashkey" id="event_hashkey" class="form-control" ref="event_hashkey" v-model="fields.event_hashkey" value="<?php echo($event_hashkey);?>" />
+							</div>
+							<div>
+								grp_id
+								<input type="text" name="grp_id" id="grp_id" class="form-control" ref="grp_id" v-model="fields.grp_id" value="<?php echo((isset($grevt_id) ? $grevt_id : ""));?>" />
+							</div>
+							<div>
+								grp_hashkey
+								<input type="text" name="grp_hashkey" id="grp_hashkey" class="form-control" ref="grp_hashkey" v-model="fields.grp_hashkey" value="<?php echo((isset($grp_hashkey) ? $grp_hashkey : ""));?>" />
+							</div>
+						</div>
+
+					<div class="row align-items-start">
+						<div class="col-12 col-md-12">
+
+							<div class="card card-default">
+								<div class="card-header-box" style="display:none !important;">
+									<div class="row align-items-center">
+										<div class="col-12 col-md-6">
+											
+										</div>
+										<div class="col-12 col-md-6">
+
+											<div class="d-flex justify-content-end">
+												<div style="margin-left: 5px;"><a href="<?php echo(painel_url('grupos')); ?>" class="btn btn-sm btn-warning">Voltar</a></div>
+												<div style="margin-left: 5px;"><input type="submit" class="btn btn-sm btn-success" value="Salvar"></div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+								<div class="card-body">
+
+									<div class="row ">
+										<div class="col-12 col-md-3">
+
+											<?php 
+												$w_data['step'] = '1'; // GRUPO
+												$incMenuLateral = view('inscricoes/menu-lateral', $w_data);
+												echo( $incMenuLateral );
+											?>
+
+										</div>
+										<div class="col-12 col-md-9">
+
+											<?php if (isset($rs_grupos) ){ ?>
+											<div  style="min-height: 100%;" v-show="show_form == 0">
+												<div class="container">
+													<div class="row justify-content-center">
+														<div class="col-11 col-md-12">
+
+															<div class="mb-4">
+																<div class="row justify-content-center align-items-center">
+																	<div class="col-11 col-md-7">
+																		<h2 class="fw-bolder text-dark title-step m-0">Grupos Cadastrados</h2>
+																	</div>
+																	<div class="col-11 col-md-5">
+																		<?php if( !empty($event_hashkey) ){ ?>
+																		<div class="d-flex justify-content-end">
+																			<a href="javascript:;" class="btn btn-sm btn-success" v-on:click="showForm(1)">Novo Grupo</a>
+																		</div>
+																		<?php } ?>
+																	</div>
+																</div>
+															</div>
+
+															<div class="row">
+																<?php
+																	$count = 0;
+																	foreach ($rs_grupos->getResult() as $row) {
+																		$count++;
+																		$grp_id = ($row->grp_id);
+																		$grp_hashkey = ($row->grp_hashkey);
+																		$grp_titulo = ($row->grp_titulo);
+																		$event_titulo = ($row->event_titulo);
+																		$grp_responsavel = ($row->grp_responsavel);
+																		$grp_cpf = ($row->grp_cpf);
+
+																		$link_participantes = site_url('inscricoes/participantes/'. $grp_hashkey);
+																?>
+																<div class="col-12 col-md-6">
+
+																	<div class="card card-grupos-box mb-3">
+																		<a href="<?php echo( $link_participantes ); ?>">
+																		<div class="card-header" style="padding: .5rem 1rem; background-color: #e79c32; color: #FFFFFF;">
+																			<h4><?php echo( $event_titulo ); ?></h4>
+																		</div>
+																		<div class="card-body">
+
+																			<div class="row justify-content-center">
+																				<div class="col-12 col-md-4">
+																					<div class="personal-image">
+																						<label class="label">
+																							<input type="file" />
+																							<figure class="personal-figure-grupo">
+																								<div class="personal-avatar-grupo" style="background-image: url('assets/media/icon-profile2.png');"></div>
+																							</figure>
+																						</label>
+																					</div>
+																				</div>
+																				<div class="col-12 col-md-8">
+																					<div class="item">
+																						<label>Nome do Grupo</label>
+																						<h3><?php echo($grp_titulo); ?></h3>
+																					</div>
+																					<div class="item">
+																						<label>Nome do Responsável</label>
+																						<h3><?php echo($grp_responsavel); ?></h3>
+																					</div>
+																					<div class="item">
+																						<label>CPF</label>
+																						<h3><?php echo($grp_cpf); ?></h3>
+																					</div>
+																					<div class="item">
+																						<label>Email</label>
+																						<h3>contato@gmail.com</h3>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		</a>
+																	</div>
+
+																</div>
+																<?php
+																	}
+																?>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<?php } ?>
+
+											<div  style="min-height: 100%;" v-show="show_form == 1">
+												<!-- <div class="content-step current justify-content-center align-items-center flex-column"> -->
+													<div class="container">
+														<div class="row justify-content-center">
+															<div class="col-11 col-md-12">
+																<div class="mb-4">
+																	<div class="row justify-content-center align-items-center">
+																		<div class="col-11 col-md-7">
+																			<h2 class="fw-bolder text-dark title-step m-0">Informações do Grupo</h2>
+																		</div>
+																		<div class="col-11 col-md-5">
+																			<div class="d-flex justify-content-end">
+																				<a href="javascript:;" class="btn btn-sm btn-success" v-on:click="showForm(0)">Grupos Cadastrados</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div>
+
+																	<div class="row">
+																		<div class="col-12 col-md-6">
+																			<div class="form-group">
+																				<div>
+																					<label class="form-label" for="grp_titulo">Nome do Grupo</label>
+																					<input type="text" name="grp_titulo" id="grp_titulo" class="form-control" ref="grp_titulo" v-model="fields.grp_titulo" value="<?php echo((isset($rs_group->grp_titulo) ? $rs_group->grp_titulo : ""));?>" /> 
+																				</div>
+																				<div class="form-error" v-if="error.grp_titulo.length"><small>{{ error.grp_titulo }}</small></div>
+																			</div>
+																		</div>
+																		<div class="col-12 col-md-6">
+																			<div class="form-group">
+																				<div>
+																					<label class="form-label" for="grp_responsavel">Responsável</label>
+																					<input type="text" name="grp_responsavel" id="grp_responsavel" class="form-control" ref="grp_responsavel" v-model="fields.grp_responsavel" value="<?php echo((isset($rs_group->grp_responsavel) ? $rs_group->grp_responsavel : ""));?>" />
+																				</div>
+																				<div class="form-error" v-if="error.grp_titulo.length"><small>{{ error.grp_titulo }}</small></div>
+																			</div>
+																		</div>
+																	</div>
+
+																	<div class="row">
+																		<div class="col-12 col-md-6">
+																			<div class="form-group">
+																				<div>
+																					<label class="form-label" for="grp_cpf">CPF do Responsável</label>
+																					<input type="text" name="grp_cpf" id="grp_cpf" class="form-control mask-cpf" ref="grp_cpf" v-model="fields.grp_cpf" value="<?php echo((isset($rs_group->grp_cpf) ? $rs_group->grp_cpf : ""));?>" />
+																				</div>
+																				<div class="form-error" v-if="error.grp_cpf.length"><small>{{ error.grp_cpf }}</small></div>
+																			</div>
+																		</div>
+																		<div class="col-12 col-md-3">
+																			<div class="form-group">
+																				<div>
+																					<label class="form-label" for="grp_telefone">Telefone</label>
+																					<input type="text" name="grp_telefone" id="grp_telefone" class="form-control mask-phone" ref="grp_telefone" v-model="fields.grp_telefone" value="<?php echo((isset($rs_group->grp_telefone) ? $rs_group->grp_telefone : ""));?>" />
+																				</div>
+																				<div class="form-error" v-if="error.grp_telefone.length"><small>{{ error.grp_telefone }}</small></div>
+																			</div>
+																		</div>
+																		<div class="col-12 col-md-3">
+																			<div class="form-group">
+																				<div>
+																					<label class="form-label" for="grp_celular">Celular</label>
+																					<input type="text" name="grp_celular" id="grp_celular" class="form-control mask-phone" ref="grp_celular" v-model="fields.grp_celular" value="<?php echo((isset($rs_group->grp_celular) ? $rs_group->grp_celular : ""));?>" />
+																				</div>
+																				<div class="form-error" v-if="error.grp_celular.length"><small>{{ error.grp_celular }}</small></div>
+																			</div>
+																		</div>
+																	</div>
+
+
+																	<?php 
+																		$grp_redes_sociais = (isset($rs_group->grp_redes_sociais) ? $rs_group->grp_redes_sociais : '');
+																		$obj_redes_sociais = json_decode( $grp_redes_sociais );
+																		$grp_sm_instagram = (isset($obj_redes_sociais->instagram) ? $obj_redes_sociais->instagram : '');
+																		$grp_sm_facebook = (isset($obj_redes_sociais->facebook) ? $obj_redes_sociais->facebook : '');
+																		$grp_sm_youtube = (isset($obj_redes_sociais->youtube) ? $obj_redes_sociais->youtube : '');
+																		$grp_sm_vimeo = (isset($obj_redes_sociais->vimeo) ? $obj_redes_sociais->vimeo : '');
+																	?>
+																	<div class="pt-4 pb-2">
+																		<h3 class="">Redes Sociais</h3>
+																	</div>
+
+																	<div class="row">
+																		<div class="col-12 col-md-6">
+																			<div class="form-group">
+																				<div>
+																					<label class="form-label" for="grp_sm_instagram">Instagram</label>
+																					<input type="text" name="grp_sm_instagram" id="grp_sm_instagram" class="form-control" ref="grp_sm_instagram" v-model="fields.grp_sm_instagram" value="<?php echo($grp_sm_instagram);?>" />
+																				</div>
+																				<div class="form-error" v-if="error.grp_sm_instagram.length"><small>{{ error.grp_sm_instagram }}</small></div>
+																			</div>
+																		</div>
+																		<div class="col-12 col-md-6">
+																			<div class="form-group">
+																				<div>
+																					<label class="form-label" for="grp_sm_facebook">Facebook</label>
+																					<input type="text" name="grp_sm_facebook" id="grp_sm_facebook" class="form-control" ref="grp_sm_facebook" v-model="fields.grp_sm_facebook" value="<?php echo($grp_sm_facebook);?>" />
+																				</div>
+																				<div class="form-error" v-if="error.grp_sm_facebook.length"><small>{{ error.grp_sm_facebook }}</small></div>
+																			</div>
+																		</div>
+																	</div>
+
+																	<div class="row">
+																		<div class="col-12 col-md-6">
+																			<div class="form-group">
+																				<div>
+																					<label class="form-label" for="grp_sm_youtube">Youtube</label>
+																					<input type="text" name="grp_sm_youtube" id="grp_sm_youtube" class="form-control" ref="grp_sm_youtube" v-model="fields.grp_sm_youtube" value="<?php echo($grp_sm_youtube);?>" />
+																				</div>
+																				<div class="form-error" v-if="error.grp_sm_youtube.length"><small>{{ error.grp_sm_youtube }}</small></div>
+																			</div>
+																		</div>
+																		<div class="col-12 col-md-6">
+																			<div class="form-group">
+																				<div>
+																					<label class="form-label" for="grp_sm_vimeo">Vimeo</label>
+																					<input type="text" name="grp_sm_vimeo" id="grp_sm_vimeo" class="form-control" ref="grp_sm_vimeo" v-model="fields.grp_sm_vimeo" value="<?php echo($grp_sm_vimeo);?>" />
+																				</div>
+																				<div class="form-error" v-if="error.grp_sm_vimeo.length"><small>{{ error.grp_sm_vimeo }}</small></div>
+																			</div>
+																		</div>
+																	</div>
+
+																	<div class="pt-4 pb-2">
+																		<h3 class="">Endereço</h3>
+																	</div>
+
+																	<div class="row">
+																		<div class="col-12 col-md-3">
+																			<div class="form-group">
+																				<div>
+																					<label class="form-label" for="grp_end_cep">CEP</label>
+																					<input type="text" name="grp_end_cep" id="grp_end_cep" class="form-control mask-cep" ref="grp_end_cep" v-model="fields.grp_end_cep" v-on:blur="blurCheckCEP" value="<?php echo((isset($rs_group->grp_end_cep) ? $rs_group->grp_end_cep : ""));?>" />
+																				</div>
+																				<div class="form-error" v-if="error.grp_end_cep.length"><small>{{ error.grp_end_cep }}</small></div>
+																			</div>
+																		</div>
+																		<div class="col-12 col-md-7">
+																			<div class="form-group">
+																				<div>
+																					<label class="form-label" for="grp_end_logradouro">Endereço</label>
+																					<input type="text" name="grp_end_logradouro" id="grp_end_logradouro" class="form-control" ref="grp_end_logradouro" v-model="fields.grp_end_logradouro" value="<?php echo((isset($rs_group->grp_end_logradouro) ? $rs_group->grp_end_logradouro : ""));?>" />
+																				</div>
+																				<div class="form-error" v-if="error.grp_end_logradouro.length"><small>{{ error.grp_end_logradouro }}</small></div>
+																			</div>
+																		</div>
+																		<div class="col-12 col-md-2">
+																			<div class="form-group">
+																				<div>
+																					<label class="form-label" for="grp_end_numero">Número</label>
+																					<input type="text" name="grp_end_numero" id="grp_end_numero" class="form-control" ref="grp_end_numero" v-model="fields.grp_end_numero" value="<?php echo((isset($rs_group->grp_end_numero) ? $rs_group->grp_end_numero : ""));?>" />
+																				</div>
+																				<div class="form-error" v-if="error.grp_end_numero.length"><small>{{ error.grp_end_numero }}</small></div>
+																			</div>
+																		</div>
+																	</div>
+
+																	<div class="row">
+																		<div class="col-12 col-md-3">
+																			<div class="form-group">
+																				<div>
+																					<label class="form-label" for="grp_end_compl">Complemento</label>
+																					<input type="text" name="grp_end_compl" id="grp_end_compl" class="form-control" ref="grp_end_compl" v-model="fields.grp_end_compl" value="<?php echo((isset($rs_group->grp_end_compl) ? $rs_group->grp_end_compl : ""));?>" />
+																				</div>
+																				<div class="form-error" v-if="error.grp_end_compl.length"><small>{{ error.grp_end_compl }}</small></div>
+																			</div>
+																		</div>
+																		<div class="col-12 col-md-7">
+																			<div class="row">
+																				<div class="col-12 col-md-6">
+																					<div class="form-group">
+																						<div>
+																							<label class="form-label" for="grp_end_bairro">Bairro</label>
+																							<input type="text" name="grp_end_bairro" id="grp_end_bairro" class="form-control" ref="grp_end_bairro" v-model="fields.grp_end_bairro" value="<?php echo((isset($rs_group->grp_end_bairro) ? $rs_group->grp_end_bairro : ""));?>" />
+																						</div>
+																						<div class="form-error" v-if="error.grp_end_bairro.length"><small>{{ error.grp_end_bairro }}</small></div>
+																					</div>
+																				</div>
+																				<div class="col-12 col-md-6">
+																					<div class="form-group">
+																						<div>
+																							<label class="form-label" for="grp_end_cidade">Cidade</label>
+																							<input type="text" name="grp_end_cidade" id="grp_end_cidade" class="form-control" ref="grp_end_cidade" v-model="fields.grp_end_cidade" value="<?php echo((isset($rs_group->grp_end_cidade) ? $rs_group->grp_end_cidade : ""));?>" />
+																						</div>
+																						<div class="form-error" v-if="error.grp_end_cidade.length"><small>{{ error.grp_end_cidade }}</small></div>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="col-12 col-md-2">
+																			<div class="form-group">
+																				<div>
+																					<label class="form-label" for="grp_end_estado">Estado</label>
+																					<input type="text" name="grp_end_estado" id="grp_end_estado" class="form-control" ref="grp_end_estado" v-model="fields.grp_end_estado" value="<?php echo((isset($rs_group->grp_end_estado) ? $rs_group->grp_end_estado : ""));?>" />
+																				</div>
+																				<div class="form-error" v-if="error.grp_end_estado.length"><small>{{ error.grp_end_estado }}</small></div>
+																			</div>
+																		</div>
+																	</div>
+
+
+
+
+
+																</div>
+																<div class="content-actions">
+																	<div class="row justify-content-end">
+																		<div class="col-12 col-md-4">
+																			<div class="d-grid">
+																				<a href="javascript:;" class="btn btn-primary" v-on:click="salvarFormGrupo()" >Continuar</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												<!-- </div> -->
+											</div>
+
+										</div>
+									</div>
+		
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					</FORM>
+
+				</div>
+				<div class="col-12 col-md-4">
+				</div>
+			</div>
+		</div>
+	</section>
+
+<?php
+	$this->endSection('content'); 
+
+
+	$rs_categorias = (isset($rs_categorias) ? $rs_categorias : []);
+?>
+
+<?php $time = time(); ?>
+<?php $this->section('headers'); ?>
+
+	<style>
+		.table-bordered>:not(caption)>* {
+			border-color: #ffffff !important;
+		}
+		.table td {
+			border-color: #ffffff !important;
+		}
+	</style>
+	<style>
+		.card.card-grupos-box{
+			border-color: #e79c32;		
+		}
+		.card.card-grupos-box:hover{
+			border-color: #e79c32;
+			background-color: #e9e9e9;
+		}
+		.card.card-grupos-box a{ text-decoration: none; color: black; }
+		.card.card-grupos-box .item label{
+			display: block;
+			font-size: .65rem;
+			color: #c5c5c5;
+		}
+		.card.card-grupos-box .item label{
+			display: block;
+			font-size: .65rem;
+		}
+		.card.card-grupos-box .item h3{
+			display: block;
+			font-size: 1rem;
+		}
+
+		.box-file-upload{
+			/*padding: 0.5rem 1.0rem !important;*/
+			/*background: #f8f9fa !important;*/
+			/*background: #FAFAFA !important;*/
+			/*color: #000000 !important;*/
+			/*font-size: .90rem !important;*/
+			/*height: calc(4.3em + 1.5rem + 2px) !important;*/
+			/*border-radius: 30px !important;*/
+			/*border: 1.5px solid #e79c32 !important;*/
+			margin-bottom: 0.75rem;
+			display: flex;
+			/*gap: 1px;*/
+		}
+		.box-file-upload figure{ cursor: pointer; margin: 0 !important; text-align: center; }
+		.box-file-upload figure img{ cursor: pointer; margin: 0 auto !important; width: 60% !important; }
+		.box-file-upload .img-preview{
+			/*padding: 0.5rem 1.0rem !important;*/
+			width: 60%;
+			height: calc(4.3em + 1.5rem + 2px) !important;
+			background: #FAFAFA !important;
+			border-top-left-radius: 30px;
+			border-bottom-left-radius: 30px;
+			/*border: 1.5px solid #e79c32 !important;*/
+		}
+		.box-file-upload .txt-click{
+			position: relative;
+			cursor: pointer;
+			padding: 0.5rem 1.0rem !important;
+			width: 40%;
+			height: calc(4.3em + 1.5rem + 2px) !important;
+			background: #e79c32 !important;
+			border-top-right-radius: 30px;
+			border-bottom-right-radius: 30px;
+			/*border: 1.5px solid #e79c32 !important;*/
+			/*border-left: 0px solid #e79c32 !important;*/
+			font-size: .90rem !important;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.docto-avatar-bg {
+			cursor: pointer;
+			/*width: 100%;*/
+			/*height: 100%;*/
+			/*box-sizing: border-box;*/
+			/*border-radius: 100%;*/
+			background-size: cover;
+			background-position: center;
+			/*border: 4px solid #e79c32;*/
+			/*box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);*/
+			/*transition: all ease-in-out .3s;*/
+
+			/*padding: 0.5rem 1.0rem !important;*/
+			width: 100%;
+			height: 100%;
+			height: calc(4.3em + 1.5rem + 2px) !important;
+			/*background: #FAFAFA !important;*/
+			border-top-left-radius: 30px;
+			border-bottom-left-radius: 30px;
+			border: 1.5px solid #e79c32 !important;
+			display: block;
+		}
+
+
+		/*.box-featured{}*/
+		/*.box-featured .item{ text-align: center; }*/
+		/*.box-featured .item .itemIcon{*/
+		/*	height: 120px;*/
+		/*	width: 120px;*/
+		/*	*/
+		/*	border-radius: 50%;*/
+		/*	cursor: pointer;*/
+		/*	background: #e1e1e1;*/
+		/*	box-shadow: 5px 3px 5px 0px rgb(189 148 90 / 37%);*/
+		/*	/*border: 1px solid white;*/*/
+		/*	margin-bottom: 10px;*/
+		/*	display: flex;*/
+		/*	justify-content: center;*/
+		/*	align-items: center;*/
+		/*}*/
+		/*.box-featured .item .itemIcon:hover{*/
+		/*	background: #ffffff;*/
+		/*}*/
+		/*.box-featured .item .itemIcon img{*/
+		/*	max-width: 60%;*/
+		/*}*/
+
+		/*.card-destaque{*/
+		/*	height: 140px;*/
+		/*	background: #fff7f1;*/
+		/*	/* border: 0px; */*/
+		/*	border-radius: .5rem;*/
+		/*	border: 1px solid #ffc08f;*/
+		/*	background: #e1e1e1;*/
+		/*	box-shadow: 5px 3px 5px 0px rgb(189 148 90 / 37%);*/
+		/*	border: 1px solid white;*/
+		/*}*/
+		/*.card-plus{*/
+		/*	height: 460px;*/
+		/*	background: #fff7f1;*/
+		/*	/* border: 0px; */*/
+		/*	border-radius: .5rem;*/
+		/*	border: 1px solid #ffc08f;*/
+		/*	background: #e1e1e1;*/
+		/*	box-shadow: 5px 3px 5px 0px rgb(189 148 90 / 37%);*/
+		/*	border: 1px solid white;*/
+		/*}*/
+		/*.card-patrocinador{*/
+		/*	height: 280px;*/
+		/*	background: #d3d3d3;*/
+		/*	/* border: 0px; */*/
+		/*	border-radius: .5rem;*/
+		/*	border: 3px solid #ffffff;*/
+		/*	background: #e1e1e1;*/
+		/*	box-shadow: 5px 3px 5px 0px rgb(189 148 90 / 37%);*/
+		/*	border: 1px solid white;*/
+		/*}*/
+	</style>
+
+	<style>
+		/*.mb-ST { margin-bottom: 32px !important; }*/
+		/*.btn-primary {*/
+		/*	color: #fff;*/
+		/*	background-color: var(--blue-poravo);*/
+		/*	border-color: var(--blue-poravo);*/
+		/*	border-radius: 24px;*/
+		/*}*/
+		/*.btn-secondary {*/
+		/*	color: #fff;*/
+		/*	border-radius: 24px;*/
+		/*}*/
+		/*.btn {*/
+		/*	padding: 0.9rem 26px !important;*/
+		/*}*/
+
+		/*.form-control {*/
+		/*	border: 1px solid #F2F2F2;*/
+		/*	border-radius: 8px;*/
+		/*	padding: 0.9rem !important;*/
+		/*	background-color: #F2F2F2;*/
+		/*}*/
+		.form-control-validate{
+			font-size: 3rem;
+			text-align: center;
+			font-weight: bold;
+		}
+		.form-control-validate.error {
+			border: 1px solid #f1416c;
+		}
+
+		.form-error{
+			margin-top: 2px;
+			background-color: #ffd8d8;
+			padding: 2px 16px;
+			font-size: .8rem;
+			color: red;
+			border-radius: 30px;
+		}
+
+		.text-error-validacao{
+			color: #f1416c;
+			margin-right: 16px;
+		}
+
+
+		.content-wrapper{
+			min-height: 100vh;
+			/*border: 1px dotted red;*/
+		}
+		.box-content-left{
+			z-index: 1;
+			position: fixed;
+			width: 500px !important;
+			background-color: rgba(245,248,250,.5)!important;
+			box-shadow: 0 .1rem 1rem .25rem rgba(0,0,0,.05)!important;
+			min-height: 100vh;
+		}
+		.box-content-right{
+			width: calc(100% - 500px) !important;
+			/*background-color: #f3f3f3;*/
+			margin-left: 500px;
+		}
+		.naveg-logotipo{
+			display: flex;
+			/*justify-content: center;*/
+			margin: 60px 0 30px 0;
+		}
+		.naveg-logotipo img{
+			width: 200px !important;	
+		}
+		.naveg-steps{
+			display: flex;
+			/* justify-content: center; */
+			flex-direction: column;
+			/* align-items: center; */
+			margin: 0 auto;
+		}
+		.naveg-steps .naveg-steps-item{
+			display: flex;
+			margin: 30px 0;
+			line-height: 1;
+		}
+		.naveg-steps .naveg-steps-item .steps-icon{
+			transition: color .2s ease,background-color .2s ease;
+			background-color: #04c8c8;
+			background-color: #1fb7f0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: color .2s ease,background-color .2s ease;
+			width: 40px;
+			height: 40px;
+			border-radius: .475rem;
+			background-color: #dcfdfd;
+			background-color: rgb(31 183 240 / 20%);
+			background-color: #e79c32;
+			margin-right: 1.5rem;
+		}
+		.naveg-steps .naveg-steps-item.current .steps-icon{
+			background-color: #04c8c8;
+			background-color: #1fb7f0;
+			background-color: #00b37f;
+		}
+		.naveg-steps .naveg-steps-item.current .steps-icon .stepper-check{ color: #FFF; }
+		.naveg-steps .naveg-steps-item .steps-icon .steps-checked {
+		}
+		.naveg-steps .naveg-steps-item .steps-icon .steps-number {
+			font-size: 1.35rem;
+			font-weight: 600;
+			color: #04c8c8 !important;
+			color: #FFFFFF !important;
+		}
+		.naveg-steps .naveg-steps-item.current .steps-icon .steps-number {
+			color: #FFFFFF !important;
+		}
+		.naveg-steps .naveg-steps-item .steps-label{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+		.naveg-steps .naveg-steps-item .steps-label .steps-title{
+			color: #3f4254;
+			font-weight: 600;
+			font-size: 1.25rem;
+			margin-bottom: .3rem;
+		}
+		.naveg-steps .naveg-steps-item .steps-label .steps-desc{ color: #b5b5c3; }
+
+		.content-step{ display:none; }
+		.content-step.current{ display:flex !important; }
+		.content-itens{ margin-top: 60px; }
+		.content-itens .content-item-box{
+			border-radius: 0.475rem;
+			min-height: 130px;
+			border-width: 1px;
+			border-style: dashed;
+			color: #04c8c8;
+			border-color: #b5b5c3;
+			background-color: rgb(255,255,255,0) !important;
+			padding: 1.75rem;
+			cursor: pointer;
+		}
+		.content-itens .content-item-box.active{
+			border-radius: 0.475rem;
+			min-height: 130px;
+			border-width: 1px;
+			border-style: dashed;
+			color: #04c8c8;
+			border-color: #1fb7f0;
+			background-color: rgb(31 183 240 / 10%) !important;
+			padding: 1.75rem;
+		}
+		.content-actions{
+			margin-top: 60px;
+		}
+
+		.svg-icon.svg-icon-3x svg {
+			height: 3rem!important;
+			width: 3rem!important;
+		}
+
+
+		.input-tempo-musica{
+			font-size: 2rem !important;
+			padding: 0rem 1.0rem !important;
+			line-height: 1 !important;
+			height: 47.11px !important;
+			font-weight: bold !important;
+			text-align: center !important;	
+			color: #ffffff !important;
+			background-color: #f1790f !important;
+			border-color: #f1790f !important;
+		}
+
+
+		.personal-image {
+			text-align: center;
+		}
+		.personal-image input[type="file"] {
+			display: none;
+		}
+		.personal-figure {
+			position: relative;
+			width: 120px;
+			height: 120px;
+			margin: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.personal-figure.logo-grupo {
+			width: 90px;
+			height: 90px;
+		}
+		.personal-avatar {
+			cursor: pointer;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			border-radius: 100%;
+			background-color: #e79c32;
+			border: 4px solid transparent;
+			box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+			transition: all ease-in-out .3s;
+		}
+		.personal-avatar:hover {
+			box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+		}
+		.personal-avatar-bg {
+			cursor: pointer;
+			width: 112px;
+			height: 112px;
+			box-sizing: border-box;
+			border-radius: 100%;
+			background-size: contain;
+			background-position: center;
+			border: 4px solid #e79c32;
+			box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+			transition: all ease-in-out .3s;
+		}
+		.personal-figcaption {
+			cursor: pointer;
+			position: absolute;
+			top: 0px;
+			width: inherit;
+			height: inherit;
+			border-radius: 100%;
+			opacity: 0;
+			background-color: rgba(0, 0, 0, 0);
+			transition: all ease-in-out .3s;
+		}
+		.personal-figcaption:hover {
+			opacity: 1;
+			background-color: rgba(0, 0, 0, .5);
+		}
+		.personal-figcaption > img {
+			margin-top: 32.5px;
+			width: 50px;
+			height: 50px;
+		}
+
+
+
+		/*// -----------------------------------*/
+		.personal-figure-grupo {
+			position: relative;
+			width: 90px;
+			height: 90px;
+			margin: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.personal-avatar-grupo {
+			cursor: pointer;
+			width: 82px;
+			height: 82px;
+			box-sizing: border-box;
+			border-radius: 100%;
+			background-size: contain;
+			background-position: center;
+			border: 4px solid #e79c32;
+			box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+			transition: all ease-in-out .3s;
+		}
+		/*// -----------------------*/
+
+
+
+
+
+		@media only screen and (max-width: 991px){
+			main { padding: 0 !important; }
+			.naveg-steps .naveg-steps-numbers{
+				display: flex !important;
+			}
+			.naveg-logotipo {
+				display: block !important;
+				text-align: center !important;
+			}
+			.naveg-steps .naveg-steps-item .steps-icon {
+				width: 50px !important;
+				height: 50px !important;
+				margin-right: 1.5rem;
+			}
+			.naveg-steps .naveg-steps-item .steps-label {
+				display: none !important;
+			}
+			.content-wrapper {
+				margin-top: 0vh !important;
+				min-height: 1vh !important;
+				height: 100% !important;
+				flex-direction: column !important;
+			}
+			.title-step{ font-size: 1.5rem !important; text-align: center !important; }
+			.box-content-left{ 
+				position: relative !important;
+				width: 100% !important;
+				height: 100% !important;
+				min-height: 10vh !important;
+				margin-bottom: 30px !important;
+			}
+			.box-content-right{
+				width: calc(100% - 0px) !important;
+				margin-left: 0px !important;
+			}
+			.form-control-validate{
+				font-size: 2.5rem !important;
+				padding: .5rem 0.1rem !important;
+			}
+		}
+
+		.personal-image-header {
+			text-align: center;
+		}
+		.personal-image-header label {
+			margin: 0 !important;
+		}
+		.personal-figure-header {
+			position: relative;
+			width: 42px;
+			height: 42px;
+			margin: 0;
+		}
+		.personal-avatar-header {
+			cursor: pointer;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			border-radius: 100%;
+			background-color: #e79c32;
+			border: 4px solid transparent;
+			box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+			transition: all ease-in-out .3s;
+		}
+		.personal-avatar-header:hover {
+			box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+		}
+		.personal-figcaption-header {
+			cursor: pointer;
+			position: absolute;
+			top: 0px;
+			width: inherit;
+			height: inherit;
+			border-radius: 100%;
+			opacity: 0;
+			background-color: rgba(0, 0, 0, 0);
+			transition: all ease-in-out .3s;
+		}
+		.personal-figcaption-header:hover {
+			opacity: 1;
+			background-color: rgba(0, 0, 0, .5);
+		}
+		.personal-figcaption-header > img {
+			margin-top: 32.5px;
+			width: 50px;
+			height: 50px;
+		}
+	</style>
+
+<?php $this->endSection('headers'); ?>
+
+<?php $this->section('scripts'); ?>
+
+	<!-- VueJs -->
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.22.0/axios.min.js" integrity="sha512-m2ssMAtdCEYGWXQ8hXVG4Q39uKYtbfaJL5QMTbhl2kc6vYyubrKHhr6aLLXW4ITeXSywQLn1AhsAaqrJl8Acfg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="assets/plugins/flatpickr/flatpickr-locale-br.js"></script>
+	<!-- <script src="assets/painel/js/custom/documentation/forms/flatpickr-locale-br.js"></script> -->
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/hmac-md5.min.js"></script> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/md5.min.js" integrity="sha512-ENWhXy+lET8kWcArT6ijA6HpVEALRmvzYBayGL6oFWl96exmq8Fjgxe2K6TAblHLP75Sa/a1YjHpIZRt+9hGOQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+
+	<!-- Sweet Alert -->
+	<link href="assets/plugins/sweet-alert2/sweetalert2.min.css" rel="stylesheet" type="text/css">
+	<script src="assets/plugins/sweet-alert2/sweetalert2.min.js"></script>
+
+	<script>
+		let STR_EVENT_HASHKEY = '<?php echo( $event_hashkey ); ?>';
+	</script>
+
+	<script>
+	$(document).ready(function () {
+		$('.flatpickr_date').flatpickr({
+			"locale": "pt",
+			dateFormat:"d/m/Y",
+			allowInput: true
+		});		
+	});
+	</script>
+
+	<script type="text/javascript" src="assets/vue/utils.js?t=<?= $time ?>"></script>
+	<script type="text/javascript" src="assets/vue/inscricoes-grupos.js?t=<?= $time ?>"></script>
+
+<?php $this->endSection('scripts'); ?>

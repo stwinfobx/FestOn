@@ -1,0 +1,157 @@
+/*!
+ * Jodit Editor (https://xdsoft.net/jodit/)
+ * Released under MIT see LICENSE.txt in the project root for license information.
+ * Copyright (c) 2013-2024 Valeriy Chupurnov. All rights reserved. https://xdsoft.net
+ */
+
+describe('Security test', () => {
+	describe('XSS', () => {
+		describe('From source', () => {
+			describe('Set HTML with onerror JS', () => {
+				it('Should remove this unsafe attribute', () => {
+					const editor = getJodit();
+					editor.value =
+						'<math><iframe></iframe></math><img src onerror=alert(document.cookie)/>';
+
+					expect(sortAttributes(editor.value)).eq(
+						'<p><math><iframe></iframe></math><img src=""></p>'
+					);
+				});
+
+				it('Should remove this unsafe attribute2', () => {
+					const editor = getJodit();
+					editor.value =
+						'<html>' +
+						'<body>' +
+						'<meta name=Generator content="Microsoft Word 15">' +
+						'<img src="" onerror="alert(123)" />' +
+						'</body>' +
+						'</html>';
+
+					expect(sortAttributes(editor.value)).eq(
+						'<p><meta content="Microsoft Word 15" name="Generator"><img src=""></p>'
+					);
+				});
+			});
+
+			describe('Create JS link', () => {
+				it('Should change this unsafe attribute to safe', () => {
+					const editor = getJodit();
+
+					editor.value =
+						'<p><a href="javascript:alert(\'yo\');"></a></p>';
+
+					expect(sortAttributes(editor.value)).eq(
+						'<p><a href="http://javascript:alert(\'yo\');"></a></p>'
+					);
+				});
+			});
+		});
+
+		describe('Insert ready Node', () => {
+			describe('Set HTML with onerror JS', () => {
+				it('Should remove this unsafe attribute', () => {
+					const editor = getJodit();
+					const img = document.createElement('img');
+					img.setAttribute('onerror', 'alert(document.cookie);');
+					img.setAttribute('src', '');
+
+					editor.s.insertImage(img.cloneNode(true));
+					editor.s.insertNode(img);
+
+					expect(sortAttributes(editor.value)).eq(
+						'<p><img src=""><img src=""></p>'
+					);
+				});
+			});
+
+			describe('Insert unsafe link', () => {
+				it('Should change this unsafe attribute to safe', () => {
+					const editor = getJodit();
+
+					const a = document.createElement('a');
+					a.setAttribute('href', 'javascript:alert(1111);');
+					a.innerText = 'Unsafe link';
+					editor.s.insertNode(a);
+
+					expect(sortAttributes(editor.value)).eq(
+						'<p><a href="http://javascript:alert(1111);">Unsafe link</a></p>'
+					);
+				});
+			});
+		});
+
+		describe('Insert HTML Snippet', () => {
+			describe('Snippet HTML with onerror JS', () => {
+				it('Should remove this unsafe attribute', () => {
+					const editor = getJodit();
+					editor.value = '<p>test|</p>';
+					setCursorToChar(editor);
+
+					editor.s.insertHTML(
+						'<img src="" onerror=alert(document.cookie)/>'
+					);
+
+					expect(sortAttributes(editor.value)).eq(
+						'<p>test<img src=""></p>'
+					);
+				});
+			});
+
+			describe('Insert unsafe link', () => {
+				it('Should change this unsafe attribute to safe', () => {
+					const editor = getJodit();
+					editor.value = '<p>test|</p>';
+					setCursorToChar(editor);
+
+					editor.s.insertHTML(
+						'<a href="javascript:alert(1111)">link</a>'
+					);
+
+					expect(sortAttributes(editor.value)).eq(
+						'<p>test<a href="http://javascript:alert(1111)">link</a></p>'
+					);
+				});
+			});
+		});
+
+		describe('Disable', () => {
+			describe('Set HTML with onerror JS', () => {
+				it('Should not remove this unsafe attribute', async () => {
+					window._stealCookie = cookie => {};
+					const editor = getJodit({
+						cleanHTML: {
+							removeOnError: false
+						}
+					});
+					await editor.waitForReady();
+					editor.value =
+						'<math><iframe></iframe></math><img src onerror="window._stealCookie(document.cookie);"/>';
+
+					expect(sortAttributes(editor.value)).eq(
+						'<p><math><iframe></iframe></math><img onerror="window._stealCookie(document.cookie);" src=""></p>'
+					);
+					await editor.async.requestIdlePromise();
+					delete window._stealCookie;
+				});
+			});
+
+			describe('Create JS link', () => {
+				it('Should change this unsafe attribute to safe', () => {
+					const editor = getJodit({
+						cleanHTML: {
+							safeJavaScriptLink: false
+						}
+					});
+
+					editor.value =
+						'<p><a href="javascript:console.log(\'yo\');">test</a></p>';
+
+					expect(sortAttributes(editor.value)).eq(
+						'<p><a href="javascript:console.log(\'yo\');">test</a></p>'
+					);
+				});
+			});
+		});
+	});
+});

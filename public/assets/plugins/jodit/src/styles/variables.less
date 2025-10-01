@@ -1,0 +1,116 @@
+/*!
+ * Jodit Editor (https://xdsoft.net/jodit/)
+ * Released under MIT see LICENSE.txt in the project root for license information.
+ * Copyright (c) 2013-2024 Valeriy Chupurnov. All rights reserved. https://xdsoft.net
+ */
+
+// screen
+@screen-xs: 480px;
+@screen-sm: 768px;
+@screen-md: 992px;
+@screen-lg: 1200px;
+
+@icon-tiny-size: 8px;
+@icon-xsmall-size: 10px;
+@icon-small-size: 12px;
+@icon-middle-size: 14px;
+@icon-large-size: 16px;
+
+@color-blue: #b5d6fd;
+@color-background-selection: @color-blue;
+@color-dark: #4c4c4c;
+@color-white: #fff;
+@color-red: #ff3b3b;
+
+:root {
+	--color-white: @color-white;
+	--color-gray: #dadada;
+	--color-gray-dark: #a5a5a5;
+	--color-dark: @color-dark;
+	--color-blue: @color-blue;
+	// stylelint-disable-next-line function-no-unknown
+	--color-light-blue: fadeout(@color-blue, 50%);
+	--color-red: @color-red;
+	// stylelint-disable-next-line function-no-unknown
+	--color-light-red: fadeout(@color-red, 60%);
+	--color-default: var(--color-dark);
+	--color-text: #222;
+	--color-label: var(--color-gray-dark);
+	--color-error: var(--color-red);
+	--color-border: var(--color-gray);
+	--color-border-dark: var(--color-dark);
+	--color-border-selected: #1e88e5;
+	--color-border-active: #b5b5b5;
+	--color-selection: var(--color-dark);
+	--color-selection-area: #bdbdbd;
+	--color-separator: var(--color-border);
+	--color-placeholder: var(--color-gray-dark);
+	--color-panel: #f9f9f9;
+	--color-resizer: #c8c8c8;
+	--color-background-default: var(--color-white);
+	--color-background-light-gray: #f5f5f6;
+	--color-background-gray: var(--color-gray);
+	--color-background-gray-hover: #f8f8f8;
+	--color-background-button-hover: #ecebe9;
+	--color-background-button-hover-opacity30: rgb(236 235 233 / 30%);
+	--color-background-progress: #b91f1f;
+	--color-background-active: #2196f3;
+	--color-background-selection: @color-blue;
+	--color-text-selection: var(--color-white);
+	// stylelint-disable-next-line function-no-unknown
+	--color-background-selection-opacity50: fadeout(@color-blue, 0.5);
+	--color-source-area: #323232;
+	--color-button-background-hover: #dcdcdc;
+	--color-button-background-hover-opacity40: rgb(220 220 220 / 40%);
+	--color-button-background-hover-opacity60: rgb(220 220 220 / 60%);
+	--font-default: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto,
+		oxygen-sans, ubuntu, cantarell, 'Helvetica Neue', sans-serif;
+	--font-size-default: 14px;
+	--font-size-small: 11px;
+	--color-text-icons: rgb(0 0 0 / 75%);
+	--color-icon: var(--color-dark);
+	--padding-default: 8px;
+	--border-radius-default: 3px;
+	--icon-tiny-size: @icon-tiny-size;
+	--icon-xsmall-size: @icon-xsmall-size;
+	--icon-small-size: @icon-small-size;
+	--icon-middle-size: @icon-middle-size;
+	--icon-large-size: @icon-large-size;
+
+	//z-index
+	--z-index-full-size: 100000;
+	--z-index-popup: 10000001;
+	--z-index-dialog-overlay: 20000003;
+	--z-index-dialog: 20000004;
+	--z-index-context-menu: 30000005;
+	--z-index-tooltip: 30000006;
+	--icon-loader-size: 48px;
+	--width-element-default: 18px;
+	--height-element-default: 18px;
+
+	// dark theme
+	--dark-background-color: #575757;
+	--dark-background-ligher: #c0c0c0;
+	--dark-background-darknes: #353535;
+	--dark-border-color: #444;
+	--dark-text-color: #d1cccc;
+	--dark-text-color-opacity80: rgb(209 204 204 / 80%);
+	--dark-text-color-opacity50: rgb(209 204 204 / 50%);
+	--dark-icon-color: #c0c0c0;
+	--dark-toolbar-color: #5f5c5c;
+	--dark-toolbar-seperator-color1: rgb(81 81 81 / 41%);
+	--dark-toolbar-seperator-color2: #686767;
+	--dark-toolbar-seperator-color-opacity80: rgb(104 103 103 / 80%);
+	--dark-toolbar-seperator-color3: rgb(104 103 103 / 75%);
+	--dark-color-border-selected: #152f5f;
+	--width-default: 180px;
+	--width-input-min: var(--width-default);
+	--input-height: 32px;
+	--button-icon-size: @icon-middle-size;
+	--margin-v: 2px;
+	--button-df-size: calc((var(--button-icon-size) - 4px) * 2);
+	--button-size: calc(
+		var(--button-icon-size) + var(--button-df-size) + var(--margin-v) * 2
+	);
+	--focus-input-box-shadow: 0 0 0 0.05rem rgb(0 123 255 / 25%);
+}

@@ -1,0 +1,45 @@
+# CodeIgniter 4
+
+# Composer
+/vendor/
+/composer.lock
+
+# Config local
+/app/Config/Database.php
+/app/Config/Email.php
+/app/Config/Encryption.php
+/app/Config/App.php
+
+# Logs e cache
+/writable/logs/
+/writable/cache/
+/writable/session/
+/writable/uploads/
+/writable/debugbar/
+/writable/tmp/
+
+# Environment files
+.env
+
+# IDEs
+*.idea/
+*.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+
+# Misc
+*.bak
+*.swp
+*.tmp
+*.orig

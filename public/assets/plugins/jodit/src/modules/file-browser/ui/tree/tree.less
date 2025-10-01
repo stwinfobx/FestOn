@@ -1,0 +1,124 @@
+@import (reference) '../../../../styles/variables';
+@import (reference) '../../../../styles/mixins';
+@import (reference) '../../styles/file-browser';
+
+:root {
+	--color-folder-title: #b1b1b1;
+}
+
+.jodit-file-browser-tree {
+	--color-background-filebrowser-folders: #3f3f3f;
+
+	position: relative;
+	display: none;
+	height: 100%;
+	vertical-align: top;
+
+	.jodit-button {
+		border-radius: 0;
+	}
+
+	&_loading_true {
+		.file-browser-loader();
+	}
+
+	.scrollbarSlim();
+
+	&_active_true {
+		z-index: 2;
+		display: flex;
+		width: var(--first-column);
+		min-width: 200px;
+		max-width: 290px;
+		flex-direction: column;
+		background-color: var(--color-background-filebrowser-folders);
+		overflow-y: auto;
+
+		@media (max-width: @screen-xs) {
+			width: auto;
+			max-width: 100%;
+			height: 100px;
+		}
+
+		&::-webkit-scrollbar {
+			width: calc(var(--padding-default) / 2);
+		}
+
+		&::-webkit-scrollbar-track {
+			box-shadow: inset 0 0 6px rgb(0 0 0 / 30%);
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: rgb(127 127 127 / 50%);
+			outline: 1px solid slategrey;
+		}
+	}
+
+	&__item {
+		position: relative;
+		display: flex;
+		min-height: 38px;
+		align-items: center;
+		justify-content: space-between;
+		padding: calc(var(--padding-default) / 2) var(--padding-default);
+		border-bottom: 1px solid #474747;
+		color: var(--color-folder-title);
+		text-decoration: none;
+		transition: background-color 0.2s ease 0s;
+		word-break: break-all;
+
+		&-title {
+			flex: 1;
+			color: var(--color-folder-title);
+		}
+
+		.jodit-icon_folder {
+			display: flex;
+			width: calc(var(--icon-size) + 4px);
+			height: calc(var(--icon-size) + 4px);
+			align-items: center;
+			justify-content: center;
+			margin-left: calc(var(--padding-default) / 2);
+			opacity: 0.3;
+
+			& svg {
+				width: var(--icon-size);
+				height: var(--icon-size);
+				fill: var(--color-folder-title) !important;
+				stroke: var(--color-folder-title) !important;
+			}
+
+			&:hover {
+				background: #696969;
+			}
+		}
+
+		&:hover {
+			background-color: var(--color-background-button-hover);
+
+			&-title {
+				color: var(--color-text);
+			}
+
+			i.jodit-icon_folder {
+				opacity: 0.6;
+			}
+		}
+	}
+
+	&__source-title {
+		position: relative;
+		display: block;
+		padding: 2px 4px;
+		border-bottom: 1px solid #484848;
+		background: #5a5a5a;
+		color: #969696;
+		font-size: 12px;
+		user-select: none;
+		word-break: break-all;
+	}
+
+	a + &__source-title {
+		margin-top: var(--padding-default);
+	}
+}
