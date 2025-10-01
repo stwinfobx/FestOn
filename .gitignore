@@ -7,11 +7,7 @@
 # Config local
 
 # Logs e cache
-/writable/logs/
-/writable/cache/
-/writable/session/
-/writable/debugbar/
-/writable/tmp/
+
 
 # Environment files
 .env

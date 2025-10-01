@@ -1,0 +1,788 @@
+CRITICAL - 2025-09-29 06:46:49 --> Attempt to read property "resultID" on array
+in APPPATH/Controllers/Painel/Coreografias.php on line 262.
+ 1 APPPATH/Controllers/Painel/Coreografias.php(262): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Painel\Coreografias->form()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 06:47:03 --> Attempt to read property "resultID" on array
+in APPPATH/Controllers/Painel/Coreografias.php on line 262.
+ 1 APPPATH/Controllers/Painel/Coreografias.php(262): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Painel\Coreografias->form()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 07:38:51 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/escola-das-artes-sao-lucas/logomarca_1758459517_f9c558b73b68c9012af0.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 07:38:52 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/escola-das-artes-sao-lucas/logomarca_1758459517_f9c558b73b68c9012af0.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 07:41:45 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/escola-das-artes-sao-lucas/logomarca_1758459517_f9c558b73b68c9012af0.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 07:41:46 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/escola-das-artes-sao-lucas/logomarca_1758459517_f9c558b73b68c9012af0.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 07:42:00 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/escola-das-artes-sao-lucas/logomarca_1758459517_f9c558b73b68c9012af0.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 08:21:28 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/studio-lumina/logomarca_1758121090_30a414e5c3c86898943d.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 08:23:12 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 08:26:28 --> Undefined variable $participantes_all
+in APPPATH/Controllers/Inscricoes.php on line 5964.
+ 1 APPPATH/Controllers/Inscricoes.php(5964): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Inscricoes->ajaxform()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 08:50:46 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/cpr-companhia-piauiense-de-danca-de-rua/logomarca_1758211218_91d6f160b7d23c321691.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 08:50:46 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/cpr-companhia-piauiense-de-danca-de-rua/logomarca_1758211218_91d6f160b7d23c321691.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 09:51:13 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/escola-das-artes-sao-lucas/logomarca_1758459517_f9c558b73b68c9012af0.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 10:02:22 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 10:06:34 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 10:15:20 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/studio-lumina/logomarca_1758121090_30a414e5c3c86898943d.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 10:29:51 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 10:41:16 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 10:52:00 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 10:57:17 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 11:00:58 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1758121449_33e8e02dda92ad1a760d.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 11:00:58 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759153005_03dda43be53bd7bc1342.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 11:01:48 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 11:06:03 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759153005_03dda43be53bd7bc1342.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 11:06:03 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1758121449_33e8e02dda92ad1a760d.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 11:06:03 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759154578_a62dae8c20485a0772ae.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 11:08:52 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 11:59:11 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 12:01:10 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 12:26:32 --> Attempt to read property "resultID" on array
+in APPPATH/Controllers/Painel/Coreografias.php on line 262.
+ 1 APPPATH/Controllers/Painel/Coreografias.php(262): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Painel\Coreografias->form()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 12:26:37 --> Attempt to read property "resultID" on array
+in APPPATH/Controllers/Painel/Coreografias.php on line 262.
+ 1 APPPATH/Controllers/Painel/Coreografias.php(262): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Painel\Coreografias->form()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 12:26:45 --> Attempt to read property "resultID" on array
+in APPPATH/Controllers/Painel/Coreografias.php on line 262.
+ 1 APPPATH/Controllers/Painel/Coreografias.php(262): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Painel\Coreografias->form()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 13:36:04 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 15:42:40 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 15:42:42 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 15:47:37 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 15:50:06 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 15:55:15 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 15:56:32 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 15:57:31 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 15:57:53 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 15:58:39 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 16:00:02 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 16:11:43 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1758300376_de78944fe6116050f2d6.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 16:11:43 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1758302062_22013584d3eba5960f74.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 16:16:12 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1758302062_22013584d3eba5960f74.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 16:16:12 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1758300376_de78944fe6116050f2d6.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 16:16:12 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759173223_69e22901ed363c7c301f.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 16:19:35 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 16:19:58 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 16:20:27 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 16:25:03 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 16:25:13 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759173380_f945ff40587c6db7e438.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 16:25:13 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759173223_69e22901ed363c7c301f.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 16:25:13 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1758302062_22013584d3eba5960f74.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 16:28:03 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759173380_f945ff40587c6db7e438.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 16:28:03 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759173991_c17e8edb9b77843b40ac.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 16:28:03 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759173223_69e22901ed363c7c301f.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 16:28:03 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1758302062_22013584d3eba5960f74.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 16:50:17 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 19:39:51 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/companhia-de-danca-tanzen-maisfit-club-academia/logomarca_1758402335_19c3c4e3b7730557386e.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 19:55:18 --> Attempt to read property "resultID" on array
+in APPPATH/Controllers/Painel/Coreografias.php on line 262.
+ 1 APPPATH/Controllers/Painel/Coreografias.php(262): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Painel\Coreografias->form()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 20:57:24 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/bailarina-independente_giovanna-meireles-machado/logomarca_1758250938_df51a5598c9345041582.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 20:57:24 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/bailarina-independente_giovanna-meireles-machado/logomarca_1758250938_df51a5598c9345041582.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 20:58:06 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/bailarina-independente_giovanna-meireles-machado/logomarca_1758250938_df51a5598c9345041582.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 20:58:06 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/bailarina-independente_giovanna-meireles-machado/logomarca_1758250938_df51a5598c9345041582.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 20:58:13 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/bailarina-independente_giovanna-meireles-machado/logomarca_1758250938_df51a5598c9345041582.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:02:54 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/bailarina-independente_giovanna-meireles-machado/22.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:05:02 --> Attempt to read property "resultID" on array
+in APPPATH/Controllers/Painel/Coreografias.php on line 262.
+ 1 APPPATH/Controllers/Painel/Coreografias.php(262): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Painel\Coreografias->form()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:19:56 --> Undefined variable $event_hashkey
+in APPPATH/Controllers/Inscricoes.php on line 719.
+ 1 APPPATH/Controllers/Inscricoes.php(719): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Inscricoes->participantes()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:20:47 --> Undefined variable $event_hashkey
+in APPPATH/Controllers/Inscricoes.php on line 719.
+ 1 APPPATH/Controllers/Inscricoes.php(719): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Inscricoes->participantes()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:25:36 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1758249560_8752befed49b06fb1a4e.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:26:43 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1758249560_8752befed49b06fb1a4e.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:26:43 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759191956_06b1465f0554f48f5002.png): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:40:27 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759191956_06b1465f0554f48f5002.png): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:41:16 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759191956_06b1465f0554f48f5002.png): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:41:16 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1758080070_ecfef02458d1a06a2e96.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:44:26 --> Undefined variable $participantes_all
+in APPPATH/Controllers/Inscricoes.php on line 5964.
+ 1 APPPATH/Controllers/Inscricoes.php(5964): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Inscricoes->ajaxform()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:45:47 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1758080070_ecfef02458d1a06a2e96.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:45:47 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1758249560_8752befed49b06fb1a4e.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:45:47 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759191956_06b1465f0554f48f5002.png): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:46:36 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759193175_5fd09370f380c17638c4.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:46:36 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1758249560_8752befed49b06fb1a4e.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:46:36 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759191956_06b1465f0554f48f5002.png): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:52:42 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759193203_429db12f67e51f75ec2c.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:52:42 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759193175_5fd09370f380c17638c4.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 21:52:42 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759191956_06b1465f0554f48f5002.png): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 22:22:19 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759187035_fd2e16d0cdaa90566c36.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 22:24:32 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759195429_8cb153cc85a76274d9a6.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 22:24:32 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759187035_fd2e16d0cdaa90566c36.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 22:42:45 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/estudio-de-danca-sissone/IMG-20250929-WA0004.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 22:45:55 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/escola-das-artes-sao-lucas/logomarca_1758459517_f9c558b73b68c9012af0.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 22:45:56 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/escola-das-artes-sao-lucas/logomarca_1758459517_f9c558b73b68c9012af0.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 22:46:56 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1758460217_4a81be6408768ab1e512.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 22:46:56 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1758459976_53d8a8d1420bda53b80d.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 22:47:32 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1758460217_4a81be6408768ab1e512.jpeg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 22:47:32 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/participantes/participante_1759196830_844ac6ef1b292921710e.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(85): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 23:28:20 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/escola-das-artes-sao-lucas/logomarca_1758459517_f9c558b73b68c9012af0.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 23:28:20 --> file_get_contents(/home/u482227589/domains/dancacarajas.com.br/public_html/inscricoes/writable/uploads/instituicoes/nome-da-instituicao/eventos/danca-carajas-festival/grupos/escola-das-artes-sao-lucas/logomarca_1758459517_f9c558b73b68c9012af0.jpg): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Renderimage.php(144): file_get_contents()
+ 3 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos()
+ 4 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-29 23:28:54 --> Undefined variable $participantes_all
+in APPPATH/Controllers/Inscricoes.php on line 5964.
+ 1 APPPATH/Controllers/Inscricoes.php(5964): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(934): App\Controllers\Inscricoes->ajaxform()
+ 3 SYSTEMPATH/CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()

@@ -30,10 +30,10 @@ class Database extends Config
         'DSN'      => '',
 
         'hostname' => 'localhost',
-        'username' => 'u482227589_wagner',
+        'username' => 'root',
         //'username' => 'u482227589_danca',
-        'password' => '212646@Wagner',
-        'database' => 'u482227589_codebx',
+        'password' => '',
+        'database' => 'code',
         //'database' => 'u482227589_danca',
 		'port'     => 3306,
 

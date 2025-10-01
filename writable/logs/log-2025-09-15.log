@@ -1,0 +1,360 @@
+CRITICAL - 2025-09-15 11:38:56 --> Object of class CodeIgniter\Database\MySQLi\Result could not be converted to string
+in APPPATH\Controllers\Painel\Login.php on line 66.
+ 1 APPPATH\Controllers\Painel\Login.php(23): App\Controllers\Painel\Login->loginAuth()
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Login->index()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Login))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+ERROR - 2025-09-15 11:39:33 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+ )
+AND `user_ativo` = '1'' at line 5 in C:\Users\janie\Documentos\code\FestOn-\code\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\janie\Documentos\code\FestOn-\code\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\janie\Documentos\code\FestOn-\code\app\Controllers\Painel\Login.php(61): CodeIgniter\Model->__call('get', Array)
+#6 C:\Users\janie\Documentos\code\FestOn-\code\app\Controllers\Painel\Login.php(23): App\Controllers\Painel\Login->loginAuth()
+#7 C:\Users\janie\Documentos\code\FestOn-\code\system\CodeIgniter.php(934): App\Controllers\Painel\Login->index()
+#8 C:\Users\janie\Documentos\code\FestOn-\code\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Login))
+#9 C:\Users\janie\Documentos\code\FestOn-\code\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\janie\Documentos\code\FestOn-\code\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\janie\Documentos\code\FestOn-\code\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\...')
+#12 {main}
+CRITICAL - 2025-09-15 11:39:33 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')
+ )
+AND `user_ativo` = '1'' at line 5
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `tbl_usuarios`
+WHERE   (
+   (
+  )
+ )
+AND `user_ativo` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_usuarios`
+WHERE   (
+   (
+  )
+ )
+AND `user_ativo` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_usuarios`
+WHERE   (
+   (
+  )
+ )
+AND `user_ativo` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_usuarios`
+WHERE   (
+   (
+  )
+ )
+AND `user_ativo` = :user_ativo:', [...], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Painel\Login.php(61): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH\Controllers\Painel\Login.php(23): App\Controllers\Painel\Login->loginAuth()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Login->index()
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Login))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 11:57:53 --> hash(): Argument #1 ($algo) must be a valid hashing algorithm
+in APPPATH\Helpers\funcoes_helper.php on line 222.
+ 1 APPPATH\Helpers\funcoes_helper.php(222): hash('6dee7f60332b50b309acecb04812b7d29045cb589250fa71f65edc04256d35fc1968d918f8381024cc308ed45d53aefa74235ebdac5a78b1d4d6b207d161de3f', 'ca006dc47019a05d2d925a66e54bc360443a67a1')
+ 2 APPPATH\Controllers\Painel\Login.php(46): fct_password_hash('112233', '6dee7f60332b50b309acecb04812b7d29045cb589250fa71f65edc04256d35fc1968d918f8381024cc308ed45d53aefa74235ebdac5a78b1d4d6b207d161de3f')
+ 3 APPPATH\Controllers\Painel\Login.php(18): App\Controllers\Painel\Login->loginAuth()
+ 4 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Login->index()
+ 5 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Login))
+ 6 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 12:07:25 --> Unclosed '{' on line 223
+in APPPATH\Views\painel\widgets\event_cobranca_opcoes.php on line 350.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('painel/widgets/event_cobranca_opcoes', [], true)
+ 3 APPPATH\Views\painel\eventos-form.php(1268): view('painel/widgets/event_cobranca_opcoes', [...])
+ 4 SYSTEMPATH\View\View.php(213): include('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Views\\painel\\eventos-form.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('painel/eventos-form', [], true)
+ 7 APPPATH\Controllers\Painel\Eventos.php(659): view('painel/eventos-form', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Eventos->form('8')
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Eventos))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 12:07:26 --> Unclosed '{' on line 223
+in APPPATH\Views\painel\widgets\event_cobranca_opcoes.php on line 350.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('painel/widgets/event_cobranca_opcoes', [], true)
+ 3 APPPATH\Views\painel\eventos-form.php(1268): view('painel/widgets/event_cobranca_opcoes', [...])
+ 4 SYSTEMPATH\View\View.php(213): include('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Views\\painel\\eventos-form.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('painel/eventos-form', [], true)
+ 7 APPPATH\Controllers\Painel\Eventos.php(659): view('painel/eventos-form', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Eventos->form('assets', 'svg', 'icon-calendar.svg')
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Eventos))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 12:21:16 --> Unclosed '{' on line 223
+in APPPATH\Views\painel\widgets\event_cobranca_opcoes.php on line 350.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('painel/widgets/event_cobranca_opcoes', [], true)
+ 3 APPPATH\Views\painel\eventos-form.php(1268): view('painel/widgets/event_cobranca_opcoes', [...])
+ 4 SYSTEMPATH\View\View.php(213): include('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Views\\painel\\eventos-form.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('painel/eventos-form', [], true)
+ 7 APPPATH\Controllers\Painel\Eventos.php(659): view('painel/eventos-form', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Eventos->form('8')
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Eventos))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 12:21:17 --> Unclosed '{' on line 223
+in APPPATH\Views\painel\widgets\event_cobranca_opcoes.php on line 350.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('painel/widgets/event_cobranca_opcoes', [], true)
+ 3 APPPATH\Views\painel\eventos-form.php(1268): view('painel/widgets/event_cobranca_opcoes', [...])
+ 4 SYSTEMPATH\View\View.php(213): include('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Views\\painel\\eventos-form.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('painel/eventos-form', [], true)
+ 7 APPPATH\Controllers\Painel\Eventos.php(659): view('painel/eventos-form', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Eventos->form('assets', 'svg', 'icon-calendar.svg')
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Eventos))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 12:37:29 --> file_get_contents(C:\Users\janie\Documentos\code\FestOn-\code\writable\uploads/participantes/participante_1757950546_9b5a3ab6c59ca1b7a67e.png): Failed to open stream: No such file or directory
+in APPPATH\Controllers\Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757950546_9b5a3ab6c59ca1b7a67e.png): Failed to open stream: No such file or directory', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Renderimage.php', 85)
+ 2 APPPATH\Controllers\Renderimage.php(85): file_get_contents('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757950546_9b5a3ab6c59ca1b7a67e.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar('participante_1757950546_9b5a3ab6c59ca1b7a67e.png')
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Renderimage))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 12:38:07 --> file_get_contents(C:\Users\janie\Documentos\code\FestOn-\code\writable\uploads/participantes/participante_1757950546_9b5a3ab6c59ca1b7a67e.png): Failed to open stream: No such file or directory
+in APPPATH\Controllers\Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757950546_9b5a3ab6c59ca1b7a67e.png): Failed to open stream: No such file or directory', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Renderimage.php', 85)
+ 2 APPPATH\Controllers\Renderimage.php(85): file_get_contents('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757950546_9b5a3ab6c59ca1b7a67e.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar('participante_1757950546_9b5a3ab6c59ca1b7a67e.png')
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Renderimage))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 12:38:08 --> file_get_contents(C:\Users\janie\Documentos\code\FestOn-\code\writable\uploads/participantes/participante_1757950654_09347cd4cf9c6671d941.png): Failed to open stream: No such file or directory
+in APPPATH\Controllers\Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757950654_09347cd4cf9c6671d941.png): Failed to open stream: No such file or directory', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Renderimage.php', 85)
+ 2 APPPATH\Controllers\Renderimage.php(85): file_get_contents('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757950654_09347cd4cf9c6671d941.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar('participante_1757950654_09347cd4cf9c6671d941.png')
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Renderimage))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 12:46:45 --> file_get_contents(C:\Users\janie\Documentos\code\FestOn-\code\writable\uploads/participantes/participante_1757950654_09347cd4cf9c6671d941.png): Failed to open stream: No such file or directory
+in APPPATH\Controllers\Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757950654_09347cd4cf9c6671d941.png): Failed to open stream: No such file or directory', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Renderimage.php', 85)
+ 2 APPPATH\Controllers\Renderimage.php(85): file_get_contents('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757950654_09347cd4cf9c6671d941.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar('participante_1757950654_09347cd4cf9c6671d941.png')
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Renderimage))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 12:46:45 --> file_get_contents(C:\Users\janie\Documentos\code\FestOn-\code\writable\uploads/participantes/participante_1757950744_f288a4011bae62cd46dc.png): Failed to open stream: No such file or directory
+in APPPATH\Controllers\Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757950744_f288a4011bae62cd46dc.png): Failed to open stream: No such file or directory', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Renderimage.php', 85)
+ 2 APPPATH\Controllers\Renderimage.php(85): file_get_contents('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757950744_f288a4011bae62cd46dc.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar('participante_1757950744_f288a4011bae62cd46dc.png')
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Renderimage))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 12:46:45 --> file_get_contents(C:\Users\janie\Documentos\code\FestOn-\code\writable\uploads/participantes/participante_1757950546_9b5a3ab6c59ca1b7a67e.png): Failed to open stream: No such file or directory
+in APPPATH\Controllers\Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757950546_9b5a3ab6c59ca1b7a67e.png): Failed to open stream: No such file or directory', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Renderimage.php', 85)
+ 2 APPPATH\Controllers\Renderimage.php(85): file_get_contents('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757950546_9b5a3ab6c59ca1b7a67e.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar('participante_1757950546_9b5a3ab6c59ca1b7a67e.png')
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Renderimage))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 12:48:01 --> file_get_contents(C:\Users\janie\Documentos\code\FestOn-\code\writable\uploads/participantes/participante_1757950546_9b5a3ab6c59ca1b7a67e.png): Failed to open stream: No such file or directory
+in APPPATH\Controllers\Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757950546_9b5a3ab6c59ca1b7a67e.png): Failed to open stream: No such file or directory', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Renderimage.php', 85)
+ 2 APPPATH\Controllers\Renderimage.php(85): file_get_contents('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757950546_9b5a3ab6c59ca1b7a67e.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar('participante_1757950546_9b5a3ab6c59ca1b7a67e.png')
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Renderimage))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 12:48:01 --> file_get_contents(C:\Users\janie\Documentos\code\FestOn-\code\writable\uploads/participantes/participante_1757950654_09347cd4cf9c6671d941.png): Failed to open stream: No such file or directory
+in APPPATH\Controllers\Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757950654_09347cd4cf9c6671d941.png): Failed to open stream: No such file or directory', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Renderimage.php', 85)
+ 2 APPPATH\Controllers\Renderimage.php(85): file_get_contents('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757950654_09347cd4cf9c6671d941.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar('participante_1757950654_09347cd4cf9c6671d941.png')
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Renderimage))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 12:48:02 --> file_get_contents(C:\Users\janie\Documentos\code\FestOn-\code\writable\uploads/participantes/participante_1757951226_07c8c018ca305483c485.png): Failed to open stream: No such file or directory
+in APPPATH\Controllers\Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757951226_07c8c018ca305483c485.png): Failed to open stream: No such file or directory', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Renderimage.php', 85)
+ 2 APPPATH\Controllers\Renderimage.php(85): file_get_contents('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757951226_07c8c018ca305483c485.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar('participante_1757951226_07c8c018ca305483c485.png')
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Renderimage))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 12:48:02 --> file_get_contents(C:\Users\janie\Documentos\code\FestOn-\code\writable\uploads/participantes/participante_1757950744_f288a4011bae62cd46dc.png): Failed to open stream: No such file or directory
+in APPPATH\Controllers\Renderimage.php on line 85.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757950744_f288a4011bae62cd46dc.png): Failed to open stream: No such file or directory', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Renderimage.php', 85)
+ 2 APPPATH\Controllers\Renderimage.php(85): file_get_contents('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/participantes/participante_1757950744_f288a4011bae62cd46dc.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Renderimage->view_avatar('participante_1757950744_f288a4011bae62cd46dc.png')
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Renderimage))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 13:37:44 --> Attempt to read property "resultID" on array
+in APPPATH\Controllers\Painel\Coreografias.php on line 262.
+ 1 APPPATH\Controllers\Painel\Coreografias.php(262): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "resultID" on array', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Painel\\Coreografias.php', 262)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Coreografias->form()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Coreografias))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 13:41:08 --> Attempt to read property "resultID" on array
+in APPPATH\Controllers\Painel\Coreografias.php on line 273.
+ 1 APPPATH\Controllers\Painel\Coreografias.php(273): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "resultID" on array', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Painel\\Coreografias.php', 273)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Coreografias->form()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Coreografias))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 13:46:08 --> Attempt to read property "resultID" on array
+in APPPATH\Controllers\Painel\Coreografias.php on line 262.
+ 1 APPPATH\Controllers\Painel\Coreografias.php(262): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "resultID" on array', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Painel\\Coreografias.php', 262)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Coreografias->form()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Coreografias))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 13:46:16 --> Undefined array key 1
+in APPPATH\Controllers\Painel\Historico.php on line 73.
+ 1 APPPATH\Controllers\Painel\Historico.php(73): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Painel\\Historico.php', 73)
+ 2 APPPATH\Controllers\Painel\Historico.php(47): App\Controllers\Painel\Historico->filtrar()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Historico->index()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Historico))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 14:22:11 --> Attempt to read property "resultID" on array
+in APPPATH\Controllers\Painel\Coreografias.php on line 262.
+ 1 APPPATH\Controllers\Painel\Coreografias.php(262): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "resultID" on array', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Painel\\Coreografias.php', 262)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Coreografias->form('6')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Coreografias))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 14:22:19 --> Attempt to read property "resultID" on array
+in APPPATH\Controllers\Painel\Coreografias.php on line 262.
+ 1 APPPATH\Controllers\Painel\Coreografias.php(262): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "resultID" on array', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Painel\\Coreografias.php', 262)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Coreografias->form('1')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Coreografias))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 14:23:04 --> Attempt to read property "resultID" on array
+in APPPATH\Controllers\Painel\Coreografias.php on line 268.
+ 1 APPPATH\Controllers\Painel\Coreografias.php(268): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "resultID" on array', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Painel\\Coreografias.php', 268)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Coreografias->form('6')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Coreografias))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 14:23:20 --> Call to a member function getResult() on array
+in APPPATH\Views\painel\coreografias-form.php on line 200.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('painel/coreografias-form', [], true)
+ 4 APPPATH\Controllers\Painel\Coreografias.php(317): view('painel/coreografias-form', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Coreografias->form('6')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Coreografias))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 14:23:26 --> Call to a member function getResult() on array
+in APPPATH\Views\painel\coreografias-form.php on line 200.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1184): CodeIgniter\View\View->render('painel/coreografias-form', [], true)
+ 4 APPPATH\Controllers\Painel\Coreografias.php(317): view('painel/coreografias-form', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Coreografias->form('1')
+ 6 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Coreografias))
+ 7 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 14:23:45 --> Attempt to read property "resultID" on array
+in APPPATH\Controllers\Painel\Coreografias.php on line 262.
+ 1 APPPATH\Controllers\Painel\Coreografias.php(262): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "resultID" on array', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Painel\\Coreografias.php', 262)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Coreografias->form()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Coreografias))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 14:23:58 --> Attempt to read property "resultID" on array
+in APPPATH\Controllers\Painel\Coreografias.php on line 262.
+ 1 APPPATH\Controllers\Painel\Coreografias.php(262): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "resultID" on array', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Painel\\Coreografias.php', 262)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Coreografias->form()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Coreografias))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 14:24:09 --> Attempt to read property "resultID" on array
+in APPPATH\Controllers\Painel\Coreografias.php on line 268.
+ 1 APPPATH\Controllers\Painel\Coreografias.php(268): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "resultID" on array', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Painel\\Coreografias.php', 268)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Coreografias->form()
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Coreografias))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 14:34:39 --> file_get_contents(C:\Users\janie\Documentos\code\FestOn-\code\writable\uploads/instituicoes/danca-carajas-festival/eventos/ballerina-dance-academy/grupos/diego-ribas/logomarca_1757940016_729774f78d2852ceee13.png): Failed to open stream: No such file or directory
+in APPPATH\Controllers\Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/instituicoes/danca-carajas-festival/eventos/ballerina-dance-academy/grupos/diego-ribas/logomarca_1757940016_729774f78d2852ceee13.png): Failed to open stream: No such file or directory', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Renderimage.php', 144)
+ 2 APPPATH\Controllers\Renderimage.php(144): file_get_contents('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/instituicoes/danca-carajas-festival/eventos/ballerina-dance-academy/grupos/diego-ribas/logomarca_1757940016_729774f78d2852ceee13.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos('2d5d4490ef3cb71b142c12eeaaab35c8', 'logomarca_1757940016_729774f78d2852ceee13.png')
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Renderimage))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 14:34:41 --> file_get_contents(C:\Users\janie\Documentos\code\FestOn-\code\writable\uploads/instituicoes/danca-carajas-festival/eventos/ballerina-dance-academy/grupos/diego-ribas/logomarca_1757940016_729774f78d2852ceee13.png): Failed to open stream: No such file or directory
+in APPPATH\Controllers\Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/instituicoes/danca-carajas-festival/eventos/ballerina-dance-academy/grupos/diego-ribas/logomarca_1757940016_729774f78d2852ceee13.png): Failed to open stream: No such file or directory', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Renderimage.php', 144)
+ 2 APPPATH\Controllers\Renderimage.php(144): file_get_contents('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/instituicoes/danca-carajas-festival/eventos/ballerina-dance-academy/grupos/diego-ribas/logomarca_1757940016_729774f78d2852ceee13.png')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos('2d5d4490ef3cb71b142c12eeaaab35c8', 'logomarca_1757940016_729774f78d2852ceee13.png')
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Renderimage))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 15:09:38 --> file_get_contents(C:\Users\janie\Documentos\code\FestOn-\code\writable\uploads/instituicoes/danca-carajas-festival/eventos/danca-carajas-festival/grupos/casa-ribalta/logomarca_1741045239_1ca6451098f6288bc4d4.pptx): Failed to open stream: No such file or directory
+in APPPATH\Controllers\Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/instituicoes/danca-carajas-festival/eventos/danca-carajas-festival/grupos/casa-ribalta/logomarca_1741045239_1ca6451098f6288bc4d4.pptx): Failed to open stream: No such file or directory', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Renderimage.php', 144)
+ 2 APPPATH\Controllers\Renderimage.php(144): file_get_contents('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/instituicoes/danca-carajas-festival/eventos/danca-carajas-festival/grupos/casa-ribalta/logomarca_1741045239_1ca6451098f6288bc4d4.pptx')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos('7eee9a0ec9c1eaa88e8bf0501fb1efd7', 'logomarca_1741045239_1ca6451098f6288bc4d4.pptx')
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Renderimage))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+CRITICAL - 2025-09-15 15:09:39 --> file_get_contents(C:\Users\janie\Documentos\code\FestOn-\code\writable\uploads/instituicoes/danca-carajas-festival/eventos/danca-carajas-festival/grupos/casa-ribalta/logomarca_1741045239_1ca6451098f6288bc4d4.pptx): Failed to open stream: No such file or directory
+in APPPATH\Controllers\Renderimage.php on line 144.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/instituicoes/danca-carajas-festival/eventos/danca-carajas-festival/grupos/casa-ribalta/logomarca_1741045239_1ca6451098f6288bc4d4.pptx): Failed to open stream: No such file or directory', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Renderimage.php', 144)
+ 2 APPPATH\Controllers\Renderimage.php(144): file_get_contents('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\writable\\uploads/instituicoes/danca-carajas-festival/eventos/danca-carajas-festival/grupos/casa-ribalta/logomarca_1741045239_1ca6451098f6288bc4d4.pptx')
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Renderimage->view_grupos('7eee9a0ec9c1eaa88e8bf0501fb1efd7', 'logomarca_1741045239_1ca6451098f6288bc4d4.pptx')
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Renderimage))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')

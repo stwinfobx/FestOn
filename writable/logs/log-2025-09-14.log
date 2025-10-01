@@ -1,0 +1,401 @@
+CRITICAL - 2025-09-14 15:21:57 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:26:57 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:27:45 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:28:05 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:28:07 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:29:20 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:30:07 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:30:09 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:31:34 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:31:36 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:31:59 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:32:06 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:32:08 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:32:29 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:32:47 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:37:26 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:38:38 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:39:19 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:39:22 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:40:09 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:40:12 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:41:02 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:41:39 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+CRITICAL - 2025-09-14 15:42:24 --> Undefined array key "SERVER_NAME"
+in APPPATH\Config\Database.php on line 114.
+ 1 APPPATH\Config\Database.php(114): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "SERVER_NAME"', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Config\\Database.php', 114)
+ 2 SYSTEMPATH\Commands\Database\Seed.php(69): Config\Database->__construct()
+ 3 SYSTEMPATH\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run([...])
+ 4 SYSTEMPATH\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 5 ROOTPATH\spark(97): CodeIgniter\CLI\Console->run()
+ERROR - 2025-09-14 15:44:04 --> mysqli_sql_exception: Duplicate entry '1' for key 'PRIMARY' in C:\Users\janie\Documentos\code\FestOn-\code\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\Users\janie\Documentos\code\FestOn-\code\app\Database\Seeds\UsuariosSeeder.php(28): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\Seeder.php(146): App\Database\Seeds\UsuariosSeeder->run()
+#6 C:\Users\janie\Documentos\code\FestOn-\code\system\Commands\Database\Seed.php(77): CodeIgniter\Database\Seeder->call('App\\Database\\Se...')
+#7 C:\Users\janie\Documentos\code\FestOn-\code\system\CLI\Commands.php(65): CodeIgniter\Commands\Database\Seed->run(Array)
+#8 C:\Users\janie\Documentos\code\FestOn-\code\system\CLI\Console.php(37): CodeIgniter\CLI\Commands->run('db:seed', Array)
+#9 C:\Users\janie\Documentos\code\FestOn-\code\spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+CRITICAL - 2025-09-14 13:34:49 --> Undefined variable $email
+in APPPATH\Controllers\Painel\Login.php on line 58.
+ 1 APPPATH\Controllers\Painel\Login.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $email', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Painel\\Login.php', 58)
+ 2 APPPATH\Controllers\Painel\Login.php(23): App\Controllers\Painel\Login->loginAuth()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Login->index()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Login))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-14 13:35:01 --> Undefined variable $email
+in APPPATH\Controllers\Painel\Login.php on line 58.
+ 1 APPPATH\Controllers\Painel\Login.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $email', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Painel\\Login.php', 58)
+ 2 APPPATH\Controllers\Painel\Login.php(23): App\Controllers\Painel\Login->loginAuth()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Login->index()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Login))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-14 13:35:03 --> Undefined variable $email
+in APPPATH\Controllers\Painel\Login.php on line 58.
+ 1 APPPATH\Controllers\Painel\Login.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $email', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Painel\\Login.php', 58)
+ 2 APPPATH\Controllers\Painel\Login.php(23): App\Controllers\Painel\Login->loginAuth()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Login->index()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Login))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-09-14 13:41:27 --> Undefined variable $email
+in APPPATH\Controllers\Painel\Login.php on line 58.
+ 1 APPPATH\Controllers\Painel\Login.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $email', 'C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\app\\Controllers\\Painel\\Login.php', 58)
+ 2 APPPATH\Controllers\Painel\Login.php(23): App\Controllers\Painel\Login->loginAuth()
+ 3 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Login->index()
+ 4 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Login))
+ 5 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+ERROR - 2025-09-14 13:41:50 --> mysqli_sql_exception: Unknown column 'user_login' in 'where clause' in C:\Users\janie\Documentos\code\FestOn-\code\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\janie\Documentos\code\FestOn-\code\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\janie\Documentos\code\FestOn-\code\app\Controllers\Painel\Login.php(64): CodeIgniter\Model->__call('get', Array)
+#6 C:\Users\janie\Documentos\code\FestOn-\code\app\Controllers\Painel\Login.php(23): App\Controllers\Painel\Login->loginAuth()
+#7 C:\Users\janie\Documentos\code\FestOn-\code\system\CodeIgniter.php(934): App\Controllers\Painel\Login->index()
+#8 C:\Users\janie\Documentos\code\FestOn-\code\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Login))
+#9 C:\Users\janie\Documentos\code\FestOn-\code\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\janie\Documentos\code\FestOn-\code\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\janie\Documentos\code\FestOn-\code\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\...')
+#12 {main}
+CRITICAL - 2025-09-14 13:41:50 --> Unknown column 'user_login' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `tbl_instituicoes`
+WHERE   (
+   (
+`insti_email` = \'adm-developer\'
+OR `user_login` = \'adm-developer\'
+  )
+ )
+AND `insti_senha` = \'6dee7f60332b50b309acecb04812b7d29045cb589250fa71f65edc04256d35fc1968d918f8381024cc308ed45d53aefa74235ebdac5a78b1d4d6b207d161de3f\'
+AND `insti_ativo` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_instituicoes`
+WHERE   (
+   (
+`insti_email` = \'adm-developer\'
+OR `user_login` = \'adm-developer\'
+  )
+ )
+AND `insti_senha` = \'6dee7f60332b50b309acecb04812b7d29045cb589250fa71f65edc04256d35fc1968d918f8381024cc308ed45d53aefa74235ebdac5a78b1d4d6b207d161de3f\'
+AND `insti_ativo` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_instituicoes`
+WHERE   (
+   (
+`insti_email` = \'adm-developer\'
+OR `user_login` = \'adm-developer\'
+  )
+ )
+AND `insti_senha` = \'6dee7f60332b50b309acecb04812b7d29045cb589250fa71f65edc04256d35fc1968d918f8381024cc308ed45d53aefa74235ebdac5a78b1d4d6b207d161de3f\'
+AND `insti_ativo` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_instituicoes`
+WHERE   (
+   (
+`insti_email` = :insti_email:
+OR `user_login` = :user_login:
+  )
+ )
+AND `insti_senha` = :insti_senha:
+AND `insti_ativo` = :insti_ativo:', [...], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Painel\Login.php(64): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH\Controllers\Painel\Login.php(23): App\Controllers\Painel\Login->loginAuth()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Login->index()
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Login))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+ERROR - 2025-09-14 13:44:17 --> mysqli_sql_exception: Unknown column 'user_email' in 'where clause' in C:\Users\janie\Documentos\code\FestOn-\code\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\janie\Documentos\code\FestOn-\code\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\janie\Documentos\code\FestOn-\code\app\Controllers\Painel\Login.php(64): CodeIgniter\Model->__call('get', Array)
+#6 C:\Users\janie\Documentos\code\FestOn-\code\app\Controllers\Painel\Login.php(23): App\Controllers\Painel\Login->loginAuth()
+#7 C:\Users\janie\Documentos\code\FestOn-\code\system\CodeIgniter.php(934): App\Controllers\Painel\Login->index()
+#8 C:\Users\janie\Documentos\code\FestOn-\code\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Login))
+#9 C:\Users\janie\Documentos\code\FestOn-\code\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\janie\Documentos\code\FestOn-\code\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\janie\Documentos\code\FestOn-\code\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\...')
+#12 {main}
+CRITICAL - 2025-09-14 13:44:17 --> Unknown column 'user_email' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `tbl_instituicoes`
+WHERE   (
+   (
+`user_email` = \'adm-developer\'
+  )
+ )
+AND `insti_senha` = \'6dee7f60332b50b309acecb04812b7d29045cb589250fa71f65edc04256d35fc1968d918f8381024cc308ed45d53aefa74235ebdac5a78b1d4d6b207d161de3f\'
+AND `insti_ativo` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_instituicoes`
+WHERE   (
+   (
+`user_email` = \'adm-developer\'
+  )
+ )
+AND `insti_senha` = \'6dee7f60332b50b309acecb04812b7d29045cb589250fa71f65edc04256d35fc1968d918f8381024cc308ed45d53aefa74235ebdac5a78b1d4d6b207d161de3f\'
+AND `insti_ativo` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_instituicoes`
+WHERE   (
+   (
+`user_email` = \'adm-developer\'
+  )
+ )
+AND `insti_senha` = \'6dee7f60332b50b309acecb04812b7d29045cb589250fa71f65edc04256d35fc1968d918f8381024cc308ed45d53aefa74235ebdac5a78b1d4d6b207d161de3f\'
+AND `insti_ativo` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_instituicoes`
+WHERE   (
+   (
+`user_email` = :user_email:
+  )
+ )
+AND `insti_senha` = :insti_senha:
+AND `insti_ativo` = :insti_ativo:', [...], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Painel\Login.php(64): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH\Controllers\Painel\Login.php(23): App\Controllers\Painel\Login->loginAuth()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Login->index()
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Login))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
+ERROR - 2025-09-14 13:51:31 --> mysqli_sql_exception: Unknown column 'senha' in 'where clause' in C:\Users\janie\Documentos\code\FestOn-\code\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\Users\janie\Documentos\code\FestOn-\code\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\janie\Documentos\code\FestOn-\code\system\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\janie\Documentos\code\FestOn-\code\app\Controllers\Painel\Login.php(62): CodeIgniter\Model->__call('get', Array)
+#6 C:\Users\janie\Documentos\code\FestOn-\code\app\Controllers\Painel\Login.php(23): App\Controllers\Painel\Login->loginAuth()
+#7 C:\Users\janie\Documentos\code\FestOn-\code\system\CodeIgniter.php(934): App\Controllers\Painel\Login->index()
+#8 C:\Users\janie\Documentos\code\FestOn-\code\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Login))
+#9 C:\Users\janie\Documentos\code\FestOn-\code\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\janie\Documentos\code\FestOn-\code\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\janie\Documentos\code\FestOn-\code\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\...')
+#12 {main}
+CRITICAL - 2025-09-14 13:51:31 --> Unknown column 'senha' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `tbl_usuarios`
+WHERE   (
+   (
+`user_email` IS NULL
+  )
+ )
+AND `senha` = \'\'
+AND `user_ativo` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tbl_usuarios`
+WHERE   (
+   (
+`user_email` IS NULL
+  )
+ )
+AND `senha` = \'\'
+AND `user_ativo` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tbl_usuarios`
+WHERE   (
+   (
+`user_email` IS NULL
+  )
+ )
+AND `senha` = \'\'
+AND `user_ativo` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tbl_usuarios`
+WHERE   (
+   (
+`user_email` IS NULL
+  )
+ )
+AND `senha` = :senha:
+AND `user_ativo` = :user_ativo:', [...], false)
+ 5 SYSTEMPATH\Model.php(840): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Painel\Login.php(62): CodeIgniter\Model->__call('get', [])
+ 7 APPPATH\Controllers\Painel\Login.php(23): App\Controllers\Painel\Login->loginAuth()
+ 8 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Painel\Login->index()
+ 9 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Painel\Login))
+10 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\janie\\Documentos\\code\\FestOn-\\code\\public\\index.php')
