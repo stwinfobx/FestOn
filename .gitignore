@@ -5,16 +5,11 @@
 /composer.lock
 
 # Config local
-/app/Config/Database.php
-/app/Config/Email.php
-/app/Config/Encryption.php
-/app/Config/App.php
 
 # Logs e cache
 /writable/logs/
 /writable/cache/
 /writable/session/
-/writable/uploads/
 /writable/debugbar/
 /writable/tmp/
 
