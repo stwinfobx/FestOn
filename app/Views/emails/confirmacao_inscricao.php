@@ -205,6 +205,9 @@
             </p>
         </div>
 
+        <img src="https://seudominio.com/imagens/banner.png" 
+        alt="Banner FestOn" 
+        style="width:100%; max-width:600px; margin-bottom:20px;" />
         <!-- Banner -->
         <div class="confirmation-banner">
             <h1>
@@ -249,8 +252,8 @@
                 </h3>
                 
                 <div class="summary-item">
-                    <span class="summary-label">Participante:</span>
-                    <span><?= $grp_titulo ?></span>
+                    <span class="summary-label">Grupo/Cia/Escola:</span>
+                    <span><?= $diretor->nome ?></span>
                 </div>
                 
                 <div class="summary-item">

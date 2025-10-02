@@ -198,18 +198,15 @@
 </head>
 <body>
     <div class="email-container">
-        <!-- Banner no topo (ALTERAÇÃO 1: novo banner acima do header) -->
-        <img src="https://seudominio.com/imagens/banner.png" 
-             alt="Banner FestOn" 
-             style="width:100%; max-width:600px; margin-bottom:20px;" />
-
         <!-- Header existente -->
         <div class="header">
             <p style="font-size: 14px; color: #666666; margin: 0;">
                 Esta é a sua confirmação de inscrição - Dança Carajás Festival 2025
             </p>
         </div>
-
+<img src="https://seudominio.com/imagens/banner.png" 
+    alt="Banner FestOn" 
+    style="width:100%; max-width:600px; margin-bottom:20px;" />
         <!-- Confirmation Banner existente -->
         <div class="confirmation-banner">
             <h1>
@@ -246,7 +243,7 @@
                 <strong>Reforçamos:</strong> apenas as coreografias <strong>homologadas</strong> estarão aptas a participar da Mostra Competitiva.
             </div>
 
-            <!-- Summary Section (ALTERAÇÃO 2: label, nome do diretor e data atualizada) -->
+            <!-- Summary Section -->
             <div class="summary-section">
                 <h3>
                     <span class="emoji">✨</span>
@@ -254,8 +251,8 @@
                 </h3>
                 
                 <div class="summary-item">
-                    <span class="summary-label">Grupo/Cia/Escola:</span> <!-- ALTERADO de "Participante" -->
-                    <span><?= $diretor->nome ?></span> <!-- ALTERADO de $grp_titulo -->
+                    <span class="summary-label">Grupo/Cia/Escola:</span> 
+                    <span><?= $diretor->nome ?></span> 
                 </div>
                 
                 <div class="summary-item">
@@ -272,7 +269,7 @@
                     <span class="summary-label">Próxima etapa:</span>
                     <span>
                         <span class="emoji">📊</span>
-                        Resultado até 22/10/2025 <!-- ALTERADO de 15/10/2025 -->
+                        Resultado até 22/10/2025 
                     </span>
                 </div>
             </div>
