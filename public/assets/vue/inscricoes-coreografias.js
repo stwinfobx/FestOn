@@ -742,6 +742,18 @@ var vue = new Vue({
 			}
 			vue.fields.coreografia_elenco_all = vue.arrSelectUnicCor;
 		},
+		// true se houver pelo menos um jovem selecionado 
+		anyYoungerSelected() {
+			const idsJovens = this.fields.participantes_inferiores.map(p => p.partc_id);
+			return this.selectedBailarinos.some(id => idsJovens.includes(id));
+		},
+		//Se não houver jovens, destrava adultos
+		unlockAdultsIfnoYounger() {
+			if(!this.anyYoungerSelected()) {
+				this.hasYoungerSelected = false;
+				this.lockedAdultIds = [];
+			}
+		},
 		handleCheckboxChangeElenc: function (jsonDADOS, $event) {
 			let partcID = jsonDADOS.partc_id;
 
@@ -763,30 +775,36 @@ var vue = new Vue({
 			const isAdult = !!participanteBloco3;
 			const isYounger = !!participanteBloco4;
 
-			// 1) Se está desmarcando um ADULTO “protegido”, bloqueia
+			// (1) Desmarcando ADULTO "protegido"
 			if (!isChecking && isAdult && vue.lockedAdultIds.includes(partcID)) {
+				// Se NÃO há mais jovem selecionado, podemos liberar a remoção
+				if (!vue.anyYoungerSelected()) {
+				// segue o fluxo normal de desmarcar (não forçamos re-check)
+				// ao final chamaremos unlockAdultsIfNoYounger()
+				} else {
+				// Ainda há jovem selecionado => BLOQUEIA a remoção
 				if ($event && $event.target) $event.target.checked = true;
 				if (!vue.fields.elenco_bailarinos.includes(partcID)) {
-				vue.fields.elenco_bailarinos.push(partcID);
+					vue.fields.elenco_bailarinos.push(partcID);
 				}
 				if (!vue.selectedBailarinos.includes(partcID)) {
-				vue.selectedBailarinos.push(partcID);
+					vue.selectedBailarinos.push(partcID);
 				}
 				Swal.fire({
-				icon: 'warning',
-				title: 'Ação não permitida',
-				text: 'Já há bailarino de categoria mais jovem selecionado. Não é permitido remover adultos para substituí-los por jovens.',
-				confirmButtonText: 'OK'
+					icon: 'warning',
+					title: 'Ação não permitida',
+					text: 'Já há bailarino de categoria mais jovem selecionado. Não é permitido remover adultos para substituí-los por jovens.',
+					confirmButtonText: 'OK'
 				});
 				return;
+				}
 			}
 
-			// 2) Limite de jovens = 20% do total de adultos selecionados
+			// (2) Limite de jovens = 20% do total de adultos selecionados
 			if (isChecking && isYounger) {
-				// adultos selecionados atualmente
 				const adultosSelecionados = vue.fields.participantes_elenco
 				.map(p => p.partc_id)
-				.filter(id => vue.selectedBailarinos.includes(id) || id === partcID); // partcID não é adulto, mas mantém cálculo estável
+				.filter(id => vue.selectedBailarinos.includes(id)); // apenas adultos atualmente selecionados
 
 				const jovensSelecionados = vue.fields.participantes_inferiores
 				.map(p => p.partc_id)
@@ -806,7 +824,7 @@ var vue = new Vue({
 				}
 			}
 
-			// 3) Limite total do formato
+			// (3) Limite total do formato
 			let qtdElencoBailarinoSelect = vue.fields.elenco_bailarinos.length;
 			if (isChecking && qtdElencoBailarinoSelect >= formtEncontrado.formt_max_partic) {
 				if ($event && $event.target) $event.target.checked = false;
@@ -820,7 +838,7 @@ var vue = new Vue({
 				return;
 			}
 
-			// 4) Selecionar / deselecionar normalmente
+			// (4) Selecionar / deselecionar normalmente
 			const idx = vue.arrSelectUnicCor.findIndex(item => item.partc_id === partcID);
 			const itemEncontrado = participanteBloco3 || participanteBloco4;
 
@@ -839,16 +857,19 @@ var vue = new Vue({
 			vue.fields.elenco_bailarinos = vue.selectedBailarinos;
 			vue.fields.coreografia_elenco_all = vue.arrSelectUnicCor;
 
-			// 5) Se entrou o 1º jovem, congelar ADULTOS atuais
+			// (5) Se entrou o 1º jovem, congelar adultos atuais
 			if (isChecking && isYounger && !vue.hasYoungerSelected) {
 				vue.hasYoungerSelected = true;
-				// snapshot dos adultos selecionados neste momento
 				const adultosProtegidos = vue.fields.participantes_elenco
 				.map(p => p.partc_id)
 				.filter(id => vue.selectedBailarinos.includes(id));
 				vue.lockedAdultIds = [...new Set(adultosProtegidos)];
 			}
+
+			// (6) Se depois desta ação não houver jovens, destrava
+			vue.unlockAdultsIfNoYounger();
 		},
+
 
 		handleCheckboxChangeCoreogf: function (jsonDADOS, $event) {
 			//alert('entrou aqui');
@@ -1131,7 +1152,14 @@ var vue = new Vue({
                 }
             },
             immediate: true
-        }
+        },
+		//Caso não haja mais jovens selecionados por algum motivo, destrava os adultos
+		selectedBailarinos(newVal) {
+			if (!this.anyYoungerSelected()) {
+				this.hasYoungerSelected = false;
+				this.lockedAdultIds = [];
+			}
+		}
     },
 
 	//beforeMount() {
