@@ -198,14 +198,19 @@
 </head>
 <body>
     <div class="email-container">
-        <!-- Header -->
+        <!-- Banner no topo (ALTERAÇÃO 1: novo banner acima do header) -->
+        <img src="https://seudominio.com/imagens/banner.png" 
+             alt="Banner FestOn" 
+             style="width:100%; max-width:600px; margin-bottom:20px;" />
+
+        <!-- Header existente -->
         <div class="header">
             <p style="font-size: 14px; color: #666666; margin: 0;">
                 Esta é a sua confirmação de inscrição - Dança Carajás Festival 2025
             </p>
         </div>
 
-        <!-- Banner -->
+        <!-- Confirmation Banner existente -->
         <div class="confirmation-banner">
             <h1>
                 <span class="emoji">🎉</span>
@@ -218,14 +223,14 @@
             </div>
         </div>
 
-        <!-- Button -->
+        <!-- Button existente -->
         <div class="button-container">
             <a href="<?= base_url('inscricoes/status/' . $grevt_hashkey) ?>" class="btn">
                 VER STATUS DA INSCRIÇÃO
             </a>
         </div>
 
-        <!-- Content -->
+        <!-- Content existente -->
         <div class="content">
             <div class="greeting">
                 <strong>Prezado(a) <?= $grp_titulo ?>,</strong>
@@ -241,7 +246,7 @@
                 <strong>Reforçamos:</strong> apenas as coreografias <strong>homologadas</strong> estarão aptas a participar da Mostra Competitiva.
             </div>
 
-            <!-- Summary Section -->
+            <!-- Summary Section (ALTERAÇÃO 2: label, nome do diretor e data atualizada) -->
             <div class="summary-section">
                 <h3>
                     <span class="emoji">✨</span>
@@ -249,8 +254,8 @@
                 </h3>
                 
                 <div class="summary-item">
-                    <span class="summary-label">Participante:</span>
-                    <span><?= $grp_titulo ?></span>
+                    <span class="summary-label">Grupo/Cia/Escola:</span> <!-- ALTERADO de "Participante" -->
+                    <span><?= $diretor->nome ?></span> <!-- ALTERADO de $grp_titulo -->
                 </div>
                 
                 <div class="summary-item">
@@ -267,12 +272,12 @@
                     <span class="summary-label">Próxima etapa:</span>
                     <span>
                         <span class="emoji">📊</span>
-                        Resultado até 15/10/2025
+                        Resultado até 22/10/2025 <!-- ALTERADO de 15/10/2025 -->
                     </span>
                 </div>
             </div>
 
-            <!-- WhatsApp Section -->
+            <!-- WhatsApp Section existente -->
             <div class="whatsapp-section">
                 <h3>
                     <span class="emoji">💻</span>
@@ -294,7 +299,7 @@
             </div>
         </div>
 
-        <!-- Closing Message -->
+        <!-- Closing Message existente -->
         <div class="closing-message">
             <p>
                 <span class="emoji">💃</span>
@@ -303,7 +308,7 @@
             </p>
         </div>
 
-        <!-- Footer -->
+        <!-- Footer existente -->
         <div class="footer">
             <h3>Dança Carajás Festival 2025</h3>
             <p>JA Produções Artísticas</p>

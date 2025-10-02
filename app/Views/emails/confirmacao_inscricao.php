@@ -267,7 +267,7 @@
                     <span class="summary-label">Próxima etapa:</span>
                     <span>
                         <span class="emoji">📊</span>
-                        Resultado até 15/10/2025
+                        Resultado até 22/10/2025
                     </span>
                 </div>
             </div>

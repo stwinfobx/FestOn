@@ -23,7 +23,7 @@ class App extends BaseConfig
 	//public string $baseURL = 'http://localhost:8080/';
 	
 	// desenvolvimento : localhost
-	public string $baseURL = 'https://localhost/bxteste/public/';
+	public string $baseURL = 'https://localhost/FestOn/public/';
     //public string $baseURL = 'https://dancacarajas.com.br/inscricoes/public/';
 
     public function __construct()
@@ -37,10 +37,10 @@ class App extends BaseConfig
 private function set_base_url()
 {
     if (isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] !== 'localhost') {
-         $this->baseURL = 'https://localhost/bxteste/public/';
+         $this->baseURL = 'https://localhost/FestOn/public/';
         //$this->baseURL = 'https://dancacarajas.com.br/inscricoes/public/';
     } else {
-         $this->baseURL = 'http://localhost/bxteste/public/';
+         $this->baseURL = 'https://localhost/FestOn/public/';
         //$this->baseURL = 'http://localhost:8080/inscricoes/public/';
     }
 }

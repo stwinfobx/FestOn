@@ -126,7 +126,7 @@
 
 								<ul>
 									<li>05/10/2025 – Divulgação da lista oficial de grupos, companhias e escolas inscritas.</li>
-									<li>Até 15/10/2025 – Divulgação das coreografias homologadas, suplentes e não selecionadas, no site oficial do festival (https://dancacarajas.com.br
+									<li>Até 22/10/2025 – Divulgação das coreografias homologadas, suplentes e não selecionadas, no site oficial do festival (https://dancacarajas.com.br
 ) e via comunicação aos responsáveis cadastrados (e-mail e/ou WhatsApp).</li>
 								</ul>
 
