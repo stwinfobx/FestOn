@@ -12,10 +12,143 @@ class Jurados extends BaseController
 
     public function __construct()
     {
+		$this->avalMD = new \App\Models\AvaliacoesModel();
+		$this->critMD = new \App\Models\CriteriosModel();
+		$this->corgfMD = new \App\Models\CoreografiasModel();
+		$this->grpMD = new \App\Models\GruposModel();
     }
 
-	public function index()
+	public function index($corgf_hashkey = null)
 	{
+		// Se não foi passada uma coreografia específica, busca a primeira disponível
+		if (!$corgf_hashkey) {
+			// Buscar primeira coreografia ativa (simplificado para funcionar)
+			$primeira_coreografia = $this->corgfMD
+				->select('tbl_coreografias.corgf_hashkey')
+				->join('tbl_grupos', 'tbl_grupos.grp_id = tbl_coreografias.grp_id', 'inner')
+				->where('tbl_coreografias.corgf_ativo', 1)
+				->orderBy('tbl_grupos.grp_titulo', 'ASC')
+				->orderBy('tbl_coreografias.corgf_id', 'ASC')
+				->first();
+			if ($primeira_coreografia && !empty($primeira_coreografia->corgf_hashkey)) {
+				return redirect()->to(site_url('jurados/index/' . $primeira_coreografia->corgf_hashkey));
+			}
+		}
+
+		// Carregar dados da coreografia atual
+		$this->data['coreografia_atual'] = null;
+		$this->data['grupo_atual'] = null;
+		$this->data['coreografias_grupo'] = [];
+		$this->data['criterios'] = [];
+		$this->data['avaliacoes_existentes'] = [];
+		
+		// Carregar lista de todos os grupos (simplificado)
+		$this->data['grupos_lista'] = [];
+		try {
+			$gruposQuery = $this->corgfMD
+				->select('tbl_grupos.grp_id, tbl_grupos.grp_titulo, MIN(tbl_coreografias.corgf_id) AS first_corgf_id')
+				->join('tbl_grupos', 'tbl_grupos.grp_id = tbl_coreografias.grp_id', 'inner')
+				->where('tbl_coreografias.corgf_ativo', 1)
+				->groupBy('tbl_grupos.grp_id, tbl_grupos.grp_titulo')
+				->orderBy('tbl_grupos.grp_titulo', 'ASC')
+				->get();
+			$gruposRows = $gruposQuery ? $gruposQuery->getResult() : [];
+			$gruposLista = [];
+			foreach ($gruposRows as $g) {
+				$corgf = $this->corgfMD->select('corgf_hashkey')->where('corgf_id', (int)$g->first_corgf_id)->first();
+				$gruposLista[] = (object)[
+					'grp_id' => (int)$g->grp_id,
+					'grp_titulo' => $g->grp_titulo,
+					'corgf_hashkey' => $corgf ? $corgf->corgf_hashkey : ''
+				];
+			}
+			$this->data['grupos_lista'] = $gruposLista;
+		} catch (\Exception $e) {
+			$this->data['grupos_lista'] = [];
+		}
+
+		if ($corgf_hashkey) {
+			// BUSCAR COREOGRAFIA REAL DO BANCO DE DADOS
+			$coreografia = $this->corgfMD->select('tbl_coreografias.*, tbl_grupos.grp_titulo, tbl_grupos.grp_id, 
+													tbl_modalidades.modl_titulo, tbl_formatos.formt_titulo, 
+													tbl_categorias.categ_titulo')
+										->join('tbl_grupos', 'tbl_grupos.grp_id = tbl_coreografias.grp_id', 'inner')
+										->join('tbl_modalidades', 'tbl_modalidades.modl_id = tbl_coreografias.modl_id', 'left')
+										->join('tbl_formatos', 'tbl_formatos.formt_id = tbl_coreografias.formt_id', 'left')
+										->join('tbl_categorias', 'tbl_categorias.categ_id = tbl_coreografias.categ_id', 'left')
+										->where('tbl_coreografias.corgf_hashkey', $corgf_hashkey)
+										->first();
+			
+            if ($coreografia) {
+				$this->data['coreografia_atual'] = $coreografia;
+				
+				// Buscar todas as coreografias do mesmo grupo REAL
+				$coreografias_grupo = $this->corgfMD->where('grp_id', $coreografia->grp_id)
+													->where('corgf_ativo', 1)
+													->orderBy('corgf_id', 'ASC')
+													->findAll();
+				$this->data['coreografias_grupo'] = $coreografias_grupo;
+
+				// Paginação de coreografias dentro do grupo (primeiro/anterior/próximo/último)
+				$hash_atual = $coreografia->corgf_hashkey;
+				$pos_atual = 0; $total = count($coreografias_grupo);
+				$first_hash = $last_hash = $prev_hash = $next_hash = '';
+				if ($total > 0) {
+					$first_hash = $coreografias_grupo[0]->corgf_hashkey;
+					$last_hash = $coreografias_grupo[$total-1]->corgf_hashkey;
+					foreach ($coreografias_grupo as $i => $c) {
+						if ($c->corgf_hashkey === $hash_atual) { $pos_atual = $i; break; }
+					}
+					$prev_hash = ($pos_atual > 0) ? $coreografias_grupo[$pos_atual-1]->corgf_hashkey : '';
+					$next_hash = ($pos_atual < $total-1) ? $coreografias_grupo[$pos_atual+1]->corgf_hashkey : '';
+				}
+				$this->data['pager_coreo'] = [
+					'pos_atual' => $pos_atual+1,
+					'total' => $total,
+					'first' => $first_hash,
+					'last' => $last_hash,
+					'prev' => $prev_hash,
+					'next' => $next_hash,
+				];
+				
+				// Buscar critérios de avaliação
+				$insti_id = session()->get('insti_id') ?: 1;
+				$criterios = $this->critMD->select_all_by_insti_id($insti_id);
+				$this->data['criterios'] = $criterios;
+				
+				// Buscar avaliações já existentes da coreografia atual
+				$jurd_id = session()->get('jurd_id') ?: 1;
+				if ($jurd_id) {
+					$avaliacoes = $this->avalMD->get_avaliacoes_by_jurado_coreografia($jurd_id, $coreografia->corgf_id);
+					$this->data['avaliacoes_existentes'] = $avaliacoes;
+				}
+
+                // Ajustar link de vídeo para formato embed, se necessário
+                $video = (string)($coreografia->corgf_linkvideo ?? '');
+                $embed = '';
+                if (!empty($video)) {
+                    if (preg_match('~youtu\.be/([A-Za-z0-9_-]+)~', $video, $m)) {
+                        $embed = 'https://www.youtube.com/embed/' . $m[1];
+                    } elseif (preg_match('~watch\?v=([A-Za-z0-9_-]+)~', $video, $m)) {
+                        $embed = 'https://www.youtube.com/embed/' . $m[1];
+                    } elseif (preg_match('~/embed/([A-Za-z0-9_-]+)~', $video, $m)) {
+                        $embed = $video;
+                    }
+                }
+                $this->data['video_embed'] = $embed;
+			}
+		}
+
+        // Cabeçalho - dados do jurado logado (nome/foto com fallback)
+        $this->data['jurd_nome'] = session()->get('jurd_nome') ?: (session()->get('user_nome') ?: 'Jurado');
+        $fotoSess = session()->get('jurd_file_foto');
+        if (!empty($fotoSess)) {
+            $this->data['jurd_foto_url'] = site_url('files-upload/'.$fotoSess);
+        } else {
+            // usar um avatar existente no projeto (ajuste aqui se necessário)
+            $this->data['jurd_foto_url'] = base_url('assets/avatar/avatar1.jpg');
+        }
+
 		return view('jurados/index', $this->data);
 	}
 
@@ -927,6 +1060,133 @@ class Jurados extends BaseController
 			print json_encode($json_arr);
 			exit();
 
+		break;
+		case "SALVAR-AVALIACOES" :
+			// Usar valores padrão para teste caso sessão não esteja configurada
+			$jurd_id = (int)session()->get('jurd_id') ?: 1;
+			$insti_id = (int)session()->get('insti_id') ?: 1;
+			
+			// Log de debug
+			log_message('debug', 'SALVAR-AVALIACOES - jurd_id: ' . $jurd_id . ', insti_id: ' . $insti_id);
+			
+			if ($this->request->getPost()) {
+				$corgf_hashkey = $this->request->getPost('corgf_hashkey');
+				$avaliacoes_data = $this->request->getPost('avaliacoes');
+				
+				log_message('debug', 'SALVAR-AVALIACOES - corgf_hashkey: ' . $corgf_hashkey);
+				log_message('debug', 'SALVAR-AVALIACOES - avaliacoes_data: ' . print_r($avaliacoes_data, true));
+				
+				// Buscar coreografia
+				$coreografia = $this->corgfMD->where('corgf_hashkey', $corgf_hashkey)->first();
+				
+				if ($coreografia && !empty($avaliacoes_data)) {
+					$dados_avaliacoes = [];
+					
+					foreach ($avaliacoes_data as $crit_id => $nota) {
+						// Validação rigorosa: apenas números de 0 a 10
+						if (is_numeric($nota) && $nota >= 0 && $nota <= 10) {
+							$dados_avaliacoes[] = [
+								'insti_id' => $insti_id,
+								'jurd_id' => $jurd_id,
+								'corgf_id' => $coreografia->corgf_id,
+								'crit_id' => (int)$crit_id,
+								'aval_nota' => (float)$nota
+							];
+						}
+					}
+					
+					log_message('debug', 'SALVAR-AVALIACOES - dados_avaliacoes: ' . print_r($dados_avaliacoes, true));
+					
+					if ($this->avalMD->salvar_avaliacoes($dados_avaliacoes)) {
+						$error_num = "0";
+						$error_msg = "Avaliações salvas com sucesso";
+					} else {
+						$error_msg = "Erro ao salvar avaliações";
+					}
+				} else {
+					$error_msg = "Coreografia não encontrada ou dados inválidos";
+				}
+			} else {
+				$error_msg = "Nenhum dado foi enviado";
+			}
+			
+			$json_arr = [
+				"error_num" => $error_num,
+				"error_msg" => $error_msg,
+			];
+			print json_encode($json_arr);
+			exit();
+		break;
+		case "FINALIZAR-COREOGRAFIA" :
+			$jurd_id = (int)session()->get('jurd_id') ?: 1;
+			$insti_id = (int)session()->get('insti_id') ?: 1;
+			
+			if ($this->request->getPost()) {
+				$corgf_hashkey = $this->request->getPost('corgf_hashkey');
+				
+				// Buscar coreografia
+				$coreografia = $this->corgfMD->where('corgf_hashkey', $corgf_hashkey)->first();
+				
+				if ($coreografia) {
+					$grp_id = $coreografia->grp_id;
+					$insti_id = (int)session()->get('insti_id') ?: 1;
+					
+					// Verificar se TODAS as coreografias do grupo têm notas para TODOS os critérios
+					if ($this->avalMD->verificar_grupo_completo($jurd_id, $grp_id, $insti_id)) {
+						// Finalizar TODAS as coreografias do grupo para este jurado
+						if ($this->avalMD->finalizar_grupo($jurd_id, $grp_id)) {
+							$error_num = "0";
+							$error_msg = "Grupo finalizado com sucesso! Redirecionando...";
+							
+							// SEMPRE redirecionar para /jurados (sem hash) para buscar próximo grupo automaticamente
+							$redirect_url = site_url('jurados');
+						} else {
+							$error_msg = "Erro ao finalizar grupo";
+						}
+					} else {
+						$error_msg = "Você precisa avaliar TODAS as coreografias do grupo antes de concluir!";
+					}
+				} else {
+					$error_msg = "Coreografia não encontrada";
+				}
+			} else {
+				$error_msg = "Dados não fornecidos ou usuário não autenticado";
+			}
+			
+			$json_arr = [
+				"error_num" => $error_num,
+				"error_msg" => $error_msg,
+				"redirect_url" => isset($redirect_url) ? $redirect_url : ""
+			];
+			print json_encode($json_arr);
+			exit();
+		break;
+		case "GET-COREOGRAFIAS-GRUPO" :
+			$jurd_id = (int)session()->get('jurd_id');
+			
+			if ($this->request->getPost() && $jurd_id) {
+				$grp_id = (int)$this->request->getPost('grp_id');
+				
+				// Buscar coreografias do grupo
+				$coreografias = $this->corgfMD->where('grp_id', $grp_id)
+											  ->where('corgf_ativo', 1)
+											  ->orderBy('corgf_id', 'ASC')
+											  ->findAll();
+				
+				$error_num = "0";
+				$error_msg = "Coreografias carregadas";
+			} else {
+				$error_msg = "Dados não fornecidos";
+				$coreografias = [];
+			}
+			
+			$json_arr = [
+				"error_num" => $error_num,
+				"error_msg" => $error_msg,
+				"coreografias" => $coreografias
+			];
+			print json_encode($json_arr);
+			exit();
 		break;
 		}
 	}

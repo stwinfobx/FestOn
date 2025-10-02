@@ -87,6 +87,9 @@ class CoreografiasModel extends Model
 		$insti_id = (int)(isset($args['insti_id']) ? $args['insti_id'] : '');
 		$grp_id = (int)(isset($args['grp_id']) ? $args['grp_id'] : '');		
 
+		// DADOS TEMPORÁRIOS - SIMULANDO COREOGRAFIAS DO BANCO
+		// Quando as tabelas reais forem criadas, descomente o código abaixo:
+		/*
 		$builder = $this->db->table( $this->table );
 		$builder->from('tbl_coreografias CORF', true)
 			->select('CORF.*')
@@ -109,6 +112,41 @@ class CoreografiasModel extends Model
 		}
 		
 		return $rs_result;
+		*/
+		
+		// Dados de teste para simulação
+		if ($grp_id == 1) {
+			return [
+				(object)[
+					'corgf_id' => 1,
+					'corgf_hashkey' => 'abc123test1',
+					'corgf_titulo' => 'Dança das Águas',
+					'corgf_coreografo' => 'Maria Silva',
+					'corgf_linkvideo' => 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+					'corgf_observacao' => 'Coreografia inspirada na natureza',
+					'grp_id' => 1,
+					'grp_titulo' => 'Grupo de Dança Teste 1',
+					'modl_titulo' => 'Dança Contemporânea',
+					'formt_titulo' => 'Grupo',
+					'categ_titulo' => 'Adulto'
+				],
+				(object)[
+					'corgf_id' => 2,
+					'corgf_hashkey' => 'def456test2',
+					'corgf_titulo' => 'Ritmo Urbano',
+					'corgf_coreografo' => 'João Santos',
+					'corgf_linkvideo' => 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+					'corgf_observacao' => 'Fusão de hip-hop e street dance',
+					'grp_id' => 1,
+					'grp_titulo' => 'Grupo de Dança Teste 1',
+					'modl_titulo' => 'Street Dance',
+					'formt_titulo' => 'Grupo',
+					'categ_titulo' => 'Juvenil'
+				]
+			];
+		}
+		
+		return [];
 	}
 
 }

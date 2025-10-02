@@ -1,0 +1,2 @@
+# Arquivo de Avaliações Temporário
+# Formato: jurd_id|corgf_id|crit_id|nota|finalizada|data

@@ -2,68 +2,61 @@
 	$this->extend('templates/template_default');
 	$this->section('content'); 
 ?>
-	<section class="pt-3 pb-4">
+	<section class="pt-3 pb-4" id="app">
 		<div class="container">
-			<!-- <div class="row"> -->
-			<!-- 	<div class="col-12 col-md-12"> -->
-			<!-- 		<h3>Workshop > Clássicos na Atualidade</h3> -->
-			<!-- 	</div> -->
-			<!-- </div> -->
 			<div class="row pt-3 pb-5">
 				<div class="col-12 col-md-12">
 
-					<FORM action="<?php echo(current_url()); ?>" method="post" name="formFieldsInscricao" id="formFieldsInscricao" ref="formFieldsInscricao" enctype="multipart/form-data">
+					<FORM action="<?php echo(current_url()); ?>" method="post" name="formFieldsAvaliacao" id="formFieldsAvaliacao" ref="formFieldsAvaliacao">
 
 					<div class="row">
 						<div class="col-12 col-md-4">
 
 							<div class="card card-workshop mb-3 h-100" style="border-radius: 8px !important;">
-								<div class="card-header text-center" style="padding: 0 0 .5rem 0;">
-									<img src="http://localhost/ja-feston/dev/public/files-upload/ballerina-dance-academy__banner__1701865173_2fMu.jpg" class="img-fluid-evento img-fluid" style="border-radius: .25rem; border-bottom-left-radius: 0; border-bottom-right-radius: 0;" />
-								</div>
 								<div class="card-body text-center">
-									
+									<?php if ($coreografia_atual): ?>
 									<div class="work-item pb-3">
-										<h2 class="m-0" style="font-size: 1.5rem; color: #FFF; font-weight: 600;">Amor Eterno</h2>
-										<h4 style="font-size: 1.0rem; color: #FFF; font-weight: 400;">Casa Ribanta de Dança</h4>
+										<h2 class="m-0" style="font-size: 1.5rem; color: #FFF; font-weight: 600;">
+											<?php echo esc($coreografia_atual->corgf_titulo); ?>
+										</h2>
+									</div>
+
+									<div class="work-item pt-2 pb-3">
+										<label>Grupo</label>
+										<h4><?php echo esc($coreografia_atual->grp_titulo); ?></h4>
 									</div>
 
 									<div class="work-item pt-2 pb-3">
 										<label>Coreógrafo</label>
-										<h4>Nome do Coreógrafo</h4>
-									</div>
-
-									<div class="work-item pt-2 pb-3 d-none">
-										<label>Formato</label>
-										<h4>DUO</h4>
+										<h4><?php echo esc($coreografia_atual->corgf_coreografo); ?></h4>
 									</div>
 
 									<div class="work-item pt-2 pb-3">
 										<label>Formato</label>
-										<h4>GRUPO</h4>
-									</div>
-
-									<div class="work-item pt-2 pb-3 d-none">
-										<label>Bailarinos</label>
-										<div class="d-flex justify-content-center">
-											<div style="margin: 0 4px;"> 
-												<div class="workshops-avatar-bg" style="background-image: url('assets/media/avatar-04.jpg'); width: 60px; height: 60px;"></div>
-											</div>
-											<div style="margin: 0 4px;">
-												<div class="workshops-avatar-bg" style="background-image: url('assets/media/avatar-05.jpg'); width: 60px; height: 60px;"></div>
-											</div>
-										</div>
+										<h4><?php echo esc($coreografia_atual->formt_titulo ?: 'GRUPO'); ?></h4>
 									</div>
 
 									<div class="work-item pt-2 pb-3">
 										<label>Modalidade</label>
-										<h4>Dança Contemporânea</h4>
+										<h4><?php echo esc($coreografia_atual->modl_titulo ?: 'Dança Contemporânea'); ?></h4>
 									</div>
 
 									<div class="work-item pt-2 pb-2">
 										<label>Categoria</label>
-										<h4>Adulto</h4>
+										<h4><?php echo esc($coreografia_atual->categ_titulo ?: 'Adulto'); ?></h4>
 									</div>
+
+									<?php if ($coreografia_atual->corgf_observacao): ?>
+									<div class="work-item pt-2 pb-2">
+										<label>Observações</label>
+										<p style="font-size: 0.9rem; color: #FFF;"><?php echo esc($coreografia_atual->corgf_observacao); ?></p>
+									</div>
+									<?php endif; ?>
+									<?php else: ?>
+									<div class="work-item pb-3">
+										<h4 style="color: #FFF;">Nenhuma coreografia encontrada</h4>
+									</div>
+									<?php endif; ?>
 								</div>
 							</div>
 
@@ -71,21 +64,6 @@
 						<div class="col-12 col-md-8">
 
 							<div class="card card-default mb-4 h-100">
-								<div class="card-header-box" style="display:none !important;">
-									<div class="row align-items-center">
-										<div class="col-12 col-md-6">
-											
-										</div>
-										<div class="col-12 col-md-6">
-
-											<div class="d-flex justify-content-end">
-												<div style="margin-left: 5px;"><a href="<?php echo(painel_url('grupos')); ?>" class="btn btn-sm btn-warning">Voltar</a></div>
-												<div style="margin-left: 5px;"><input type="submit" class="btn btn-sm btn-success" value="Salvar"></div>
-											</div>
-
-										</div>
-									</div>
-								</div>
 								<div class="card-body p-0">
 
 									<div class="row">
@@ -95,13 +73,13 @@
 												<div class="card-body">
 													<div class="item" style="background-color: #9b9b9b;">
 														<div class="row justify-content-center align-items-center">
-															<div class="col-12 col-md">
-																<h4>jurado</h4>
-																<h2 style="color: white;">Celso Amorim Gonçalves</h2>
-															</div>
-															<div class="col-12 col-md-auto">
-																<div class="workshops-avatar-bg" style="background-image: url('assets/media/avatar-04.jpg');"></div>
-															</div>
+                                                            <div class="col-12 col-md">
+                                                                <h4>Jurados</h4>
+                                                                <h2 style="color: white;">&nbsp;<?php echo esc($jurd_nome); ?></h2>
+                                                            </div>
+                                                            <div class="col-12 col-md-auto">
+                                                                <div class="workshops-avatar-bg" style="background-image: url('<?php echo esc($jurd_foto_url); ?>');"></div>
+                                                            </div>
 														</div>
 													</div>
 												</div>
@@ -113,66 +91,56 @@
 									<div class="row">
 										<div class="col-12 col-md-12">
 
+											<?php if (!empty($criterios) && $coreografia_atual): ?>
+											<?php 
+												// Criar array de avaliações existentes para fácil acesso
+												$avaliacoes_por_criterio = [];
+												if (!empty($avaliacoes_existentes)) {
+													foreach ($avaliacoes_existentes as $aval) {
+														if (is_object($aval)) {
+															$avaliacoes_por_criterio[$aval->crit_id] = $aval;
+														}
+													}
+												}
+											?>
+											<?php foreach ($criterios as $criterio): ?>
 											<div>
 												<div class="row mb-2 g-2">
 													<div class="col-12 col-md-2">
-														<div class="inputAval text-center">8</div>
+														<?php 
+															$nota_existente = isset($avaliacoes_por_criterio[$criterio->crit_id]) 
+																? $avaliacoes_por_criterio[$criterio->crit_id]->aval_nota 
+																: '';
+															$tem_nota = !empty($nota_existente);
+														?>
+														<input type="number" 
+															   class="inputAval text-center" 
+															   name="avaliacoes[<?php echo $criterio->crit_id; ?>]"
+															   v-model="avaliacoes[<?php echo $criterio->crit_id; ?>]"
+															   @input="validateAndUpdate($event, <?php echo $criterio->crit_id; ?>)"
+															   :class="{'input-preenchido': avaliacoes[<?php echo $criterio->crit_id; ?>] != ''}"
+															   min="0" 
+															   max="10" 
+															   step="0.1"
+															   value="<?php echo $nota_existente; ?>"
+															   placeholder="0-10"
+															   onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode == 46"
+															   pattern="^(10|[0-9](\.[0-9])?)$" />
 													</div>
 													<div class="col-12 col-md-10">
-														<div class="descrAval active">Técnica</div>
+														<div class="descrAval" 
+															 :class="{'active': avaliacoes[<?php echo $criterio->crit_id; ?>] != ''}">
+															<?php echo esc($criterio->crit_titulo); ?>
+														</div>
 													</div>
 												</div>
 											</div>
-											<div>
-												<div class="row mb-2 g-2">
-													<div class="col-12 col-md-2">
-														<div class="inputAval text-center">10</div>
-													</div>
-													<div class="col-12 col-md-10">
-														<div class="descrAval active">Interpretação</div>
-													</div>
-												</div>
+											<?php endforeach; ?>
+											<?php else: ?>
+											<div class="alert alert-warning">
+												Nenhum critério de avaliação encontrado.
 											</div>
-											<div>
-												<div class="row mb-2 g-2">
-													<div class="col-12 col-md-2">
-														<div class="inputAval text-center">8</div>
-													</div>
-													<div class="col-12 col-md-10">
-														<div class="descrAval active">Criatividade</div>
-													</div>
-												</div>
-											</div>
-											<div>
-												<div class="row mb-2 g-2">
-													<div class="col-12 col-md-2">
-														<div class="inputAval text-center"></div>
-													</div>
-													<div class="col-12 col-md-10">
-														<div class="descrAval">Harmonia</div>
-													</div>
-												</div>
-											</div>
-											<div>
-												<div class="row mb-2 g-2">
-													<div class="col-12 col-md-2">
-														<div class="inputAval text-center"></div>
-													</div>
-													<div class="col-12 col-md-10">
-														<div class="descrAval">Figurino</div>
-													</div>
-												</div>
-											</div>
-											<div>
-												<div class="row mb-2 g-2">
-													<div class="col-12 col-md-2">
-														<div class="inputAval text-center"></div>
-													</div>
-													<div class="col-12 col-md-10">
-														<div class="descrAval">Impacto Artístico</div>
-													</div>
-												</div>
-											</div>
+											<?php endif; ?>
 
 										</div>
 									</div>
@@ -223,234 +191,94 @@
 
 
 
-					<div class="card card-workshops mt-5" >
+                    <!-- Navegação entre coreografias COM VÍDEO (mostrar mesmo com 1 item) -->
+                    <?php if (!empty($coreografias_grupo) && count($coreografias_grupo) >= 1): ?>
+					<div class="card card-workshops mt-3">
 						<div class="card-body p-0">
-							<div class="item" style="background-color: #9b9b9b;">
+							<div class="item" style="background-color: #28447a;">
 								<div class="row justify-content-center align-items-center">
 									<div class="col-12 text-center">
-										<h2 style="color: white;">Indicações e Premiações Especiais</h2>
+                                        <h4 style="color: white; margin-bottom: 15px;">Coreografias do Grupo</h4>
+
+                                        <!-- Removido: listagem de grupos aqui. Avanço de grupo será feito no Concluir. -->
+										
+										<!-- VÍDEO DA COREOGRAFIA ATUAL -->
+										<?php if (!empty($coreografia_atual->corgf_linkvideo)): ?>
+                                        <div class="mb-3">
+                                            <?php if (!empty($video_embed)): ?>
+                                                <iframe width="100%" height="300" 
+                                                        src="<?php echo $video_embed; ?>" 
+                                                        frameborder="0" 
+                                                        allowfullscreen
+                                                        style="border-radius: .25rem; max-width: 700px;"></iframe>
+                                            <?php else: ?>
+                                                <div style="background:#eee;border-radius:.25rem;max-width:700px;margin:0 auto;padding:20px;color:#333;">
+                                                    Sem vídeo disponível ou link inválido.
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+										<?php endif; ?>
+										
+                                        <!-- Removido: botões por coreografia (pager abaixo já controla a navegação) -->
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+					<?php endif; ?>
 
-					<div class="row mt-0 mb-5">
-						<div class="col-12 col-md-4">
-
-							<div class="card card-default mb-4 h-100 " style="padding: 25px 20px !important;">
-								<div class="card-body p-0">
-
-									<div class="row justify-content-center">
-										<div class="col-11 col-md-12">
-
-											<div class="row mb-3">
-												<div class="col-12 col-md-12">
-													<h3>Coreógrafos</h3>	
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-12 col-md-6">
-
-													<div class="d-flex justify-content-start align-items-center mb-1">
-														<div style="margin: 0 4px;"> 
-															<div class="workshops-avatar-bg" style="background-image: url('assets/media/avatar-11.jpg'); width: 45px; height: 45px;"></div>
-														</div>
-														<div class="nomebailarino" bstyle="margin: 0 4px; ">
-															Ana Paula Cardoso Santos Silva
-														</div>
-													</div>
-
-												</div>
-												<div class="col-12 col-md-6">
-
-													<div class="d-flex justify-content-start align-items-center mb-1">
-														<div style="margin: 0 4px;"> 
-															<div class="workshops-avatar-bg" style="background-image: url('assets/media/avatar-05.jpg'); width: 45px; height: 45px;"></div>
-														</div>
-														<div class="nomebailarino" style="margin: 0 4px;">
-															Luiza Florense Vieira
-														</div>
-													</div>
-
-												</div>
-											</div>
-										</div>
-									</div>
-		
-								</div>
-							</div>
-
-						</div>
-						<div class="col-12 col-md-8">
-
-							<div class="card card-default mb-4 h-100" style="padding: 25px 20px !important;">
-								<div class="card-body p-0">
-
-									<div class="row justify-content-center">
-										<div class="col-11 col-md-12">
-
-											<div class="row mb-3">
-												<div class="col-12 col-md-12">
-													<h3>Bailarinos</h3>	
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-12 col-md-4">
-
-													<a href="javascript:;" data-bs-toggle="modal" data-bs-target="#modal_premiacoes"><div class="d-flex justify-content-start align-items-center mb-1">
-														<div style="margin: 0 4px;"> 
-															<div class="workshops-avatar-bg" style="background-image: url('assets/media/avatar-11.jpg'); width: 45px; height: 45px;"></div>
-														</div>
-														<div class="nomebailarino" bstyle="margin: 0 4px; ">
-															Ana Paula Cardoso Santos Silva
-														</div>
-													</div></a>
-
-													<a href="javascript:;" data-bs-toggle="modal" data-bs-target="#modal_premiacoes"><div class="d-flex justify-content-start align-items-center mb-1">
-														<div style="margin: 0 4px;"> 
-															<div class="workshops-avatar-bg" style="background-image: url('assets/media/avatar-05.jpg'); width: 45px; height: 45px;"></div>
-														</div>
-														<div class="nomebailarino" style="margin: 0 4px;">
-															Luiza Florense Vieira
-														</div>
-													</div></a>
-
-													<a href="javascript:;" data-bs-toggle="modal" data-bs-target="#modal_premiacoes"><div class="d-flex justify-content-start align-items-center mb-1">
-														<div style="margin: 0 4px;"> 
-															<div class="workshops-avatar-bg" style="background-image: url('assets/media/avatar-04.jpg'); width: 45px; height: 45px;"></div>
-														</div>
-														<div class="nomebailarino" style="margin: 0 4px;">
-															Rômulo Gregório de Brito
-														</div>
-													</div></a>
-
-													<div class="d-flex justify-content-start align-items-center mb-1">
-														<div style="margin: 0 4px;"> 
-															<div class="workshops-avatar-bg" style="background-image: url('assets/media/avatar-05.jpg'); width: 45px; height: 45px;"></div>
-														</div>
-														<div class="nomebailarino" style="margin: 0 4px;">
-															Glória Cantidio Siqueira
-														</div>
-													</div>
-
-												</div>
-												<div class="col-12 col-md-4">
-
-													<div class="d-flex justify-content-start align-items-center mb-1">
-														<div style="margin: 0 4px;"> 
-															<div class="workshops-avatar-bg" style="background-image: url('assets/media/avatar-11.jpg'); width: 45px; height: 45px;"></div>
-														</div>
-														<div class="nomebailarino" style="margin: 0 4px;">
-															Ana Paula Cardoso
-														</div>
-													</div>
-
-													<div class="d-flex justify-content-start align-items-center mb-1">
-														<div style="margin: 0 4px;"> 
-															<div class="workshops-avatar-bg" style="background-image: url('assets/media/avatar-05.jpg'); width: 45px; height: 45px;"></div>
-														</div>
-														<div class="nomebailarino" style="margin: 0 4px;">
-															Luiza Florense Vieira
-														</div>
-													</div>
-
-													<div class="d-flex justify-content-start align-items-center mb-1">
-														<div style="margin: 0 4px;"> 
-															<div class="workshops-avatar-bg" style="background-image: url('assets/media/avatar-04.jpg'); width: 45px; height: 45px;"></div>
-														</div>
-														<div class="nomebailarino" style="margin: 0 4px;">
-															Rômulo Gregório de Brito
-														</div>
-													</div>
-
-													<div class="d-flex justify-content-start align-items-center mb-1">
-														<div style="margin: 0 4px;"> 
-															<div class="workshops-avatar-bg" style="background-image: url('assets/media/avatar-04.jpg'); width: 45px; height: 45px;"></div>
-														</div>
-														<div class="nomebailarino" style="margin: 0 4px;">
-															Etefano Silva Xavier
-														</div>
-													</div>
-
-												</div>
-												<div class="col-12 col-md-4">
-
-													<div class="d-flex justify-content-start align-items-center mb-1">
-														<div style="margin: 0 4px;"> 
-															<div class="workshops-avatar-bg" style="background-image: url('assets/media/avatar-11.jpg'); width: 45px; height: 45px;"></div>
-														</div>
-														<div class="nomebailarino" style="margin: 0 4px;">
-															Ana Paula Cardoso
-														</div>
-													</div>
-
-													<div class="d-flex justify-content-start align-items-center mb-1">
-														<div style="margin: 0 4px;"> 
-															<div class="workshops-avatar-bg" style="background-image: url('assets/media/avatar-05.jpg'); width: 45px; height: 45px;"></div>
-														</div>
-														<div class="nomebailarino" style="margin: 0 4px;">
-															Luiza Florense Vieira
-														</div>
-													</div>
-
-													<div class="d-flex justify-content-start align-items-center mb-1">
-														<div style="margin: 0 4px;"> 
-															<div class="workshops-avatar-bg" style="background-image: url('assets/media/avatar-04.jpg'); width: 45px; height: 45px;"></div>
-														</div>
-														<div class="nomebailarino" style="margin: 0 4px;">
-															Rômulo Gregório de Brito
-														</div>
-													</div>
-
-													<div class="d-flex justify-content-start align-items-center mb-1">
-														<div style="margin: 0 4px;"> 
-															<div class="workshops-avatar-bg" style="background-image: url('assets/media/avatar-11.jpg'); width: 45px; height: 45px;"></div>
-														</div>
-														<div class="nomebailarino" style="margin: 0 4px;">
-															Ana Paula Cardoso
-														</div>
-													</div>
-
-												</div>
-											</div>
-										</div>
-									</div>
-		
-								</div>
-							</div>
-
-						</div>
-					</div>
-
+					<!-- Botões de ação -->
 					<div class="row justify-content-center pt-4">
-						<div class="col-12 col-md-4">
+						<div class="col-12 col-md-6">
 							<div class="d-grid">
-								<a href="javascript:;" class="btn btn-lg btn-warning d-flex justify-content-center" style="background-color: #5e5e5e; border-color: #5e5e5e; color: #FFFFFF;">
-									<div class="mic"><i class="fas fa-microphone"></i></div>
-									<div>GRAVAR JUSTIFICATIVA</div>
-								</a>
-							</div>
-						</div>
-						<div class="col-12 col-md-1"></div>
-						<div class="col-12 col-md-4">
-							<div class="d-grid">
-								<a href="javascript:;" class="btn btn-lg btn-warning">FINALIZAR AVALIAÇÃO</a>
+								<button type="button" 
+										@click="finalizarAvaliacao" 
+										class="btn btn-lg btn-warning"
+										:disabled="!botaoConcluirHabilitado"
+										:class="{'btn-success': botaoConcluirHabilitado, 'btn-secondary': !botaoConcluirHabilitado}">
+									CONCLUIR AVALIAÇÃO
+								</button>
 							</div>
 						</div>
 					</div>
 
 					<div class="row justify-content-center pt-5">
 						<div class="col-12 col-md-12">
-							<div class="d-flex justify-content-center align-items-center d-order-exibicao">
-								<div class="oxItem"><i class="fas fa-angle-double-left"></i> Primeiro</div>
-								<div class="oxItem"><i class="fas fa-angle-left"></i> Anterior</div>
-								<div class="oxItem active">
-									3
-								</div>
-								<div class="oxItem">Próximo <i class="fas fa-angle-right"></i></div>
-								<div class="oxItem">Último <i class="fas fa-angle-double-right"></i></div>
-							</div>
+                                            <div class="d-flex justify-content-center align-items-center d-order-exibicao">
+                                                <?php if (!empty($pager_coreo) && (int)$pager_coreo['total'] >= 1): ?>
+                                                    <?php if (!empty($pager_coreo['first'])): ?>
+                                                        <a class="oxItem" href="<?php echo site_url('jurados/index/' . $pager_coreo['first']); ?>">
+                                                            <i class="fas fa-angle-double-left"></i> Primeiro
+                                                        </a>
+                                                    <?php else: ?>
+                                                        <div class="oxItem disabled"><i class="fas fa-angle-double-left"></i> Primeiro</div>
+                                                    <?php endif; ?>
+                                                    <?php if (!empty($pager_coreo['prev'])): ?>
+                                                        <a class="oxItem" href="<?php echo site_url('jurados/index/' . $pager_coreo['prev']); ?>">
+                                                            <i class="fas fa-angle-left"></i> Anterior
+                                                        </a>
+                                                    <?php else: ?>
+                                                        <div class="oxItem disabled"><i class="fas fa-angle-left"></i> Anterior</div>
+                                                    <?php endif; ?>
+                                                    <div class="oxItem active">
+                                                        <?php echo (int)$pager_coreo['pos_atual']; ?> de <?php echo (int)$pager_coreo['total']; ?>
+                                                    </div>
+                                                    <?php if (!empty($pager_coreo['next'])): ?>
+                                                        <a class="oxItem" href="<?php echo site_url('jurados/index/' . $pager_coreo['next']); ?>">
+                                                            Próximo <i class="fas fa-angle-right"></i>
+                                                        </a>
+                                                    <?php else: ?>
+                                                        <div class="oxItem disabled">Próximo <i class="fas fa-angle-right"></i></div>
+                                                    <?php endif; ?>
+                                                    <?php if (!empty($pager_coreo['last'])): ?>
+                                                        <a class="oxItem" href="<?php echo site_url('jurados/index/' . $pager_coreo['last']); ?>">
+                                                            Último <i class="fas fa-angle-double-right"></i>
+                                                        </a>
+                                                    <?php else: ?>
+                                                        <div class="oxItem disabled">Último <i class="fas fa-angle-double-right"></i></div>
+                                                    <?php endif; ?>
+                                                <?php endif; ?>
+                                            </div>
 						</div>
 					</div>
 
@@ -523,6 +351,17 @@
 			width: 100%;
 			padding: 4px 8px;
 			font-weight: 900;
+			border: none;
+			transition: background-color 0.3s ease;
+		}
+		.inputAval:focus {
+			outline: none;
+			background-color: #fea802;
+			color: white;
+		}
+		.inputAval.input-preenchido {
+			background-color: #fea802;
+			color: white;
 		}
 		.descrAval{
 			padding: 4px 20px;
@@ -1093,7 +932,10 @@
 	});
 	</script>
 
+	<!-- Lodash para debounce -->
+	<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+	
 	<script type="text/javascript" src="assets/vue/utils.js?t=<?= $time ?>"></script>
-	<script type="text/javascript" src="assets/vue/jurados.js?t=<?= $time ?>"></script>
+	<script type="text/javascript" src="assets/vue/jurados-avaliacao.js?t=<?= $time ?>"></script>
 
 <?php $this->endSection('scripts'); ?>
