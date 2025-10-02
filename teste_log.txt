@@ -1,0 +1,94 @@
+[2025-10-01 19:32:06] === INICIANDO TESTE DIRETO MYSQL ===
+[2025-10-01 19:32:06] ❌ ERRO: Unknown database 'bxteste'
+[2025-10-01 19:32:06] === TESTE FINALIZADO ===
+[2025-10-01 19:32:44] === INICIANDO TESTE DIRETO MYSQL ===
+[2025-10-01 19:32:44] ✅ Conectado ao banco de dados
+[2025-10-01 19:32:44] Buscando hashes disponíveis...
+[2025-10-01 19:32:44] --- Hashes disponíveis ---
+[2025-10-01 19:32:44] Hash: 4a50ed62102e7653532219b80d5129a4 - Grupo: Grupo Novo Teste
+[2025-10-01 19:32:44] Hash: c24765856c9cc95124517587bc630ce8 - Grupo: CASA RIBALTA
+[2025-10-01 19:32:44] Hash: a4d6ce126d297f240b42883538a19880 - Grupo: CASA RIBALTA
+[2025-10-01 19:32:44] Hash: a4cc639c1ca20f8767f7d1fe5f06b91d - Grupo: MABRUMA
+[2025-10-01 19:32:44] --- Usando hash para teste: 4a50ed62102e7653532219b80d5129a4 ---
+[2025-10-01 19:32:44] ✅ Grupo encontrado: Grupo Novo Teste
+[2025-10-01 19:32:44] Evento: Ballerina Dance Academy
+[2025-10-01 19:32:44] grevt_id: 1
+[2025-10-01 19:32:44] ❌ NENHUM DIRETOR ENCONTRADO para este grupo
+[2025-10-01 19:32:44] --- Participantes do grupo ---
+[2025-10-01 19:32:44]  - Nenhum participante encontrado
+[2025-10-01 19:32:44] === TESTE FINALIZADO ===
+[2025-10-01 20:27:08] === INICIANDO TESTE DIRETO MYSQL ===
+[2025-10-01 20:27:08] ✅ Conectado ao banco de dados
+[2025-10-01 20:27:08] Buscando hashes disponíveis...
+[2025-10-01 20:27:08] --- Hashes disponíveis ---
+[2025-10-01 20:27:08] Hash: 4a50ed62102e7653532219b80d5129a4 - Grupo: Grupo Novo Teste
+[2025-10-01 20:27:08] Hash: c24765856c9cc95124517587bc630ce8 - Grupo: CASA RIBALTA
+[2025-10-01 20:27:08] Hash: a4d6ce126d297f240b42883538a19880 - Grupo: CASA RIBALTA
+[2025-10-01 20:27:08] Hash: a4cc639c1ca20f8767f7d1fe5f06b91d - Grupo: MABRUMA
+[2025-10-01 20:27:08] --- Usando hash para teste: 4a50ed62102e7653532219b80d5129a4 ---
+[2025-10-01 20:27:08] ✅ Grupo encontrado: Grupo Novo Teste
+[2025-10-01 20:27:08] Evento: Ballerina Dance Academy
+[2025-10-01 20:27:08] grevt_id: 1
+[2025-10-01 20:27:08] sql gerado: 
+                SELECT P.partc_email, P.partc_nome 
+                FROM tbl_participantes AS P
+                INNER JOIN tbl_participantes_x_grupos AS PG ON PG.partc_id = P.partc_id 
+                INNER JOIN tbl_funcoes AS F ON F.func_id = PG.func_id 
+                WHERE PG.grevt_id = ? 
+                AND F.func_titulo = 'Diretor'
+                LIMIT 1
+            
+[2025-10-01 20:27:08] ❌ NENHUM DIRETOR ENCONTRADO para este grupo
+[2025-10-01 20:27:08] --- Participantes do grupo ---
+[2025-10-01 20:27:08]  - Nenhum participante encontrado
+[2025-10-01 20:27:08] === TESTE FINALIZADO ===
+[2025-10-01 21:27:54] === INICIANDO TESTE DIRETO MYSQL ===
+[2025-10-01 21:27:54] ✅ Conectado ao banco de dados
+[2025-10-01 21:27:54] Buscando hashes disponíveis...
+[2025-10-01 21:27:54] --- Hashes disponíveis ---
+[2025-10-01 21:27:54] Hash: 4a50ed62102e7653532219b80d5129a4 - Grupo: Grupo Novo Teste
+[2025-10-01 21:27:54] Hash: c24765856c9cc95124517587bc630ce8 - Grupo: CASA RIBALTA
+[2025-10-01 21:27:54] Hash: a4d6ce126d297f240b42883538a19880 - Grupo: CASA RIBALTA
+[2025-10-01 21:27:54] Hash: a4cc639c1ca20f8767f7d1fe5f06b91d - Grupo: MABRUMA
+[2025-10-01 21:27:54] --- Usando hash para teste: 4a50ed62102e7653532219b80d5129a4 ---
+[2025-10-01 21:27:54] ✅ Grupo encontrado: Grupo Novo Teste
+[2025-10-01 21:27:54] Evento: Ballerina Dance Academy
+[2025-10-01 21:27:54] grevt_id: 1
+[2025-10-01 21:27:54] sql gerado: 
+                SELECT P.partc_email, P.partc_nome 
+                FROM tbl_participantes AS P
+                INNER JOIN tbl_participantes_x_grupos AS PG ON PG.partc_id = P.partc_id 
+                INNER JOIN tbl_funcoes AS F ON F.func_id = PG.func_id 
+                WHERE PG.grevt_id = ? 
+                AND F.func_titulo = 'Diretor'
+                LIMIT 1
+            
+[2025-10-01 21:27:54] ❌ NENHUM DIRETOR ENCONTRADO para este grupo
+[2025-10-01 21:27:54] --- Participantes do grupo ---
+[2025-10-01 21:27:54]  - Nenhum participante encontrado
+[2025-10-01 21:27:54] === TESTE FINALIZADO ===
+[2025-10-01 21:28:10] === INICIANDO TESTE DIRETO MYSQL ===
+[2025-10-01 21:28:10] ✅ Conectado ao banco de dados
+[2025-10-01 21:28:10] Buscando hashes disponíveis...
+[2025-10-01 21:28:10] --- Hashes disponíveis ---
+[2025-10-01 21:28:10] Hash: 4a50ed62102e7653532219b80d5129a4 - Grupo: Grupo Novo Teste
+[2025-10-01 21:28:10] Hash: c24765856c9cc95124517587bc630ce8 - Grupo: CASA RIBALTA
+[2025-10-01 21:28:10] Hash: a4d6ce126d297f240b42883538a19880 - Grupo: CASA RIBALTA
+[2025-10-01 21:28:10] Hash: a4cc639c1ca20f8767f7d1fe5f06b91d - Grupo: MABRUMA
+[2025-10-01 21:28:10] --- Usando hash para teste: 4a50ed62102e7653532219b80d5129a4 ---
+[2025-10-01 21:28:10] ✅ Grupo encontrado: Grupo Novo Teste
+[2025-10-01 21:28:10] Evento: Ballerina Dance Academy
+[2025-10-01 21:28:10] grevt_id: 1
+[2025-10-01 21:28:10] sql gerado: 
+                SELECT P.partc_email, P.partc_nome 
+                FROM tbl_participantes AS P
+                INNER JOIN tbl_participantes_x_grupos AS PG ON PG.partc_id = P.partc_id 
+                INNER JOIN tbl_funcoes AS F ON F.func_id = PG.func_id 
+                WHERE PG.grevt_id = ? 
+                AND F.func_titulo = 'Diretor'
+                LIMIT 1
+            
+[2025-10-01 21:28:10] ❌ NENHUM DIRETOR ENCONTRADO para este grupo
+[2025-10-01 21:28:10] --- Participantes do grupo ---
+[2025-10-01 21:28:10]  - Nenhum participante encontrado
+[2025-10-01 21:28:10] === TESTE FINALIZADO ===

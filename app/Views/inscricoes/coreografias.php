@@ -152,13 +152,7 @@ $CATEGORIA_MODALIDADES_MAP = json_encode($categoria_modalidades);
                                                                                 </small>
                                                                             </div>
                                                                         </div>														
-				
-																		
-																		
-
-																		
-																		
-																		
+					
 																		<div class="col-12 col-md-4">
 																			<div class="form-group">
 																				<div>
@@ -171,7 +165,6 @@ $CATEGORIA_MODALIDADES_MAP = json_encode($categoria_modalidades);
 																				<div class="form-error" v-if="error.corgf_formt_id.length"><small>{{ error.corgf_formt_id }}</small></div>
 																			</div>
 																		</div>
-
 																	</div>
 
 
