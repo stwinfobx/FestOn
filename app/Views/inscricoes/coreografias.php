@@ -441,7 +441,7 @@ $CATEGORIA_MODALIDADES_MAP = json_encode($categoria_modalidades);
 																									</div>
 																									<div class="col-12 col-md-1 text-center">
 																										<div class="d-none">
-																											<input type="checkbox" :value="value.partc_id" v-model="selectedBailarinos" @change="handleCheckboxChangeElenc({partc_id: value.partc_id}, $event)" :ref="'ID' + value.partc_id" :id="'ID' + value.partc_id" />
+																											<input type="checkbox" :value="value.partc_id" v-model="selectedBailarinos" @change="handleCheckboxChangeElenc({partc_id: value.partc_id}, $event)" :ref="'ID' + value.partc_id" :id="'ID' + value.partc_id" :disabled="lockedAdultIds.includes(value.partc_id)" />
 																										</div>
 																										<div class="icon-checked"><i class="far fa-check-circle"></i></div>
 																									</div>

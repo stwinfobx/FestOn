@@ -121,6 +121,10 @@ var vue = new Vue({
 		btnDisabledContinue: true,
 		editar_coreografia: 0,
 
+		//Proteção contra trocar adulto por jovem 
+		lockedAdultIds: [],
+		hasYoungerSelected: false,
+
 		urlPost: SITE_URL,
 		messageResult: '',
 	},
@@ -746,7 +750,7 @@ var vue = new Vue({
 
 			let jaSelecionado = vue.selectedBailarinos.includes(partcID);
 
-			// Verifica se participante é do bloco 4
+			// Identifica se é adulto (bloco 3) ou jovem (bloco 4)
 			let participanteBloco4 = vue.fields.participantes_inferiores.find(p => p.partc_id === partcID);
 			let participanteBloco3 = vue.fields.participantes_elenco.find(p => p.partc_id === partcID);
 
@@ -755,58 +759,95 @@ var vue = new Vue({
 				return;
 			}
 
-			// Se participante do bloco 4, aplicar limite de 20%
-			if (participanteBloco4 && !jaSelecionado) {
-				let qtdBloco3Selecionados = vue.fields.participantes_elenco.filter(p => vue.selectedBailarinos.includes(p.partc_id)).length;
-				let qtdBloco4Selecionados = vue.fields.participantes_inferiores.filter(p => vue.selectedBailarinos.includes(p.partc_id)).length;
-				let maxBloco4 = Math.floor(qtdBloco3Selecionados * 0.2);
+			const isChecking = $event?.target?.checked ?? !jaSelecionado;
+			const isAdult = !!participanteBloco3;
+			const isYounger = !!participanteBloco4;
 
-				if (qtdBloco4Selecionados >= maxBloco4) {
-					Swal.fire({
-						title: 'Atenção!',
-						icon: 'warning',
-						html: 'Você atingiu o limite de bailarinos mais jovens (20% do elenco principal).',
-						confirmButtonText: 'Fechar',
-						confirmButtonColor: "#0b8e8e",
-					});
-					$event.target.checked = false;
-					return;
+			// 1) Se está desmarcando um ADULTO “protegido”, bloqueia
+			if (!isChecking && isAdult && vue.lockedAdultIds.includes(partcID)) {
+				if ($event && $event.target) $event.target.checked = true;
+				if (!vue.fields.elenco_bailarinos.includes(partcID)) {
+				vue.fields.elenco_bailarinos.push(partcID);
 				}
-			}
-
-			// Verifica limite do formato (bloco 3 + bloco 4)
-			let qtdElencoBailarinoSelect = vue.fields.elenco_bailarinos.length;
-			if (!jaSelecionado && qtdElencoBailarinoSelect >= formtEncontrado.formt_max_partic) {
+				if (!vue.selectedBailarinos.includes(partcID)) {
+				vue.selectedBailarinos.push(partcID);
+				}
 				Swal.fire({
-					title: 'Atenção!',
-					icon: 'warning',
-					html: 'Você já selecionou o número máximo de participantes para o formato escolhido.',
-					confirmButtonText: 'Fechar',
-					confirmButtonColor: "#0b8e8e",
+				icon: 'warning',
+				title: 'Ação não permitida',
+				text: 'Já há bailarino de categoria mais jovem selecionado. Não é permitido remover adultos para substituí-los por jovens.',
+				confirmButtonText: 'OK'
 				});
-				$event.target.checked = false;
 				return;
 			}
 
-			// Encontrar participante no array correto
-			let itemEncontrado = participanteBloco3 || participanteBloco4;
+			// 2) Limite de jovens = 20% do total de adultos selecionados
+			if (isChecking && isYounger) {
+				// adultos selecionados atualmente
+				const adultosSelecionados = vue.fields.participantes_elenco
+				.map(p => p.partc_id)
+				.filter(id => vue.selectedBailarinos.includes(id) || id === partcID); // partcID não é adulto, mas mantém cálculo estável
 
-			// Selecionar / deselecionar
-			const index = vue.arrSelectUnicCor.findIndex(item => item.partc_id === partcID);
-			if (index === -1) {
-				vue.arrSelectUnicCor.push({
-					partc_documento: itemEncontrado.partc_documento,
-					partc_id: partcID,
-					partc_nome: itemEncontrado.partc_nome
+				const jovensSelecionados = vue.fields.participantes_inferiores
+				.map(p => p.partc_id)
+				.filter(id => vue.selectedBailarinos.includes(id));
+
+				const maxJovens = Math.floor(adultosSelecionados.length * 0.2);
+				if (jovensSelecionados.length >= maxJovens) {
+				if ($event && $event.target) $event.target.checked = false;
+				Swal.fire({
+					title: 'Atenção!',
+					icon: 'warning',
+					html: 'Você atingiu o limite de bailarinos mais jovens (20% do elenco principal).',
+					confirmButtonText: 'Fechar',
+					confirmButtonColor: "#0b8e8e",
 				});
-				vue.selectedBailarinos.push(partcID);
-			} else {
-				vue.arrSelectUnicCor.splice(index, 1);
+				return;
+				}
+			}
+
+			// 3) Limite total do formato
+			let qtdElencoBailarinoSelect = vue.fields.elenco_bailarinos.length;
+			if (isChecking && qtdElencoBailarinoSelect >= formtEncontrado.formt_max_partic) {
+				if ($event && $event.target) $event.target.checked = false;
+				Swal.fire({
+				title: 'Atenção!',
+				icon: 'warning',
+				html: 'Você já selecionou o número máximo de participantes para o formato escolhido.',
+				confirmButtonText: 'Fechar',
+				confirmButtonColor: "#0b8e8e",
+				});
+				return;
+			}
+
+			// 4) Selecionar / deselecionar normalmente
+			const idx = vue.arrSelectUnicCor.findIndex(item => item.partc_id === partcID);
+			const itemEncontrado = participanteBloco3 || participanteBloco4;
+
+			if (idx === -1 && isChecking) {
+				vue.arrSelectUnicCor.push({
+				partc_documento: itemEncontrado.partc_documento,
+				partc_id: partcID,
+				partc_nome: itemEncontrado.partc_nome
+				});
+				if (!vue.selectedBailarinos.includes(partcID)) vue.selectedBailarinos.push(partcID);
+			} else if (idx !== -1 && !isChecking) {
+				vue.arrSelectUnicCor.splice(idx, 1);
 				vue.selectedBailarinos = vue.selectedBailarinos.filter(id => id !== partcID);
 			}
 
 			vue.fields.elenco_bailarinos = vue.selectedBailarinos;
 			vue.fields.coreografia_elenco_all = vue.arrSelectUnicCor;
+
+			// 5) Se entrou o 1º jovem, congelar ADULTOS atuais
+			if (isChecking && isYounger && !vue.hasYoungerSelected) {
+				vue.hasYoungerSelected = true;
+				// snapshot dos adultos selecionados neste momento
+				const adultosProtegidos = vue.fields.participantes_elenco
+				.map(p => p.partc_id)
+				.filter(id => vue.selectedBailarinos.includes(id));
+				vue.lockedAdultIds = [...new Set(adultosProtegidos)];
+			}
 		},
 
 		handleCheckboxChangeCoreogf: function (jsonDADOS, $event) {
