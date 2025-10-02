@@ -5869,7 +5869,7 @@ class Inscricoes extends BaseController
 				exit();
 
 				break;
-			case "LIST-PARTICIPANTE-POR-CATEG":
+			case "LIST-PARTICIPANTE-POR-CATEG-OLD":
 				$arr_dados = [];
 
 				$user_id = (int)session()->get('inscUser_id');
@@ -5967,6 +5967,201 @@ class Inscricoes extends BaseController
 				exit();
 
 				break;
+			case "LIST-PARTICIPANTE-POR-CATEG":
+				$arr_dados = [];
+
+				$user_id = (int)session()->get('inscUser_id');
+				$grp_id = (int)$this->request->getPost('grp_id');
+				$grp_hashkey = '';
+
+				$func_id = 4;
+
+				$participantes = [];
+
+				// Recuperamos o evento selecionado
+				// ---------------------------------------------------------
+				$event_hashkey = $this->request->getPost('event_hashkey');
+				$categ_id = $this->request->getPost('corgf_categ_id');
+
+				$participantes_json = $this->request->getPost('participantes_json');
+
+				$this->eventMD->select('*');
+				$this->eventMD->where('event_hashkey', $event_hashkey);
+				$this->eventMD->orderBy('event_id', 'DESC');
+				$this->eventMD->limit(1);
+				$query_event = $this->eventMD->get();
+				if ($query_event && $query_event->resultID->num_rows >= 1) {
+					$rs_event = $query_event->getRow();
+					$insti_id = (int)$rs_event->insti_id;
+
+					$arr_infos = [
+						'insti_id' => (int)$insti_id,
+						'categ_id' => (int)$categ_id,
+						'func_id' => (int)$func_id,
+						'grp_id' => (int)$grp_id,
+					];
+
+					// PRIMEIRA QUERY: participantes da categoria selecionada
+					$query_participante = $this->partcMD->from('tbl_participantes As PARTC', true)
+						->select('PARTC.partc_id, CAD.cad_nome, CAD.cad_documento, CAD.cad_file_foto, CATEG.categ_titulo, PARTC.categ_id')
+						->join('tbl_cadastros AS CAD', 'CAD.cad_id = PARTC.cad_id', 'INNER')
+						->join('tbl_categorias AS CATEG', 'CATEG.categ_id = PARTC.categ_id', 'INNER')
+						->where('PARTC.insti_id', (int)$insti_id)
+						->where('PARTC.func_id', (int)$func_id)
+						->where('PARTC.grp_id', (int)$grp_id);
+
+					// SE NÃO FOR CATEGORIA UNIFICADA, filtra pela categoria
+					if ($categ_id != "" && $categ_id != "unificada") {
+						$query_participante->where('PARTC.categ_id', (int)$categ_id);
+					}
+					// SE FOR UNIFICADA, não filtra por categoria (pega todos)
+
+					$query_participante->orderBy('PARTC.partc_nome', 'ASC')
+						->limit(500)
+						->get();
+
+					$query_participante_result = $query_participante->get();
+					if ($query_participante_result && $query_participante_result->resultID->num_rows >= 1) {
+						$participantes = $query_participante_result->getResult();
+
+						// SEGUNDA QUERY: todos os participantes (para categorias inferiores)
+						$query_participante_all = $this->partcMD->from('tbl_participantes As PARTC', true)
+							->select('PARTC.partc_id, CAD.cad_nome, CAD.cad_documento, CAD.cad_file_foto, CATEG.categ_titulo, PARTC.categ_id')
+							->join('tbl_cadastros AS CAD', 'CAD.cad_id = PARTC.cad_id', 'INNER')
+							->join('tbl_categorias AS CATEG', 'CATEG.categ_id = PARTC.categ_id', 'INNER')
+							->where('PARTC.insti_id', (int)$insti_id)
+							->where('PARTC.func_id', (int)$func_id)
+							->where('PARTC.grp_id', (int)$grp_id)
+							->orderBy('PARTC.partc_nome', 'ASC')
+							->limit(1000)
+							->get();
+
+						$participantes_all = [];
+						if ($query_participante_all && $query_participante_all->resultID->num_rows >= 1) {
+							$participantes_all = $query_participante_all->getResult();
+						}
+
+						$error_num = "0";
+						$error_msg = "Lista de Participantes";
+					} else {
+						$error_num = "2";
+						$error_msg = "Não existe participantes relacionados a este grupo." . json_encode($arr_infos);
+					}
+				} else {
+					$error_num = "1";
+					$error_msg = "Evento não encontrado";
+				}
+
+				$json_arr = [
+					"error_num" => $error_num,
+					"error_msg" => $error_msg,
+					"participantes" => $participantes,
+					"participantes_all" => $participantes_all,
+				];
+				print json_encode($json_arr);
+				exit();
+
+				break;
+				$arr_dados = [];
+
+				$user_id = (int)session()->get('inscUser_id');
+				$grp_id = (int)$this->request->getPost('grp_id');
+				$grp_hashkey = '';
+
+				$func_id = 4;
+
+				$participantes = [];
+
+				// Recuperamos o evento selecionado
+				// ---------------------------------------------------------
+				$event_hashkey = $this->request->getPost('event_hashkey');
+				$categ_id = $this->request->getPost('corgf_categ_id');
+
+				$participantes_json = $this->request->getPost('participantes_json');
+
+				$this->eventMD->select('*');
+				$this->eventMD->where('event_hashkey', $event_hashkey);
+				$this->eventMD->orderBy('event_id', 'DESC');
+				$this->eventMD->limit(1);
+				$query_event = $this->eventMD->get();
+				if ($query_event && $query_event->resultID->num_rows >= 1) {
+					$rs_event = $query_event->getRow();
+					$insti_id = (int)$rs_event->insti_id;
+					//$event_id = (int)$rs_event->event_id;
+
+					$arr_infos = [
+						'insti_id' => (int)$insti_id,
+						'categ_id' => (int)$categ_id,
+						'func_id' => (int)$func_id,
+						'grp_id' => (int)$grp_id,
+					];
+
+
+
+					/*
+				$query_participante = $this->partcMD
+					->select('partc_id, partc_nome, partc_documento, partc_file_foto')
+					->where('insti_id', (int)$insti_id)
+					->where('categ_id', (int)$categ_id)
+					->where('func_id', (int)$func_id)
+					->where('grp_id', (int)$grp_id)
+					->get();
+				*/
+
+					$query_participante = $this->partcMD->from('tbl_participantes As PARTC', true)
+						->select('PARTC.partc_id, CAD.cad_nome, CAD.cad_documento, CAD.cad_file_foto')
+						->join('tbl_cadastros AS CAD', 'CAD.cad_id = PARTC.cad_id', 'INNER')
+						->where('PARTC.insti_id', (int)$insti_id)
+						->where('PARTC.categ_id', (int)$categ_id)
+						->where('PARTC.func_id', (int)$func_id)
+						->where('PARTC.grp_id', (int)$grp_id)
+						->orderBy('PARTC.partc_nome', 'ASC')
+						->limit(500)
+						->get();
+					if ($query_participante && $query_participante->resultID->num_rows >= 1) {
+						$participantes = $query_participante->getResult();
+
+						// Buscar tambÃ©m todos os participantes de categorias mais jovens (sem limitar pela categ_id atual)
+						$query_participante_all = $this->partcMD->from('tbl_participantes As PARTC', true)
+							->select('PARTC.partc_id, CAD.cad_nome, CAD.cad_documento, CAD.cad_file_foto, CATEG.categ_titulo')
+							->join('tbl_cadastros AS CAD', 'CAD.cad_id = PARTC.cad_id', 'INNER')
+							->join('tbl_categorias AS CATEG', 'CATEG.categ_id = PARTC.categ_id', 'INNER')
+							->where('PARTC.insti_id', (int)$insti_id)
+							->where('PARTC.func_id', (int)$func_id)
+							->where('PARTC.grp_id', (int)$grp_id)
+							->orderBy('PARTC.partc_nome', 'ASC')
+							->limit(1000)
+							->get();
+
+						$participantes_all = [];
+						if ($query_participante_all && $query_participante_all->resultID->num_rows >= 1) {
+							$participantes_all = $query_participante_all->getResult();
+						}
+
+						$error_num = "0";
+						$error_msg = "Lista de Participantes";
+					} else {
+						$error_num = "2";
+						$error_msg = "Não existe participantes relacionados a este grupo ." . json_encode($arr_infos);
+					}
+				} else {
+					$error_num = "1";
+					$error_msg = "Evento não encontrado";
+				}
+
+				$json_arr = [
+					"error_num" => $error_num,
+					"error_msg" => $error_msg,
+					"participantes" => $participantes,
+					"participantes_all" => $participantes_all,
+				];
+				print json_encode($json_arr);
+				exit();
+
+				break;
+				
+				
+				
 			case "LIST-PARTICIPANTE-COREOGRAFOS":
 				$arr_dados = [];
 
@@ -7242,7 +7437,7 @@ class Inscricoes extends BaseController
 	/**
 	 * Envia email de confirmação de inscrição
 	 */
-	private function enviarEmailConfirmacaoInscricao($grevt_hashkey)
+	private function enviarEmailConfirmacaoInscricaoOld($grevt_hashkey)
 	{
 		log_message('info', 'INICIANDO envio de email/webhook para grevt_hashkey: ' . $grevt_hashkey);
 		// Buscar dados do grupo e evento
@@ -7273,6 +7468,180 @@ class Inscricoes extends BaseController
 			if ($query_diretor && $query_diretor->resultID->num_rows >= 1) {
 				$diretor = $query_diretor->getRow();
 				$diretor_email = $diretor->partc_email;
+			}
+
+			// Preparar dados para o template
+			$data_fields = [
+				'grevt_hashkey' => $grevt_hashkey,
+				'grp_titulo' => $grupo->grp_titulo,
+				'grp_end_cidade' => $grupo->grp_end_cidade,
+				'grp_end_estado' => $grupo->grp_end_estado,
+				'event_titulo' => $grupo->event_titulo,
+				'base_url' => base_url(),
+				'site_url' => site_url(),
+			];
+
+			// Gerar template do email
+			$email_body = view('emails/confirmacao_inscricao', $data_fields);
+
+			// Lista de emails para enviar
+			$emails_destino = [
+				'inscricoes@dancacarajas.com.br'
+			];
+
+			// Adicionar email do diretor se encontrado
+			if (!empty($diretor_email)) {
+				$emails_destino[] = $diretor_email;
+			}
+
+			// Verificar se está rodando em localhost
+			$http_host = $_SERVER['HTTP_HOST'] ?? '';
+			$is_localhost = in_array($http_host, ['localhost', '127.0.0.1']) ||
+				strpos($http_host, 'localhost') !== false ||
+				strpos($http_host, '127.0.0.1') !== false ||
+				$http_host === 'localhost:8080' ||
+				$http_host === '127.0.0.1:8080';
+
+			log_message('info', 'DETECÇÃO DE AMBIENTE - HTTP_HOST: ' . $http_host . ' | IS_LOCALHOST: ' . ($is_localhost ? 'SIM' : 'NÃO'));
+
+			if ($is_localhost) {
+				// Em localhost, enviar dados para webhook ao invés de email
+				log_message('info', 'DETECTADO LOCALHOST - Enviando webhook ao invés de email');
+				$this->enviarWebhookConfirmacao($emails_destino, $email_body, $data_fields);
+			} else {
+				// Em produção, enviar email normalmente
+				$args_email = [
+					"body" => $email_body,
+					"subject" => "Confirmação de Inscrição - Dança Carajás Festival 2025",
+					"fields" => [],
+					"enviar_para" => $emails_destino,
+					"anexos" => [],
+				];
+
+				$pMail = new PHPMailerLib();
+				$pMail->send($args_email);
+			}
+		}
+	}
+	
+	private function enviarEmailConfirmacaoInscricaoBx($grevt_hashkey)
+    {
+    log_message('info', 'INICIANDO envio de email/webhook para grevt_hashkey: ' . $grevt_hashkey);
+
+    // Buscar dados do grupo e evento
+    $this->grpMD->from('tbl_grupos AS GRP', true)
+        ->select('GRP.*')
+        ->select('EVENT.*')
+        ->select('GREVT.grevt_id')
+        ->join('tbl_grupos_x_eventos AS GREVT', 'GREVT.grp_id = GRP.grp_id', 'INNER')
+        ->join('tbl_eventos AS EVENT', 'EVENT.event_id = GREVT.event_id', 'INNER')
+        ->where('GREVT.grevt_hashkey', $grevt_hashkey)
+        ->limit(1);
+    $query_grupo = $this->grpMD->get();
+
+    if ($query_grupo && $query_grupo->resultID->num_rows >= 1) {
+        $grupo = $query_grupo->getRow();
+
+        // Buscar diretor do grupo (query simplificada)
+        $diretor_email = '';
+        $this->partcMD->from('tbl_participantes AS P', true)
+            ->select('P.partc_email, P.partc_nome')
+            ->where('P.grevt_id', $grupo->grevt_id)  // ID do grupo
+            ->where('P.func_id', 1)                  // ID da função Diretor
+            ->limit(1);
+        $query_diretor = $this->partcMD->get();
+
+        if ($query_diretor && $query_diretor->resultID->num_rows >= 1) {
+            $diretor = $query_diretor->getRow();
+            $diretor_email = $diretor->partc_email;
+        }
+
+        // Preparar dados para o template
+        $data_fields = [
+            'grevt_hashkey' => $grevt_hashkey,
+            'grp_titulo' => $grupo->grp_titulo,
+            'grp_end_cidade' => $grupo->grp_end_cidade,
+            'grp_end_estado' => $grupo->grp_end_estado,
+            'event_titulo' => $grupo->event_titulo,
+            'base_url' => base_url(),
+            'site_url' => site_url(),
+        ];
+
+        // Gerar template do email
+        $email_body = view('emails/confirmacao_inscricao', $data_fields);
+
+        // Lista de emails para enviar
+        $emails_destino = [
+            'inscricoes@dancacarajas.com.br'
+        ];
+
+        // Adicionar email do diretor se encontrado
+        if (!empty($diretor_email)) {
+            $emails_destino[] = $diretor_email;
+        }
+
+        // Verificar se está rodando em localhost
+        $http_host = $_SERVER['HTTP_HOST'] ?? '';
+        $is_localhost = in_array($http_host, ['localhost', '127.0.0.1']) ||
+            strpos($http_host, 'localhost') !== false ||
+            strpos($http_host, '127.0.0.1') !== false ||
+            $http_host === 'localhost:8080' ||
+            $http_host === '127.0.0.1:8080';
+
+        log_message('info', 'DETECÇÃO DE AMBIENTE - HTTP_HOST: ' . $http_host . ' | IS_LOCALHOST: ' . ($is_localhost ? 'SIM' : 'NÃO'));
+
+        if ($is_localhost) {
+            // Em localhost, enviar dados para webhook ao invés de email
+            log_message('info', 'DETECTADO LOCALHOST - Enviando webhook ao invés de email');
+            $this->enviarWebhookConfirmacao($emails_destino, $email_body, $data_fields);
+        } else {
+            // Em produção, enviar email normalmente
+            $args_email = [
+                "body" => $email_body,
+                "subject" => "Confirmação de Inscrição - Dança Carajás Festival 2025",
+                "fields" => [],
+                "enviar_para" => $emails_destino,
+                "anexos" => [],
+            ];
+
+            $pMail = new PHPMailerLib();
+            $pMail->send($args_email);
+        }
+    }
+}
+
+	private function enviarEmailConfirmacaoInscricao($grevt_hashkey)
+	{
+Log_message('info', 'INICIANDO envio de email/webhook para grevt_hashkey: ' . $grevt_hashkey);
+		$this->grpMD->from('tbl_grupos AS GRP', true)
+			->select('GRP.*, EVENT.*, GREVT.grevt_id')
+			->join('tbl_grupos_x_eventos AS GREVT', 'GREVT.grp_id = GRP.grp_id', 'INNER')
+			->join('tbl_eventos AS EVENT', 'EVENT.event_id = GREVT.event_id', 'INNER')
+			->where('GREVT.grevt_hashkey', $grevt_hashkey)
+			->limit(1);
+		$query_grupo = $this->grpMD->get();
+
+		if ($query_grupo && $query_grupo->getNumRows() >= 1) {
+			$grupo = $query_grupo->getRow();
+
+			$this->partcMD->resetQuery();
+			$diretor = $this->partcMD
+				->select('P.partc_email')
+				->from('tbl_participantes AS P')
+				->join('tbl_funcoes AS F', 'F.func_id = P.func_id', 'INNER')
+				->where([
+					'P.grevt_id'    => $grupo->grevt_id,
+					'F.func_titulo' => 'Diretor'
+				])
+				->get()
+				->getRow();
+
+			$diretor_email = '';
+			if ($diretor) {
+				$diretor_email = $diretor->partc_email;
+				log_message('info', 'E-mail do Diretor encontrado para o grupo ' . $grupo->grp_titulo . ': ' . $diretor_email);
+			} else {
+				log_message('warning', 'Nenhum diretor encontrado para o grupo com grevt_id: ' . $grupo->grevt_id);
 			}
 
 			// Preparar dados para o template

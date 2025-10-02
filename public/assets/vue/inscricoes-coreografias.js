@@ -20,19 +20,19 @@ var vue = new Vue({
 		evcfg_config_limites: RS_EVCFG_CONFIG_LIMITES,
 		lista_corf_cadastradas: LIST_CORF_CADASTRADAS,
 		PATH_FOLDER_GRUPO: PATH_FOLDER_GRUPO,
-		
+
 		// Inclusão para validação de categoria x modalidade
 		lista_modalidades_filtradas: [], // ← ADICIONE ESTA LINHA
-        categoria_modalidades_map: CATEGORIA_MODALIDADES_MAP || {
-            'Baby Class': ['Estilo Livre', 'Balé Clássico Livre'],
-            'Infantil': ['Estilo Livre', 'Balé Clássico Livre', 'Dança Contemporânea'],
-            'Juvenil': ['Estilo Livre', 'Balé Clássico Livre', 'Balé Clássico de Repertório', 'Dança Contemporânea', 'Jazz Dance'],
-            'Adulto': ['Estilo Livre', 'Balé Clássico Livre', 'Dança Contemporânea', 'Danças Urbanas', 'Balé Clássico de Repertório', 'Jazz Dance'],
-            'Unificada': ['Danças Folclóricas']
-        },
-		
-		
-		
+		categoria_modalidades_map: CATEGORIA_MODALIDADES_MAP || {
+			'Baby Class': ['Estilo Livre', 'Balé Clássico Livre'],
+			'Infantil': ['Estilo Livre', 'Balé Clássico Livre', 'Dança Contemporânea'],
+			'Juvenil': ['Estilo Livre', 'Balé Clássico Livre', 'Balé Clássico de Repertório', 'Dança Contemporânea', 'Jazz Dance'],
+			'Adulto': ['Estilo Livre', 'Balé Clássico Livre', 'Dança Contemporânea', 'Danças Urbanas', 'Balé Clássico de Repertório', 'Jazz Dance'],
+			'Unificada': ['Danças Folclóricas']
+		},
+
+
+
 		// Ordem das categorias para filtrar inferiores
 		categoriasOrdem: [1, 2, 3, 4], // Substitua pelos IDs reais: Adulto, Juvenil, Infantil, Baby Class
 
@@ -137,24 +137,24 @@ var vue = new Vue({
 			form.submit();
 			return false;
 		},
-    SendNextSendMail: function () {
-        // Verificação essencial: pelo menos uma coreografia cadastrada
-        if (this.lista_corf_cadastradas.length === 0) {
-            Swal.fire({
-                icon: 'warning',
-                title: 'Coreografia Obrigatória',
-                text: 'Você precisa cadastrar pelo menos uma coreografia antes de continuar.',
-                confirmButtonText: 'Entendi',
-                confirmButtonColor: '#e79c32'
-            });
-            return false;
-        }
-    
-        // Se tiver coreografias, submite o formulário
-        const form = this.$refs.formFieldsInscricao;
-        form.submit();
-        return false;
-    },
+		SendNextSendMail: function () {
+			// Verificação essencial: pelo menos uma coreografia cadastrada
+			if (this.lista_corf_cadastradas.length === 0) {
+				Swal.fire({
+					icon: 'warning',
+					title: 'Coreografia Obrigatória',
+					text: 'Você precisa cadastrar pelo menos uma coreografia antes de continuar.',
+					confirmButtonText: 'Entendi',
+					confirmButtonColor: '#e79c32'
+				});
+				return false;
+			}
+
+			// Se tiver coreografias, submite o formulário
+			const form = this.$refs.formFieldsInscricao;
+			form.submit();
+			return false;
+		},
 		stepGravarParticipante: function (next) {
 			let arrSelect = vue.fields.participantes;
 			let allFound = true;
@@ -284,88 +284,88 @@ var vue = new Vue({
 			});
 
 		},
-		
-        selectCategCoreografia: function () {
-            // Limpa a modalidade quando a categoria muda
-            this.fields.corgf_modl_id = '';
-            
-            // Filtra as modalidades baseado na categoria selecionada
-            this.filtrarModalidadesPorCategoria();
-            
-            // Seu código original continua aqui
-            let form = this.formData(vue.fields);
-            vue.fields.participantes_elenco_json = '';
-            vue.fields.participantes_elenco = [];
-            axios.post(this.urlPost + 'inscricoes/ajaxform/LIST-PARTICIPANTE-POR-CATEG', form).then(function (response) {
-                let respData = response.data;
-                console.log('respData:', respData);
-                if (respData.error_num == '0') {
-                    vue.fields.participantes_elenco_json = JSON.stringify(respData.participantes);
-                    vue.fields.participantes_elenco = respData.participantes;
-                    vue.fields.participantes_elenco_all = respData.participantes_all;
-                    console.log('participantes_elenco_all:', vue.fields.participantes_elenco_all);
-                    vue.selectCategInferior();
-                    console.log('participantes_inferiores:', vue.fields.participantes_inferiores);
-                    vue.corgfBTNDisabled = false;
-                    return false;
-                } else {
-                    vue.fields.participantes_elenco_json = [];
-                    vue.fields.participantes_elenco = [];
-                    vue.fields.participantes_inferiores = [];
-                    vue.corgfBTNDisabled = true;
-        
-                    Swal.fire({
-                        title: 'Atenção!',
-                        icon: 'warning',
-                        html: 'Não existe participantes relacionados a esta categoria. ' + respData.error_num + ' | ' + respData.error_msg,
-                        confirmButtonText: 'Fechar',
-                        confirmButtonColor: "#0b8e8e",
-                    });
-                }
-            });
-        },
-        
-        // Adicione este método junto com os outros métodos
-        filtrarModalidadesPorCategoria: function() {
-            const categoriaId = this.fields.corgf_categ_id;
-            
-            if (!categoriaId) {
-                // Se nenhuma categoria selecionada, mostra todas as modalidades
-                this.lista_modalidades_filtradas = [...this.lista_modalidades];
-                return;
-            }
-            
-            // Encontra o nome da categoria selecionada
-            const categoriaSelecionada = this.lista_categorias_all.find(cat => cat.categ_id == categoriaId);
-            
-            if (!categoriaSelecionada) {
-                this.lista_modalidades_filtradas = [...this.lista_modalidades];
-                return;
-            }
-            
-            const nomeCategoria = categoriaSelecionada.categ_titulo;
-            
-            // Filtra as modalidades baseado no mapeamento
-            this.lista_modalidades_filtradas = this.lista_modalidades.filter(modalidade => {
-                // Se a categoria for "Adulto", mostra todas as modalidades
-                //if (nomeCategoria === 'Adulto') {
-                //    return true;
-                //}
-                
-                // Para outras categorias, verifica se a modalidade está na lista permitida
-                const modalidadesPermitidas = this.categoria_modalidades_map[nomeCategoria] || [];
-                return modalidadesPermitidas.some(modalidadePermitida => 
-                    this.compararStrings(modalidade.modl_titulo, modalidadePermitida)
-                );
-            });
-        },
-        
-        compararStrings: function(str1, str2) {
-            // Função para comparar strings ignorando case e acentos
-            return str1.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') === 
-                   str2.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-        },
-		
+
+		selectCategCoreografia: function () {
+			// Limpa a modalidade quando a categoria muda
+			this.fields.corgf_modl_id = '';
+
+			// Filtra as modalidades baseado na categoria selecionada
+			this.filtrarModalidadesPorCategoria();
+
+			// Seu código original continua aqui
+			let form = this.formData(vue.fields);
+			vue.fields.participantes_elenco_json = '';
+			vue.fields.participantes_elenco = [];
+			axios.post(this.urlPost + 'inscricoes/ajaxform/LIST-PARTICIPANTE-POR-CATEG', form).then(function (response) {
+				let respData = response.data;
+				console.log('respData:', respData);
+				if (respData.error_num == '0') {
+					vue.fields.participantes_elenco_json = JSON.stringify(respData.participantes);
+					vue.fields.participantes_elenco = respData.participantes;
+					vue.fields.participantes_elenco_all = respData.participantes_all;
+					console.log('participantes_elenco_all:', vue.fields.participantes_elenco_all);
+					vue.selectCategInferior();
+					console.log('participantes_inferiores:', vue.fields.participantes_inferiores);
+					vue.corgfBTNDisabled = false;
+					return false;
+				} else {
+					vue.fields.participantes_elenco_json = [];
+					vue.fields.participantes_elenco = [];
+					vue.fields.participantes_inferiores = [];
+					vue.corgfBTNDisabled = true;
+
+					Swal.fire({
+						title: 'Atenção!',
+						icon: 'warning',
+						html: 'Não existe participantes relacionados a esta categoria. ' + respData.error_num + ' | ' + respData.error_msg,
+						confirmButtonText: 'Fechar',
+						confirmButtonColor: "#0b8e8e",
+					});
+				}
+			});
+		},
+
+		// Adicione este método junto com os outros métodos
+		filtrarModalidadesPorCategoria: function () {
+			const categoriaId = this.fields.corgf_categ_id;
+
+			if (!categoriaId) {
+				// Se nenhuma categoria selecionada, mostra todas as modalidades
+				this.lista_modalidades_filtradas = [...this.lista_modalidades];
+				return;
+			}
+
+			// Encontra o nome da categoria selecionada
+			const categoriaSelecionada = this.lista_categorias_all.find(cat => cat.categ_id == categoriaId);
+
+			if (!categoriaSelecionada) {
+				this.lista_modalidades_filtradas = [...this.lista_modalidades];
+				return;
+			}
+
+			const nomeCategoria = categoriaSelecionada.categ_titulo;
+
+			// Filtra as modalidades baseado no mapeamento
+			this.lista_modalidades_filtradas = this.lista_modalidades.filter(modalidade => {
+				// Se a categoria for "Adulto", mostra todas as modalidades
+				//if (nomeCategoria === 'Adulto') {
+				//    return true;
+				//}
+
+				// Para outras categorias, verifica se a modalidade está na lista permitida
+				const modalidadesPermitidas = this.categoria_modalidades_map[nomeCategoria] || [];
+				return modalidadesPermitidas.some(modalidadePermitida =>
+					this.compararStrings(modalidade.modl_titulo, modalidadePermitida)
+				);
+			});
+		},
+
+		compararStrings: function (str1, str2) {
+			// Função para comparar strings ignorando case e acentos
+			return str1.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') ===
+				str2.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+		},
+
 		selectFormato: function () {
 			let formatos = vue.lista_formatos;
 			let formtEncontrado = formatos.find(item => item.formt_id === vue.fields.corgf_formt_id);
@@ -519,107 +519,107 @@ var vue = new Vue({
 
 			return (error === 0);
 		},
-		
-		ValidateFormGravarCoreografia : function(){
-    this.ResetErrorGravarCoreografia();
-    var error = 0;
 
-    if(vue.fields.corgf_titulo.length == 0){
-        vue.error.corgf_titulo = "Campo obrigatório";
-        error++;
-    }
-    if( vue.evcfg_config_limites.envio_musica == 1){ 
-        if(vue.fields.corgf_musica.length == 0){
-            vue.error.corgf_musica = "Campo obrigatório";
-            error++;
-        }
-        if(vue.fields.corgf_compositor.length == 0){
-            vue.error.corgf_compositor = "Campo obrigatório";
-            error++;
-        }
-        if(vue.fields.corgf_musica_file.length == 0){
-            vue.error.corgf_musica_file = "Campo obrigatório";
-            error++;
-        }
-    }
-    if(vue.fields.corgf_modl_id.length == 0){
-        vue.error.corgf_modl_id = "Campo obrigatório";
-        error++;
-    }            
-    if(vue.fields.corgf_formt_id.length == 0){
-        vue.error.corgf_formt_id = "Campo obrigatório";
-        error++;
-    }
-    if(vue.fields.corgf_categ_id.length == 0){
-        vue.error.corgf_categ_id = "Campo obrigatório";
-        error++;
-    }
+		ValidateFormGravarCoreografia: function () {
+			this.ResetErrorGravarCoreografia();
+			var error = 0;
 
-    // ⭐⭐ NOVA VALIDAÇÃO PARA LINK DO YOUTUBE (quando seletiva está ativa)
-    if(vue.evcfg_config_limites.seletiva == 1){
-        if(!vue.fields.corgf_evcfg_seletiva || vue.fields.corgf_evcfg_seletiva.length == 0){
-            vue.error.corgf_evcfg_seletiva = "Link do YouTube é obrigatório para coreografias seletivas";
-            error++;
-        } else if (!this.validarLinkYouTube(vue.fields.corgf_evcfg_seletiva)) {
-            vue.error.corgf_evcfg_seletiva = "Link do YouTube inválido. Use um link do YouTube válido (ex: https://www.youtube.com/watch?v=...)";
-            error++;
-        }
-    }
+			if (vue.fields.corgf_titulo.length == 0) {
+				vue.error.corgf_titulo = "Campo obrigatório";
+				error++;
+			}
+			if (vue.evcfg_config_limites.envio_musica == 1) {
+				if (vue.fields.corgf_musica.length == 0) {
+					vue.error.corgf_musica = "Campo obrigatório";
+					error++;
+				}
+				if (vue.fields.corgf_compositor.length == 0) {
+					vue.error.corgf_compositor = "Campo obrigatório";
+					error++;
+				}
+				if (vue.fields.corgf_musica_file.length == 0) {
+					vue.error.corgf_musica_file = "Campo obrigatório";
+					error++;
+				}
+			}
+			if (vue.fields.corgf_modl_id.length == 0) {
+				vue.error.corgf_modl_id = "Campo obrigatório";
+				error++;
+			}
+			if (vue.fields.corgf_formt_id.length == 0) {
+				vue.error.corgf_formt_id = "Campo obrigatório";
+				error++;
+			}
+			if (vue.fields.corgf_categ_id.length == 0) {
+				vue.error.corgf_categ_id = "Campo obrigatório";
+				error++;
+			}
 
-    // verifica se tem 1 coreografo relacionado
-    let qtdElencoCoreografosSelect = vue.fields.elenco_coreografos.length;
-    if( qtdElencoCoreografosSelect == 0 ){
-        Swal.fire({
-            title: 'Atenção!',
-            icon: 'warning',
-            html:
-                'Selecione o mínimo de 1 <br>coreógrafo para o formato escolhido.',
-            confirmButtonText: 'Fechar',
-            confirmButtonColor: "#0b8e8e",
-        });
-        error++;
-    }
+			// ⭐⭐ NOVA VALIDAÇÃO PARA LINK DO YOUTUBE (quando seletiva está ativa)
+			if (vue.evcfg_config_limites.seletiva == 1) {
+				if (!vue.fields.corgf_evcfg_seletiva || vue.fields.corgf_evcfg_seletiva.length == 0) {
+					vue.error.corgf_evcfg_seletiva = "Link do YouTube é obrigatório para coreografias seletivas";
+					error++;
+				} else if (!this.validarLinkYouTube(vue.fields.corgf_evcfg_seletiva)) {
+					vue.error.corgf_evcfg_seletiva = "Link do YouTube inválido. Use um link do YouTube válido (ex: https://www.youtube.com/watch?v=...)";
+					error++;
+				}
+			}
 
-    // verifica se a quantidade de bailarinos está dentro dos limites minimos e máximos
-    let formatos = vue.lista_formatos;
-    let formtEncontrado = formatos.find(item => item.formt_id === vue.fields.corgf_formt_id);
-    let qtdElencoBailarinoSelect = vue.fields.elenco_bailarinos.length;
-    if( qtdElencoBailarinoSelect < formtEncontrado.formt_min_partic ){
-        Swal.fire({
-            title: 'Atenção!',
-            icon: 'warning',
-            html:
-                'Selecione o mínimo de '+ formtEncontrado.formt_min_partic +' <br>participantes para o formato escolhido.',
-            confirmButtonText: 'Fechar',
-            confirmButtonColor: "#0b8e8e",
-        });
-        error++;
-    }
+			// verifica se tem 1 coreografo relacionado
+			let qtdElencoCoreografosSelect = vue.fields.elenco_coreografos.length;
+			if (qtdElencoCoreografosSelect == 0) {
+				Swal.fire({
+					title: 'Atenção!',
+					icon: 'warning',
+					html:
+						'Selecione o mínimo de 1 <br>coreógrafo para o formato escolhido.',
+					confirmButtonText: 'Fechar',
+					confirmButtonColor: "#0b8e8e",
+				});
+				error++;
+			}
 
-    return (error === 0);
-},
+			// verifica se a quantidade de bailarinos está dentro dos limites minimos e máximos
+			let formatos = vue.lista_formatos;
+			let formtEncontrado = formatos.find(item => item.formt_id === vue.fields.corgf_formt_id);
+			let qtdElencoBailarinoSelect = vue.fields.elenco_bailarinos.length;
+			if (qtdElencoBailarinoSelect < formtEncontrado.formt_min_partic) {
+				Swal.fire({
+					title: 'Atenção!',
+					icon: 'warning',
+					html:
+						'Selecione o mínimo de ' + formtEncontrado.formt_min_partic + ' <br>participantes para o formato escolhido.',
+					confirmButtonText: 'Fechar',
+					confirmButtonColor: "#0b8e8e",
+				});
+				error++;
+			}
 
-        validarLinkYouTube: function(url) {
-    // Regex para validar links do YouTube (aceita youtube.com/watch?v= e youtu.be/)
-    const regexYouTube = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-    return regexYouTube.test(url);
-},
-		
+			return (error === 0);
+		},
+
+		validarLinkYouTube: function (url) {
+			// Regex para validar links do YouTube (aceita youtube.com/watch?v= e youtu.be/)
+			const regexYouTube = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+			return regexYouTube.test(url);
+		},
+
 		ResetErrorGravarCoreografiaOld: function () {
 			vue.error.corgf_titulo = "";
 			vue.error.corgf_coreografo = "";
 			vue.error.corgf_musica = "";
 			vue.error.corgf_compositor = "";
 		},
-		
-		ResetErrorGravarCoreografia : function(){
-            vue.error.corgf_titulo = "";
-            vue.error.corgf_coreografo = "";
-            vue.error.corgf_musica = "";
-            vue.error.corgf_compositor = "";
-            vue.error.corgf_evcfg_seletiva = ""; // ⭐⭐ ADICIONAR ESTA LINHA
-        },
-		
+
+		ResetErrorGravarCoreografia: function () {
+			vue.error.corgf_titulo = "";
+			vue.error.corgf_coreografo = "";
+			vue.error.corgf_musica = "";
+			vue.error.corgf_compositor = "";
+			vue.error.corgf_evcfg_seletiva = ""; // ⭐⭐ ADICIONAR ESTA LINHA
+		},
+
 		closeOverlay: function () {
 			vue.messageResult = '';
 			vue.overlay.active = false;
@@ -738,7 +738,7 @@ var vue = new Vue({
 			}
 			vue.fields.coreografia_elenco_all = vue.arrSelectUnicCor;
 		},
-		handleCheckboxChangeElenc: function (jsonDADOS, $event) {
+		handleCheckboxChangeElencOld: function (jsonDADOS, $event) {
 			let partcID = jsonDADOS.partc_id;
 
 			let formatos = vue.lista_formatos;
@@ -757,6 +757,81 @@ var vue = new Vue({
 
 			// Se participante do bloco 4, aplicar limite de 20%
 			if (participanteBloco4 && !jaSelecionado) {
+				let qtdBloco3Selecionados = vue.fields.participantes_elenco.filter(p => vue.selectedBailarinos.includes(p.partc_id)).length;
+				let qtdBloco4Selecionados = vue.fields.participantes_inferiores.filter(p => vue.selectedBailarinos.includes(p.partc_id)).length;
+				let maxBloco4 = Math.floor(qtdBloco3Selecionados * 0.2);
+
+				if (qtdBloco4Selecionados >= maxBloco4) {
+					Swal.fire({
+						title: 'Atenção!',
+						icon: 'warning',
+						html: 'Você atingiu o limite de bailarinos mais jovens (20% do elenco principal).',
+						confirmButtonText: 'Fechar',
+						confirmButtonColor: "#0b8e8e",
+					});
+					$event.target.checked = false;
+					return;
+				}
+			}
+
+			// Verifica limite do formato (bloco 3 + bloco 4)
+			let qtdElencoBailarinoSelect = vue.fields.elenco_bailarinos.length;
+			if (!jaSelecionado && qtdElencoBailarinoSelect >= formtEncontrado.formt_max_partic) {
+				Swal.fire({
+					title: 'Atenção!',
+					icon: 'warning',
+					html: 'Você já selecionou o número máximo de participantes para o formato escolhido.',
+					confirmButtonText: 'Fechar',
+					confirmButtonColor: "#0b8e8e",
+				});
+				$event.target.checked = false;
+				return;
+			}
+
+			// Encontrar participante no array correto
+			let itemEncontrado = participanteBloco3 || participanteBloco4;
+
+			// Selecionar / deselecionar
+			const index = vue.arrSelectUnicCor.findIndex(item => item.partc_id === partcID);
+			if (index === -1) {
+				vue.arrSelectUnicCor.push({
+					partc_documento: itemEncontrado.partc_documento,
+					partc_id: partcID,
+					partc_nome: itemEncontrado.partc_nome
+				});
+				vue.selectedBailarinos.push(partcID);
+			} else {
+				vue.arrSelectUnicCor.splice(index, 1);
+				vue.selectedBailarinos = vue.selectedBailarinos.filter(id => id !== partcID);
+			}
+
+			vue.fields.elenco_bailarinos = vue.selectedBailarinos;
+			vue.fields.coreografia_elenco_all = vue.arrSelectUnicCor;
+		},
+
+		handleCheckboxChangeElenc: function (jsonDADOS, $event) {
+			let partcID = jsonDADOS.partc_id;
+
+			let formatos = vue.lista_formatos;
+			let formtEncontrado = formatos.find(item => item.formt_id === vue.fields.corgf_formt_id);
+
+			let jaSelecionado = vue.selectedBailarinos.includes(partcID);
+
+			// Verifica se participante é do bloco 4 (categoria inferior)
+			let participanteBloco4 = vue.fields.participantes_inferiores.find(p => p.partc_id === partcID);
+			let participanteBloco3 = vue.fields.participantes_elenco.find(p => p.partc_id === partcID);
+
+			if (!participanteBloco3 && !participanteBloco4) {
+				console.warn('Participante não encontrado', partcID);
+				return;
+			}
+
+			// ⭐⭐ MODIFICAÇÃO: Não aplicar limite de 20% para categoria Unificada
+			let categoriaSelecionada = vue.lista_categorias_all.find(c => c.categ_id == vue.fields.corgf_categ_id);
+			let isUnificada = categoriaSelecionada && categoriaSelecionada.categ_titulo === 'Unificada';
+
+			// Se participante do bloco 4 E NÃO for Unificada, aplicar limite de 20%
+			if (participanteBloco4 && !jaSelecionado && !isUnificada) {
 				let qtdBloco3Selecionados = vue.fields.participantes_elenco.filter(p => vue.selectedBailarinos.includes(p.partc_id)).length;
 				let qtdBloco4Selecionados = vue.fields.participantes_inferiores.filter(p => vue.selectedBailarinos.includes(p.partc_id)).length;
 				let maxBloco4 = Math.floor(qtdBloco3Selecionados * 0.2);
@@ -1047,32 +1122,65 @@ var vue = new Vue({
 		},
 
 		selectCategInferior: function () {
+			// Ordem de categorias do mais velho para o mais novo
 			const categoriasOrdem = ['Adulto', 'Juvenil', 'Infantil', 'Baby Class'];
 
-			// 1. Descobre o título da categoria escolhida (usando lista_categorias_all)
+			// 1. Descobre a categoria selecionada
 			let selecionadaObj = vue.lista_categorias_all.find(c => c.categ_id == vue.fields.corgf_categ_id);
 			let selecionada = selecionadaObj ? selecionadaObj.categ_titulo : null;
 
 			if (!selecionada) {
+				vue.fields.participantes_elenco = [];
 				vue.fields.participantes_inferiores = [];
 				return;
 			}
 
-			// 2. Descobre quais categorias vêm abaixo
-			let idx = categoriasOrdem.indexOf(selecionada);
-			if (idx === -1) {
-				vue.fields.participantes_inferiores = [];
-				return;
+			// 2. Participantes da categoria selecionada
+			let participantesElenco = [];
+			switch (selecionada) {
+				case 'Unificada':
+				case 'Adulto':
+					// Todos os adultos entram na categoria selecionada
+					participantesElenco = vue.fields.participantes_elenco_all.filter(p => p.categ_titulo === 'Adulto');
+					break;
+				case 'Juvenil':
+				case 'Infantil':
+				case 'Baby Class':
+					participantesElenco = vue.fields.participantes_elenco_all.filter(p => p.categ_titulo === selecionada);
+					break;
+				default:
+					participantesElenco = [];
 			}
-			let categoriasInferiores = categoriasOrdem.slice(idx + 1);
+			vue.fields.participantes_elenco = participantesElenco;
 
-			// 3. Filtra do all
+			// 3. Categorias inferiores
+			let categoriasInferiores = [];
+			switch (selecionada) {
+				case 'Unificada':
+					categoriasInferiores = ['Juvenil', 'Infantil', 'Baby Class'];
+					break;
+				case 'Adulto':
+					categoriasInferiores = ['Juvenil', 'Infantil', 'Baby Class'];
+					break;
+				case 'Juvenil':
+					categoriasInferiores = ['Infantil', 'Baby Class'];
+					break;
+				case 'Infantil':
+					categoriasInferiores = ['Baby Class'];
+					break;
+				case 'Baby Class':
+					categoriasInferiores = [];
+					break;
+			}
+
+			// 4. Participantes inferiores
 			vue.fields.participantes_inferiores = vue.fields.participantes_elenco_all.filter(p =>
 				categoriasInferiores.includes(p.categ_titulo)
 			);
 
-			console.log("Categoria escolhida:", selecionada);
-			console.log("Categorias inferiores:", categoriasInferiores);
+			// DEBUG
+			console.log("Categoria selecionada:", selecionada);
+			console.log("Participantes da categoria:", vue.fields.participantes_elenco);
 			console.log("Participantes inferiores:", vue.fields.participantes_inferiores);
 		}
 
@@ -1081,17 +1189,17 @@ var vue = new Vue({
 
 	},
 
-    // Adicione esta seção watch após a seção methods
-    watch: {
-        'fields.corgf_categ_id': {
-            handler(newVal, oldVal) {
-                if (newVal !== oldVal) {
-                    this.filtrarModalidadesPorCategoria();
-                }
-            },
-            immediate: true
-        }
-    },
+	// Adicione esta seção watch após a seção methods
+	watch: {
+		'fields.corgf_categ_id': {
+			handler(newVal, oldVal) {
+				if (newVal !== oldVal) {
+					this.filtrarModalidadesPorCategoria();
+				}
+			},
+			immediate: true
+		}
+	},
 
 	//beforeMount() {
 	//	// carregar assim que montar a tela
@@ -1127,9 +1235,9 @@ var vue = new Vue({
 		$(".mask-cnpj").mask('00.000.000/0000-00', { placeholder: "__.___.___/____-__", clearIfNotMatch: true });
 
 		$(".mask-cep").mask('00000-000', { placeholder: "_____-__", clearIfNotMatch: true });
-		
+
 		// Inicializa a lista de modalidades filtradas
-        this.lista_modalidades_filtradas = [...this.lista_modalidades];
+		this.lista_modalidades_filtradas = [...this.lista_modalidades];
 	},
 
 });
