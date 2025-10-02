@@ -139,3 +139,87 @@ in APPPATH\Controllers\Inscricoes.php on line 5964.
  3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscricoes))
  4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-02 18:01:12 --> Undefined variable $part_email
+in APPPATH\Controllers\Inscricoes.php on line 5650.
+ 1 APPPATH\Controllers\Inscricoes.php(5650): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $part_email', 'C:\\xampp\\htdocs\\stwinfo\\FestOn\\app\\Controllers\\Inscricoes.php', 5650)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Inscricoes->ajaxform('UPDATE-PARTICIPANTE')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscricoes))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-02 18:01:16 --> Undefined variable $part_email
+in APPPATH\Controllers\Inscricoes.php on line 5650.
+ 1 APPPATH\Controllers\Inscricoes.php(5650): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $part_email', 'C:\\xampp\\htdocs\\stwinfo\\FestOn\\app\\Controllers\\Inscricoes.php', 5650)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Inscricoes->ajaxform('UPDATE-PARTICIPANTE')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscricoes))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-02 18:01:16 --> Undefined variable $part_email
+in APPPATH\Controllers\Inscricoes.php on line 5650.
+ 1 APPPATH\Controllers\Inscricoes.php(5650): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $part_email', 'C:\\xampp\\htdocs\\stwinfo\\FestOn\\app\\Controllers\\Inscricoes.php', 5650)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Inscricoes->ajaxform('UPDATE-PARTICIPANTE')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscricoes))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-02 18:01:16 --> Undefined variable $part_email
+in APPPATH\Controllers\Inscricoes.php on line 5650.
+ 1 APPPATH\Controllers\Inscricoes.php(5650): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $part_email', 'C:\\xampp\\htdocs\\stwinfo\\FestOn\\app\\Controllers\\Inscricoes.php', 5650)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Inscricoes->ajaxform('UPDATE-PARTICIPANTE')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscricoes))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-02 18:01:17 --> Undefined variable $part_email
+in APPPATH\Controllers\Inscricoes.php on line 5650.
+ 1 APPPATH\Controllers\Inscricoes.php(5650): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $part_email', 'C:\\xampp\\htdocs\\stwinfo\\FestOn\\app\\Controllers\\Inscricoes.php', 5650)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Inscricoes->ajaxform('UPDATE-PARTICIPANTE')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscricoes))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-02 18:01:17 --> Undefined variable $part_email
+in APPPATH\Controllers\Inscricoes.php on line 5650.
+ 1 APPPATH\Controllers\Inscricoes.php(5650): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $part_email', 'C:\\xampp\\htdocs\\stwinfo\\FestOn\\app\\Controllers\\Inscricoes.php', 5650)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Inscricoes->ajaxform('UPDATE-PARTICIPANTE')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscricoes))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-02 18:01:25 --> Undefined variable $part_email
+in APPPATH\Controllers\Inscricoes.php on line 5650.
+ 1 APPPATH\Controllers\Inscricoes.php(5650): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $part_email', 'C:\\xampp\\htdocs\\stwinfo\\FestOn\\app\\Controllers\\Inscricoes.php', 5650)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Inscricoes->ajaxform('UPDATE-PARTICIPANTE')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscricoes))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-02 18:01:26 --> Undefined variable $part_email
+in APPPATH\Controllers\Inscricoes.php on line 5650.
+ 1 APPPATH\Controllers\Inscricoes.php(5650): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $part_email', 'C:\\xampp\\htdocs\\stwinfo\\FestOn\\app\\Controllers\\Inscricoes.php', 5650)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Inscricoes->ajaxform('UPDATE-PARTICIPANTE')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscricoes))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-02 18:01:26 --> Undefined variable $part_email
+in APPPATH\Controllers\Inscricoes.php on line 5650.
+ 1 APPPATH\Controllers\Inscricoes.php(5650): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $part_email', 'C:\\xampp\\htdocs\\stwinfo\\FestOn\\app\\Controllers\\Inscricoes.php', 5650)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Inscricoes->ajaxform('UPDATE-PARTICIPANTE')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscricoes))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-02 18:01:26 --> Undefined variable $part_email
+in APPPATH\Controllers\Inscricoes.php on line 5650.
+ 1 APPPATH\Controllers\Inscricoes.php(5650): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $part_email', 'C:\\xampp\\htdocs\\stwinfo\\FestOn\\app\\Controllers\\Inscricoes.php', 5650)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Inscricoes->ajaxform('UPDATE-PARTICIPANTE')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscricoes))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-02 18:01:26 --> Undefined variable $part_email
+in APPPATH\Controllers\Inscricoes.php on line 5650.
+ 1 APPPATH\Controllers\Inscricoes.php(5650): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $part_email', 'C:\\xampp\\htdocs\\stwinfo\\FestOn\\app\\Controllers\\Inscricoes.php', 5650)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Inscricoes->ajaxform('UPDATE-PARTICIPANTE')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscricoes))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-02 18:01:27 --> Undefined variable $part_email
+in APPPATH\Controllers\Inscricoes.php on line 5650.
+ 1 APPPATH\Controllers\Inscricoes.php(5650): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $part_email', 'C:\\xampp\\htdocs\\stwinfo\\FestOn\\app\\Controllers\\Inscricoes.php', 5650)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Inscricoes->ajaxform('UPDATE-PARTICIPANTE')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Inscricoes))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

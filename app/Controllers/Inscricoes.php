@@ -5563,6 +5563,7 @@ class Inscricoes extends BaseController
 					$func_id = (int)$this->request->getPost('func_id');
 					$categ_id = (int)$this->request->getPost('categ_id');
 					$partc_dte_nascto = $this->request->getPost('partc_dte_nascto');
+					$partc_email = $this->request->getPost('partc_email');
 
 					// verificar se atualiza a cidade, ou se guarda a cidade somente em participantes
 					$uf_id = (int)$this->request->getPost('uf_id');
@@ -5646,6 +5647,7 @@ class Inscricoes extends BaseController
 							//'partc_nome' => $partc_nome,
 							'partc_nome_social' => $partc_nome_social,
 							'partc_telefone' => $partc_telefone,
+							'partc_email' => $partc_email,
 							//'partc_genero' => $partc_genero,
 							//'partc_documento' => $partc_documento,
 							//'partc_file_foto' => $partc_file_foto,
