@@ -172,14 +172,14 @@
 																	<div id="<?php echo( $grp_hashkey ); ?>" class="card card-users card-shadows">
 																		<div class="card-body p-0">
 																			<div class="item-head" style="padding: .5rem 1rem;">
-																				<a href="<?php echo( $link_participantes ); ?>">
+																				
 																					<h5><?php echo( $grp_titulo ); ?></h5>
 																				</a>
 																			</div>
 																			<div class="item">
 																				<div class="row justify-content-center align-items-center">
 																					<div class="col-12 col-md-auto">
-																						<a href="<?php echo( $link_participantes ); ?>"><div class="user-avatar-bg" style="background-image: url('<?php echo( $path_image ); ?>'); <?php echo( $filter ); ?>"></div></a>
+																						<div class="user-avatar-bg" style="background-image: url('<?php echo( $path_image ); ?>'); <?php echo( $filter ); ?>"></div></a>
 																					</div>
 																					<div class="col-12 col-md">
 																						<!-- <label class="data">início em 15.10.2024</label> -->

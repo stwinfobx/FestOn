@@ -70,8 +70,7 @@
 
 										</div>
 										<div class="col-12 col-md-9">
-
-											<?php if (isset($rs_grupos) ){ ?>												
+											<?php if (isset($rs_grupos) ) ?>												
 											<div  style="min-height: 100%;" v-show="show_form == 0">
 												<div class="container">
 													<div class="row justify-content-center">
@@ -129,7 +128,7 @@
 													</div>
 												</div>
 											</div>
-											<?php }else{ ?>
+											<?php ?>
 											<div  style="min-height: 100%;" v-show="show_form == 0">
 												<div class="container">
 													<div class="row justify-content-center">
@@ -993,5 +992,6 @@
 
 	<script type="text/javascript" src="assets/vue/utils.js?t=<?= $time ?>"></script>
 	<script type="text/javascript" src="assets/vue/inscricoes-grupos.js?t=<?= $time ?>"></script>
+
 
 <?php $this->endSection('scripts'); ?>
