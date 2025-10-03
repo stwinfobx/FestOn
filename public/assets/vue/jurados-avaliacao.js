@@ -6,12 +6,14 @@
 var vue = new Vue({
 	el : "#app",
 
-	data : {
+    data : {
         step: 1,
 		avaliacoes: {},
 		coreografia_hashkey: '',
 		loading: false,
 		urlPost: SITE_URL,
+        jurado_id: typeof window.JURD_ID !== 'undefined' ? window.JURD_ID : '',
+        grupo_coreos: Array.isArray(window.GROUP_COREOS) ? window.GROUP_COREOS : [],
 	},
 
 	computed: {
@@ -32,8 +34,72 @@ var vue = new Vue({
 		}
 	},
 
-	methods: {
-		validateAndUpdate(event, criterio_id) {
+    methods: {
+        storageKey() {
+            return `jurado_${this.jurado_id}_corgf_${this.coreografia_hashkey}`;
+        },
+
+        salvarLocal() {
+            try {
+                const payload = {
+                    avaliacoes: this.avaliacoes,
+                    keys: Object.keys(this.avaliacoes),
+                    ts: Date.now(),
+                };
+                localStorage.setItem(this.storageKey(), JSON.stringify(payload));
+            } catch (e) {
+                console.warn('Falha ao salvar no navegador:', e);
+            }
+        },
+
+        carregarLocal() {
+            try {
+                const raw = localStorage.getItem(this.storageKey());
+                if (!raw) return;
+                const payload = JSON.parse(raw);
+                if (payload && payload.avaliacoes) {
+                    this.avaliacoes = payload.avaliacoes;
+                }
+            } catch (e) {
+                console.warn('Falha ao carregar do navegador:', e);
+            }
+        },
+
+        isNotaValida(v) {
+            if (v === '' || v === null || v === undefined) return false;
+            const n = parseFloat(v);
+            if (isNaN(n)) return false;
+            return n >= 0 && n <= 10;
+        },
+
+        isCoreografiaCompleta(hashkey) {
+            try {
+                const key = `jurado_${this.jurado_id}_corgf_${hashkey}`;
+                const raw = localStorage.getItem(key);
+                if (!raw) return false;
+                const payload = JSON.parse(raw);
+                const notas = payload && payload.avaliacoes ? payload.avaliacoes : {};
+                const keys = payload && payload.keys ? payload.keys : Object.keys(notas);
+                if (!keys || keys.length === 0) return false;
+                // Todos os critérios presentes devem ser válidos 0-10
+                for (let k of keys) {
+                    const v = notas[k];
+                    if (!this.isNotaValida(v)) return false;
+                }
+                return true;
+            } catch (e) {
+                return false;
+            }
+        },
+
+        isGrupoCompleto() {
+            if (!this.grupo_coreos || this.grupo_coreos.length === 0) return false;
+            for (let hash of this.grupo_coreos) {
+                if (!this.isCoreografiaCompleta(hash)) return false;
+            }
+            return true;
+        },
+        validateAndUpdate(event, criterio_id) {
 			let valor = event.target.value;
 			const elemento = event.target;
 			
@@ -67,11 +133,10 @@ var vue = new Vue({
 				elemento.classList.add('input-preenchido');
 			}
 			
-			// Atualiza o Vue data
+            // Atualiza o Vue data
 			this.$set(this.avaliacoes, criterio_id, valor);
-			
-			// Salva automaticamente (debounced)
-			this.salvarAvaliacoesDebounced();
+            // Salva imediatamente no navegador (não no servidor)
+            this.salvarLocal();
 		},
 
 		updateInputStyle(event, criterio_id) {
@@ -79,56 +144,7 @@ var vue = new Vue({
 			this.validateAndUpdate(event, criterio_id);
 		},
 
-		salvarAvaliacoes() {
-			if (this.loading) return;
-			
-			this.loading = true;
-			
-			console.log('=== SALVANDO AVALIAÇÕES ===');
-			console.log('Coreografia hashkey:', this.coreografia_hashkey);
-			console.log('Avaliações atuais:', this.avaliacoes);
-			
-			const formData = new FormData();
-			formData.append('corgf_hashkey', this.coreografia_hashkey);
-			formData.append('avaliacoes', JSON.stringify(this.avaliacoes));
-			
-			// Adiciona cada avaliação individualmente (OBRIGATÓRIO)
-			for (let criterio_id in this.avaliacoes) {
-				const nota = this.avaliacoes[criterio_id];
-				// Só envia se tiver valor válido
-				if (nota !== '' && nota !== null && nota !== undefined && !isNaN(nota)) {
-					formData.append(`avaliacoes[${criterio_id}]`, nota);
-					console.log(`Enviando: criterio_id=${criterio_id}, nota=${nota}`);
-				}
-			}
-			
-			console.log('URL da requisição:', this.urlPost + 'jurados/ajaxform/SALVAR-AVALIACOES');
-			
-			axios.post(this.urlPost + 'jurados/ajaxform/SALVAR-AVALIACOES', formData)
-				.then(response => {
-					console.log('Resposta do servidor:', response.data);
-					const respData = response.data;
-					if (respData.error_num === '0') {
-						// Sucesso - força atualização visual
-						console.log('✅ Avaliações salvas automaticamente:', this.avaliacoes);
-						this.atualizarEstiloInputs();
-					} else {
-						console.error('❌ Erro ao salvar avaliações:', respData.error_msg);
-					}
-				})
-				.catch(error => {
-					console.error('❌ Erro na requisição:', error);
-					console.error('Detalhes do erro:', error.response);
-				})
-				.finally(() => {
-					this.loading = false;
-				});
-		},
-
-		// Função debounced para salvar avaliações
-		salvarAvaliacoesDebounced: _.debounce(function() {
-			this.salvarAvaliacoes();
-		}, 1000),
+        // Removido: salvamento automático no servidor
 
 		finalizarAvaliacao() {
 			if (!this.todasNotasPreenchidas) {
@@ -159,11 +175,23 @@ var vue = new Vue({
 			});
 		},
 
-		executarFinalizacao() {
+        executarFinalizacao() {
+            // Bloqueia se o grupo (todas as coreografias) não estiver completo
+            if (!this.isGrupoCompleto()) {
+                Swal.fire({
+                    title: 'Avaliação Incompleta',
+                    html: '<p>Preencha todas as coreografias do grupo antes de concluir.</p>',
+                    icon: 'warning',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#ffa902'
+                });
+                return;
+            }
 			this.loading = true;
 			
 			const formData = new FormData();
 			formData.append('corgf_hashkey', this.coreografia_hashkey);
+            formData.append('avaliacoes', JSON.stringify(this.avaliacoes));
 			
 			axios.post(this.urlPost + 'jurados/ajaxform/FINALIZAR-COREOGRAFIA', formData)
 				.then(response => {
@@ -245,8 +273,10 @@ var vue = new Vue({
 		inicializarAvaliacoes() {
 			console.log('=== INICIALIZANDO AVALIAÇÕES ===');
 			
-			// Limpar avaliações existentes
-			this.avaliacoes = {};
+            // Não limpar: preservar o que veio do localStorage
+            if (!this.avaliacoes || typeof this.avaliacoes !== 'object') {
+                this.avaliacoes = {};
+            }
 			
 			// Inicializar avaliações com valores existentes dos inputs
 			const inputs = document.querySelectorAll('input[name^="avaliacoes["]');
@@ -256,15 +286,21 @@ var vue = new Vue({
 				const matches = input.name.match(/avaliacoes\[(\d+)\]/);
 				if (matches) {
 					const criterio_id = matches[1];
-					const valor = input.value || '';
+                    // Priorizar o valor salvo em localStorage
+                    let valor = (this.avaliacoes && this.avaliacoes[criterio_id] !== undefined)
+                        ? this.avaliacoes[criterio_id]
+                        : (input.value || '');
 					
 					console.log(`Input: criterio_id=${criterio_id}, valor=${valor}`);
 					
 					// Força a atualização do Vue
 					this.$set(this.avaliacoes, criterio_id, valor);
 					
-					// Aplicar estilo se tiver valor válido
-					if (valor !== '' && valor !== null && valor !== undefined && !isNaN(valor) && valor >= 0) {
+                    // Forçar o input a refletir o valor salvo
+                    input.value = valor;
+
+                    // Aplicar estilo se tiver valor válido
+                    if (valor !== '' && valor !== null && valor !== undefined && !isNaN(valor) && valor >= 0) {
 						input.classList.add('input-preenchido');
 					} else {
 						input.classList.remove('input-preenchido');
@@ -285,7 +321,7 @@ var vue = new Vue({
 			}
 		},
 
-		atualizarEstiloInputs() {
+        atualizarEstiloInputs() {
 			// Atualiza o estilo visual de todos os inputs baseado nas avaliações
 			const inputs = document.querySelectorAll('input[name^="avaliacoes["]');
 			inputs.forEach(input => {
@@ -309,9 +345,12 @@ var vue = new Vue({
 	mounted() {
 		// Extrair hashkey da coreografia da URL
 		this.extrairCoreografiaHashkey();
+        // Carregar notas salvas para esta coreografia antes de inicializar
+        this.carregarLocal();
 		
 		// Inicializar avaliações com valores existentes
 		this.inicializarAvaliacoes();
+        this.atualizarEstiloInputs();
 		
 		// Verificar mudanças nos inputs nativos
 		const inputs = document.querySelectorAll('input[name^="avaliacoes["]');

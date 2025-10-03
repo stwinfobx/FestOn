@@ -42,7 +42,7 @@ class Jurados extends BaseController
 		$this->data['criterios'] = [];
 		$this->data['avaliacoes_existentes'] = [];
 		
-		// Carregar lista de todos os grupos (simplificado)
+        // Carregar lista de todos os grupos (simplificado)
 		$this->data['grupos_lista'] = [];
 		try {
 			$gruposQuery = $this->corgfMD
@@ -67,7 +67,7 @@ class Jurados extends BaseController
 			$this->data['grupos_lista'] = [];
 		}
 
-		if ($corgf_hashkey) {
+        if ($corgf_hashkey) {
 			// BUSCAR COREOGRAFIA REAL DO BANCO DE DADOS
 			$coreografia = $this->corgfMD->select('tbl_coreografias.*, tbl_grupos.grp_titulo, tbl_grupos.grp_id, 
 													tbl_modalidades.modl_titulo, tbl_formatos.formt_titulo, 
@@ -114,9 +114,25 @@ class Jurados extends BaseController
 				// Buscar critérios de avaliação
 				$insti_id = session()->get('insti_id') ?: 1;
 				$criterios = $this->critMD->select_all_by_insti_id($insti_id);
-				$this->data['criterios'] = $criterios;
+                // Sincronizar critérios com a especificação
+                $isRepertorio = false;
+                $modl = (string)($coreografia->modl_titulo ?? '');
+                $gene = '';
+                $isRepertorio = (stripos($modl, 'balé clássico de repertório') !== false) || (stripos($modl, 'bale classico de repertorio') !== false);
+
+                $criterios_spec = [];
+                $add = function(int $id, string $titulo) use (&$criterios_spec) {
+                    $criterios_spec[] = (object)[ 'crit_id' => $id, 'crit_titulo' => $titulo, 'crit_ativo' => 1 ];
+                };
+                $add(101, 'Técnica');
+                $add(102, 'Coreografia');
+                $add(103, 'Consistência da Proposta');
+                $add(104, 'Adequação Etária');
+                if ($isRepertorio) { $add(105, 'Fidelidade'); }
+
+                $this->data['criterios'] = $criterios_spec;
 				
-				// Buscar avaliações já existentes da coreografia atual
+                // Buscar avaliações já existentes da coreografia atual
 				$jurd_id = session()->get('jurd_id') ?: 1;
 				if ($jurd_id) {
 					$avaliacoes = $this->avalMD->get_avaliacoes_by_jurado_coreografia($jurd_id, $coreografia->corgf_id);
@@ -1123,28 +1139,83 @@ class Jurados extends BaseController
 			
 			if ($this->request->getPost()) {
 				$corgf_hashkey = $this->request->getPost('corgf_hashkey');
+				$avaliacoesPost = $this->request->getPost('avaliacoes');
 				
 				// Buscar coreografia
 				$coreografia = $this->corgfMD->where('corgf_hashkey', $corgf_hashkey)->first();
 				
 				if ($coreografia) {
-					$grp_id = $coreografia->grp_id;
-					$insti_id = (int)session()->get('insti_id') ?: 1;
+					$grp_id = (int)$coreografia->grp_id;
+					$corgf_id = (int)$coreografia->corgf_id;
 					
-					// Verificar se TODAS as coreografias do grupo têm notas para TODOS os critérios
-					if ($this->avalMD->verificar_grupo_completo($jurd_id, $grp_id, $insti_id)) {
-						// Finalizar TODAS as coreografias do grupo para este jurado
-						if ($this->avalMD->finalizar_grupo($jurd_id, $grp_id)) {
+					// Mapear avaliacoes (crit_id => nota) para chaves padronizadas
+					$notas = [ 'tecnica' => null, 'coreografia' => null, 'consistencia' => null, 'adequacao' => null, 'fidelidade' => null ];
+					$mapTitulo = function(string $titulo){
+						$t = mb_strtolower($titulo);
+						if (strpos($t, 'técnica') !== false || strpos($t, 'tecnica') !== false) return 'tecnica';
+						if (strpos($t, 'coreografia') !== false) return 'coreografia';
+						if (strpos($t, 'consist') !== false) return 'consistencia';
+						if (strpos($t, 'adequ') !== false) return 'adequacao';
+						if (strpos($t, 'fidelid') !== false) return 'fidelidade';
+						return '';
+					};
+					
+					// Carregar critérios para mapear ids
+					$criterios = $this->critMD->select_all_by_insti_id($insti_id);
+					$critIdToKey = [];
+					foreach ($criterios as $c) {
+						$key = $mapTitulo((string)$c->crit_titulo);
+						if (!empty($key)) { $critIdToKey[(int)$c->crit_id] = $key; }
+					}
+					
+					// Parse avaliacoes do POST (JSON)
+					$posted = [];
+					if (!empty($avaliacoesPost)) {
+						if (is_string($avaliacoesPost)) {
+							$posted = json_decode($avaliacoesPost, true) ?: [];
+						} elseif (is_array($avaliacoesPost)) {
+							$posted = $avaliacoesPost;
+						}
+					}
+					foreach ($posted as $critId => $nota) {
+						$critIdInt = (int)$critId;
+						if (!isset($critIdToKey[$critIdInt])) continue;
+						$key = $critIdToKey[$critIdInt];
+						if ($nota === '' || $nota === null) continue;
+						$notas[$key] = (float)$nota;
+					}
+					
+					// Validar preenchimento (somente critérios aplicáveis)
+					$missing = [];
+					foreach (['tecnica','coreografia','consistencia','adequacao'] as $k) {
+						if ($notas[$k] === null) { $missing[] = $k; }
+					}
+					if (!empty($missing)) {
+						$error_msg = 'Você precisa avaliar todos os critérios antes de concluir.';
+					} else {
+						// Calcular total (soma simples dos aplicáveis)
+						$total = 0.0;
+						foreach (['tecnica','coreografia','consistencia','adequacao','fidelidade'] as $k) {
+							if ($notas[$k] !== null) { $total += (float)$notas[$k]; }
+						}
+						
+						$paramsSave = [
+							'insti_id' => $insti_id,
+							'jurd_id' => $jurd_id,
+							'corgf_id' => $corgf_id,
+							'notas' => $notas,
+							'total' => $total,
+							'status_avaliacao' => 'enviado',
+							'data_hora' => date('Y-m-d H:i:s'),
+						];
+						
+						if ($this->avalMD->salvar_avaliacao_final($paramsSave)) {
 							$error_num = "0";
-							$error_msg = "Grupo finalizado com sucesso! Redirecionando...";
-							
-							// SEMPRE redirecionar para /jurados (sem hash) para buscar próximo grupo automaticamente
+							$error_msg = "Avaliação salva com sucesso";
 							$redirect_url = site_url('jurados');
 						} else {
-							$error_msg = "Erro ao finalizar grupo";
+							$error_msg = "Erro ao salvar avaliação";
 						}
-					} else {
-						$error_msg = "Você precisa avaliar TODAS as coreografias do grupo antes de concluir!";
 					}
 				} else {
 					$error_msg = "Coreografia não encontrada";

@@ -353,7 +353,6 @@ class Inscricoes extends BaseController
 					'grevt_ativo' => 1,
 				];
 				$grevt_id = $this->grevtMD->insert($data_event_db);
-
 				return $this->response->redirect(site_url('inscricoes/participantes/' . $grevt_hashkey));
 			}
 		}

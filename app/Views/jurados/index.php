@@ -193,17 +193,13 @@
 
                     <!-- Navegação entre coreografias COM VÍDEO (mostrar mesmo com 1 item) -->
                     <?php if (!empty($coreografias_grupo) && count($coreografias_grupo) >= 1): ?>
-					<div class="card card-workshops mt-3">
-						<div class="card-body p-0">
-							<div class="item" style="background-color: #28447a;">
-								<div class="row justify-content-center align-items-center">
-									<div class="col-12 text-center">
-                                        <h4 style="color: white; margin-bottom: 15px;">Coreografias do Grupo</h4>
-
-                                        <!-- Removido: listagem de grupos aqui. Avanço de grupo será feito no Concluir. -->
-										
-										<!-- VÍDEO DA COREOGRAFIA ATUAL -->
-										<?php if (!empty($coreografia_atual->corgf_linkvideo)): ?>
+                    <div class="card card-workshops mt-3">
+                        <div class="card-body p-0">
+                            <div class="item" style="background-color: #dddddb;">
+                                <div class="row justify-content-center align-items-center">
+                                    <div class="col-12 text-center">
+                                        <!-- VÍDEO DA COREOGRAFIA ATUAL -->
+                                        <?php if (!empty($coreografia_atual->corgf_linkvideo)): ?>
                                         <div class="mb-3">
                                             <?php if (!empty($video_embed)): ?>
                                                 <iframe width="100%" height="300" 
@@ -217,15 +213,13 @@
                                                 </div>
                                             <?php endif; ?>
                                         </div>
-										<?php endif; ?>
-										
-                                        <!-- Removido: botões por coreografia (pager abaixo já controla a navegação) -->
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<?php endif; ?>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endif; ?>
 
 					<!-- Botões de ação -->
 					<div class="row justify-content-center pt-4">
@@ -923,6 +917,16 @@
 	<script src="assets/plugins/sweet-alert2/sweetalert2.min.js"></script>
 
 	<script>
+		// Variáveis globais para o Vue
+		window.JURD_ID = <?php echo json_encode((int)(session()->get('jurd_id') ?: 0)); ?>;
+		window.GROUP_COREOS = <?php 
+			$hashes = [];
+			if (!empty($coreografias_grupo)) {
+				foreach ($coreografias_grupo as $c) { $hashes[] = (string)$c->corgf_hashkey; }
+			}
+			echo json_encode($hashes);
+		?>;
+		window.CURRENT_COREO = <?php echo json_encode((string)($coreografia_atual->corgf_hashkey ?? '')); ?>;
 	$(document).ready(function () {
 		$('.flatpickr_date').flatpickr({
 			"locale": "pt",

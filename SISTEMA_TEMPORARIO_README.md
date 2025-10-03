@@ -131,3 +131,7 @@ http://seu-site.com/jurados
 **Interface:** ✅ Responsiva, ✅ Vue.js, ✅ Estados visuais  
 **Backend:** ✅ CRUD, ✅ Validação, ✅ Redirecionamento  
 **Dados:** ✅ Arquivo texto, ✅ Simulação completa
+
+
+
+

@@ -79,3 +79,7 @@ INSERT IGNORE INTO `tbl_criterios` (`insti_id`, `crit_hashkey`, `crit_urlpage`, 
 ## ⚠️ Nota Importante
 Os valores padrão (`jurd_id = 1`, `insti_id = 1`) são temporários para testes. 
 Em produção, implemente autenticação adequada para definir esses valores corretamente.
+
+
+
+

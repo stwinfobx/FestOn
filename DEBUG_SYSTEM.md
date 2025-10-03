@@ -80,3 +80,7 @@ http://seu-site.com/jurados
 3. Confirme funcionamento de todas as funcionalidades
 
 **Sistema pronto para uso! 🎊**
+
+
+
+

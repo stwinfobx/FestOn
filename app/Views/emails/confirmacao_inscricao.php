@@ -220,7 +220,7 @@
 
         <!-- Button -->
         <div class="button-container">
-            <a href="<?= base_url('inscricoes/status/' . $grevt_hashkey) ?>" class="btn">
+            <a href="<?= base_url('index.php/inscricoes/status/' . $grevt_hashkey) ?>" class="btn">
                 VER STATUS DA INSCRIÇÃO
             </a>
         </div>
