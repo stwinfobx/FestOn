@@ -3,6 +3,78 @@
 	$this->section('content'); 
 ?>
 	<section class="pt-3 pb-4" id="app">
+		<!-- BOTÃO DE FILTRO COMPACTO -->
+		<div class="filtro-botao" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+			<button type="button" class="btn btn-primary btn-sm" id="abrir-filtros" style="border-radius: 20px; padding: 8px 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+				<i class="fas fa-filter me-1"></i> Filtros
+			</button>
+		</div>
+		
+		<!-- MODAL DE FILTROS -->
+		<div class="modal fade" id="modalFiltros" tabindex="-1" aria-labelledby="modalFiltrosLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content" style="border-radius: 12px; border: none; box-shadow: 0 8px 32px rgba(0,0,0,0.2);">
+					<div class="modal-header" style="border-bottom: 1px solid #eee; padding: 20px 24px 16px;">
+						<h5 class="modal-title" id="modalFiltrosLabel" style="color: #333; font-weight: 600;">
+							<i class="fas fa-filter me-2"></i>Filtros de Avaliação
+						</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body" style="padding: 20px 24px;">
+						<div class="mb-4">
+							<label class="form-label" style="color: #555; font-weight: 500; margin-bottom: 8px;">Formato</label>
+							<select class="form-select" id="filtro-formato" style="border-radius: 8px; border: 1px solid #ddd; padding: 10px 12px;">
+								<option value="">Selecione o formato</option>
+								<?php if (!empty($formatos)): ?>
+									<?php foreach ($formatos as $formato): ?>
+										<option value="<?php echo esc($formato->formt_id); ?>">
+											<?php echo esc($formato->formt_titulo); ?>
+										</option>
+									<?php endforeach; ?>
+								<?php endif; ?>
+							</select>
+						</div>
+						
+						<div class="mb-4">
+							<label class="form-label" style="color: #555; font-weight: 500; margin-bottom: 8px;">Modalidade</label>
+							<select class="form-select" id="filtro-modalidade" style="border-radius: 8px; border: 1px solid #ddd; padding: 10px 12px;">
+								<option value="">Selecione a modalidade</option>
+								<?php if (!empty($modalidades)): ?>
+									<?php foreach ($modalidades as $modalidade): ?>
+										<option value="<?php echo esc($modalidade->modl_id); ?>">
+											<?php echo esc($modalidade->modl_titulo); ?>
+										</option>
+									<?php endforeach; ?>
+								<?php endif; ?>
+							</select>
+						</div>
+						
+						<div class="mb-4">
+							<label class="form-label" style="color: #555; font-weight: 500; margin-bottom: 8px;">Categoria</label>
+							<select class="form-select" id="filtro-categoria" style="border-radius: 8px; border: 1px solid #ddd; padding: 10px 12px;">
+								<option value="">Selecione a categoria</option>
+								<?php if (!empty($categorias)): ?>
+									<?php foreach ($categorias as $categoria): ?>
+										<option value="<?php echo esc($categoria->categ_id); ?>">
+											<?php echo esc($categoria->categ_titulo); ?>
+										</option>
+									<?php endforeach; ?>
+								<?php endif; ?>
+							</select>
+						</div>
+					</div>
+					<div class="modal-footer" style="border-top: 1px solid #eee; padding: 16px 24px 20px;">
+						<button type="button" class="btn btn-outline-secondary" id="limpar-filtros" style="border-radius: 8px; padding: 8px 16px;">
+							<i class="fas fa-eraser me-1"></i>Limpar Filtros
+						</button>
+						<button type="button" class="btn btn-primary" id="aplicar-filtros" style="border-radius: 8px; padding: 8px 20px;">
+							<i class="fas fa-check me-1"></i>Aplicar Filtros
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<div class="container">
 			<div class="row pt-3 pb-5">
 				<div class="col-12 col-md-12">
@@ -14,12 +86,18 @@
 
 							<div class="card card-workshop mb-3 h-100" style="border-radius: 8px !important;">
 								<div class="card-body text-center">
-									<?php if ($coreografia_atual): ?>
-									<div class="work-item pb-3">
-										<h2 class="m-0" style="font-size: 1.5rem; color: #FFF; font-weight: 600;">
-											<?php echo esc($coreografia_atual->corgf_titulo); ?>
-										</h2>
-									</div>
+					<?php if (isset($mensagem) && !empty($mensagem)): ?>
+					<div class="work-item pb-3">
+						<h2 class="m-0" style="font-size: 1.5rem; color: #FFF; font-weight: 600;">
+							<?php echo esc($mensagem); ?>
+						</h2>
+					</div>
+					<?php elseif ($coreografia_atual): ?>
+					<div class="work-item pb-3">
+						<h2 class="m-0" style="font-size: 1.5rem; color: #FFF; font-weight: 600;">
+							<?php echo esc($coreografia_atual->corgf_titulo); ?>
+						</h2>
+					</div>
 
 									<div class="work-item pt-2 pb-3">
 										<label>Grupo</label>
@@ -28,7 +106,7 @@
 
 									<div class="work-item pt-2 pb-3">
 										<label>Coreógrafo</label>
-										<h4><?php echo esc($coreografia_atual->corgf_coreografo); ?></h4>
+										<h4><?php echo esc($coreografia_atual->corgf_coreografo ?: 'Não informado'); ?></h4>
 									</div>
 
 									<div class="work-item pt-2 pb-3">
@@ -927,12 +1005,54 @@
 			echo json_encode($hashes);
 		?>;
 		window.CURRENT_COREO = <?php echo json_encode((string)($coreografia_atual->corgf_hashkey ?? '')); ?>;
+		if (typeof window.SITE_URL === 'undefined' || !window.SITE_URL) {
+			window.SITE_URL = <?php echo json_encode(rtrim(site_url(), '/') . '/'); ?>;
+		}
+		// URL absoluta e correta para finalizar (evita problemas de barra/index.php)
+		window.AJAX_FINALIZAR_URL = <?php echo json_encode(site_url('jurados/ajaxform/FINALIZAR-COREOGRAFIA')); ?>;
 	$(document).ready(function () {
 		$('.flatpickr_date').flatpickr({
 			"locale": "pt",
 			dateFormat:"d/m/Y",
 			allowInput: true
-		});		
+		});
+		
+		// Controle do Modal de Filtros
+		$('#abrir-filtros').on('click', function() {
+			$('#modalFiltros').modal('show');
+		});
+		
+		$('#aplicar-filtros').on('click', function() {
+			aplicarFiltros();
+			$('#modalFiltros').modal('hide');
+		});
+		
+		$('#limpar-filtros').on('click', function() {
+			$('#filtro-formato, #filtro-modalidade, #filtro-categoria').val('');
+			aplicarFiltros();
+			$('#modalFiltros').modal('hide');
+		});
+		
+		function aplicarFiltros() {
+			const formato = $('#filtro-formato').val();
+			const modalidade = $('#filtro-modalidade').val();
+			const categoria = $('#filtro-categoria').val();
+			
+			// Mostrar filtros aplicados no console
+			console.log('Filtros aplicados:', { formato, modalidade, categoria });
+			
+			// Mostrar feedback visual no botão
+			if (formato || modalidade || categoria) {
+				$('#abrir-filtros').html('<i class="fas fa-filter me-1"></i> Filtros <span class="badge bg-light text-dark ms-1">Ativo</span>');
+				$('#abrir-filtros').addClass('btn-success').removeClass('btn-primary');
+			} else {
+				$('#abrir-filtros').html('<i class="fas fa-filter me-1"></i> Filtros');
+				$('#abrir-filtros').addClass('btn-primary').removeClass('btn-success');
+			}
+			
+			// TODO: Implementar busca de coreografias com filtros
+			// Pode fazer uma requisição AJAX para buscar coreografias filtradas
+		}
 	});
 	</script>
 

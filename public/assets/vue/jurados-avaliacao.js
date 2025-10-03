@@ -17,21 +17,20 @@ var vue = new Vue({
 	},
 
 	computed: {
-		todasNotasPreenchidas() {
-			// Verifica se todas as avaliações foram preenchidas
-			const criterios = Object.keys(this.avaliacoes);
-			if (criterios.length === 0) return false;
-			
-			return criterios.every(criterio => {
-				const nota = this.avaliacoes[criterio];
-				return nota !== '' && nota !== null && nota !== undefined && !isNaN(nota) && nota >= 0;
-			});
-		},
-		
-		botaoConcluirHabilitado() {
-			// O botão só fica habilitado se TODAS as notas estiverem preenchidas
-			return this.todasNotasPreenchidas;
-		}
+        todasNotasPreenchidas() {
+            // Mantido para compatibilidade (apenas da coreografia atual)
+            const criterios = Object.keys(this.avaliacoes);
+            if (criterios.length === 0) return false;
+            return criterios.every(criterio => {
+                const nota = this.avaliacoes[criterio];
+                return nota !== '' && nota !== null && nota !== undefined && !isNaN(nota) && nota >= 0;
+            });
+        },
+
+        botaoConcluirHabilitado() {
+            // Habilita somente quando TODAS as coreografias do grupo tiverem notas válidas no localStorage
+            return this.isGrupoCompleto();
+        }
 	},
 
     methods: {
@@ -147,10 +146,17 @@ var vue = new Vue({
         // Removido: salvamento automático no servidor
 
 		finalizarAvaliacao() {
-			if (!this.todasNotasPreenchidas) {
+			console.log('=== FINALIZAR AVALIACAO ===');
+			console.log('Grupo completo?', this.isGrupoCompleto());
+			console.log('Todas notas preenchidas?', this.todasNotasPreenchidas);
+			console.log('Avaliações atuais:', this.avaliacoes);
+			
+			// Validar o GRUPO inteiro antes de permitir concluir
+			if (!this.isGrupoCompleto()) {
+				console.log('GRUPO INCOMPLETO - bloqueando');
 				Swal.fire({
 					title: 'Atenção!',
-					text: 'Você precisa avaliar todas as coreografias antes de concluir.',
+					text: 'Você precisa avaliar todas as coreografias do grupo antes de concluir.',
 					icon: 'warning',
 					confirmButtonText: 'OK',
 					confirmButtonColor: '#ffa902'
@@ -158,6 +164,7 @@ var vue = new Vue({
 				return;
 			}
 
+			console.log('GRUPO COMPLETO - abrindo modal');
 			// Modal de confirmação
 			Swal.fire({
 				title: 'Concluir Avaliação',
@@ -169,15 +176,25 @@ var vue = new Vue({
 				confirmButtonColor: '#ffa902',
 				cancelButtonColor: '#6c757d'
 			}).then((result) => {
-				if (result.isConfirmed) {
+				console.log('Resultado do modal:', result);
+				console.log('result.isConfirmed:', result.isConfirmed);
+				console.log('result.value:', result.value);
+				if (result.isConfirmed || result.value === true) {
+					console.log('USUÁRIO CONFIRMOU - executando finalização');
 					this.executarFinalizacao();
+				} else {
+					console.log('USUÁRIO CANCELOU');
 				}
 			});
 		},
 
         executarFinalizacao() {
+            console.log('=== EXECUTAR FINALIZACAO ===');
+            console.log('Grupo completo?', this.isGrupoCompleto());
+            
             // Bloqueia se o grupo (todas as coreografias) não estiver completo
             if (!this.isGrupoCompleto()) {
+                console.log('GRUPO INCOMPLETO na execução - bloqueando');
                 Swal.fire({
                     title: 'Avaliação Incompleta',
                     html: '<p>Preencha todas as coreografias do grupo antes de concluir.</p>',
@@ -187,14 +204,54 @@ var vue = new Vue({
                 });
                 return;
             }
+            
+            console.log('GRUPO COMPLETO - coletando TODAS as avaliações do grupo');
 			this.loading = true;
 			
-			const formData = new FormData();
-			formData.append('corgf_hashkey', this.coreografia_hashkey);
-            formData.append('avaliacoes', JSON.stringify(this.avaliacoes));
+            // Coletar TODAS as avaliações do grupo (todas as coreografias)
+            const todasAvaliacoes = {};
+            for (let hash of this.grupo_coreos) {
+                const key = `jurado_${this.jurado_id}_corgf_${hash}`;
+                const raw = localStorage.getItem(key);
+                if (raw) {
+                    const payload = JSON.parse(raw);
+                    if (payload && payload.avaliacoes) {
+                        todasAvaliacoes[hash] = payload.avaliacoes;
+                    }
+                }
+            }
+            
+            console.log('Todas as avaliações do grupo:', todasAvaliacoes);
 			
-			axios.post(this.urlPost + 'jurados/ajaxform/FINALIZAR-COREOGRAFIA', formData)
+            const formData = new FormData();
+            formData.append('corgf_hashkey', this.coreografia_hashkey);
+            formData.append('grupo_completo', 'true');
+            formData.append('todas_avaliacoes', JSON.stringify(todasAvaliacoes));
+            
+            // Manter compatibilidade com avaliação atual
+            formData.append('avaliacoes', JSON.stringify(this.avaliacoes));
+            formData.append('avaliacoes_json', JSON.stringify(this.avaliacoes));
+            for (let criterio_id in this.avaliacoes) {
+                const nota = this.avaliacoes[criterio_id];
+                if (nota !== '' && nota !== null && nota !== undefined && !isNaN(nota)) {
+                    formData.append(`avaliacoes[${criterio_id}]`, nota);
+                }
+            }
+
+            // DEBUG: imprimir o payload enviado
+            try {
+                const dbg = {};
+                for (const [k, v] of formData.entries()) { dbg[k] = v; }
+                console.log('POST FINALIZAR-COREOGRAFIA payload:', dbg);
+            } catch (e) { console.log('Não foi possível inspecionar FormData:', e); }
+			
+			const postUrl = (typeof window.AJAX_FINALIZAR_URL !== 'undefined' && window.AJAX_FINALIZAR_URL)
+				? window.AJAX_FINALIZAR_URL
+				: (this.urlPost + 'jurados/ajaxform/FINALIZAR-COREOGRAFIA');
+			console.log('POST URL:', postUrl);
+			axios.post(postUrl, formData)
 				.then(response => {
+                    console.log('FINALIZAR-COREOGRAFIA response:', response && response.data ? response.data : response);
 					const respData = response.data;
 					if (respData.error_num === '0') {
 						Swal.fire({
@@ -220,6 +277,7 @@ var vue = new Vue({
 							}
 						});
 					} else {
+                        console.error('Erro ao finalizar (server payload):', respData);
 						if (respData.error_msg.includes('avaliar todas as coreografias')) {
 							this.mostrarValidacaoDetalhada();
 						} else {
@@ -234,8 +292,9 @@ var vue = new Vue({
 					}
 				})
 				.catch(error => {
-					console.error('Erro na requisição:', error);
-					Swal.fire({
+                    console.error('Erro na requisição:', error);
+                    console.error('FINALIZAR-COREOGRAFIA error.response:', error && error.response ? error.response : null);
+                    Swal.fire({
 						title: 'Erro!',
 						text: 'Erro de conexão. Tente novamente.',
 						icon: 'error',
@@ -345,6 +404,7 @@ var vue = new Vue({
 	mounted() {
 		// Extrair hashkey da coreografia da URL
 		this.extrairCoreografiaHashkey();
+        console.log('ENV JURD_ID:', this.jurado_id, 'GROUP_COREOS:', this.grupo_coreos, 'CURRENT:', this.coreografia_hashkey);
         // Carregar notas salvas para esta coreografia antes de inicializar
         this.carregarLocal();
 		

@@ -223,13 +223,6 @@ class AvaliacoesModel extends Model
 
     public function verificar_grupo_completo(int $jurd_id, int $grp_id, int $insti_id): bool
     {
-        // Quantidade de critérios ativos da instituição
-        $critCount = $this->db->table('tbl_criterios')
-            ->where('insti_id', $insti_id)
-            ->where('crit_ativo', 1)
-            ->countAllResults();
-        if ($critCount <= 0) return false;
-
         // Coreografias ativas do grupo
         $coreoIds = $this->db->table('tbl_coreografias')
             ->select('corgf_id')
@@ -239,19 +232,18 @@ class AvaliacoesModel extends Model
         if (empty($coreoIds)) return false;
         $coreoIdsArr = array_map(fn($r) => (int)$r->corgf_id, $coreoIds);
 
-        // Total esperado = critérios x coreografias
-        $totalEsperado = $critCount * count($coreoIdsArr);
-
-        // Total de avaliações existentes (nota não nula) para este jurado neste grupo
+        // Para tabela consolidada: verificar se TODAS as coreografias do grupo foram avaliadas
         $totalAval = $this->db->table('tbl_avaliacoes A')
             ->select('COUNT(*) AS total')
             ->where('A.jurd_id', $jurd_id)
             ->where('A.aval_ativo', 1)
             ->whereIn('A.corgf_id', $coreoIdsArr)
-            ->where('A.aval_nota IS NOT NULL')
+            ->where('A.nota_total_calculada IS NOT NULL')
+            ->where('A.nota_total_calculada > 0')
             ->get()->getRow();
 
-        return ((int)$totalAval->total) >= $totalEsperado;
+        // Deve ter avaliação para TODAS as coreografias do grupo
+        return ((int)$totalAval->total) >= count($coreoIdsArr);
     }
 
 
@@ -307,5 +299,109 @@ class AvaliacoesModel extends Model
         }
         $nextIdx = ($idxAtual >= 0 && $idxAtual + 1 < count($grupos)) ? $idxAtual + 1 : 0;
         return $grupos[$nextIdx];
+    }
+
+    /**
+     * Retorna o próximo grupo ainda não completamente avaliado por este jurado.
+     * Se todos estiverem completos, retorna null.
+     */
+    public function get_proximo_grupo_pendente(int $jurd_id, int $grp_id_atual, int $insti_id)
+    {
+        $builder = $this->db->table('tbl_grupos G');
+        $builder->select('G.grp_id, G.grp_titulo');
+        $builder->join('tbl_coreografias C', 'C.grp_id = G.grp_id AND C.corgf_ativo = 1', 'inner');
+        $builder->groupBy('G.grp_id, G.grp_titulo');
+        $builder->orderBy('G.grp_titulo', 'ASC');
+        $grupos = $builder->get()->getResult();
+        if (empty($grupos)) return null;
+
+        // Começa a partir do próximo ao atual, em ciclo
+        $order = [];
+        $idxAtual = -1;
+        foreach ($grupos as $i => $g) { if ((int)$g->grp_id === (int)$grp_id_atual) { $idxAtual = $i; break; } }
+        for ($i = 1; $i <= count($grupos); $i++) {
+            $order[] = $grupos[ ($idxAtual + $i) % count($grupos) ];
+        }
+
+        foreach ($order as $g) {
+            $pendente = !$this->verificar_grupo_completo($jurd_id, (int)$g->grp_id, $insti_id);
+            if ($pendente) {
+                return $g;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Retorna a próxima coreografia NÃO AVALIADA por este jurado
+     */
+    public function get_proxima_coreografia_nao_avaliada(int $jurd_id)
+    {
+        // Buscar todas as coreografias ativas, ordenadas por grupo e ID
+        $builder = $this->db->table('tbl_coreografias C');
+        $builder->select('C.corgf_id, C.corgf_hashkey, C.grp_id, G.grp_titulo');
+        $builder->join('tbl_grupos G', 'G.grp_id = C.grp_id', 'inner');
+        $builder->where('C.corgf_ativo', 1);
+        $builder->orderBy('G.grp_titulo', 'ASC');
+        $builder->orderBy('C.corgf_id', 'ASC');
+        $coreografias = $builder->get()->getResult();
+        
+        if (empty($coreografias)) return null;
+        
+        // Para cada coreografia, verificar se já foi avaliada por este jurado
+        foreach ($coreografias as $coreografia) {
+            $ja_avaliada = $this->db->table('tbl_avaliacoes')
+                ->where('jurd_id', $jurd_id)
+                ->where('corgf_id', (int)$coreografia->corgf_id)
+                ->where('aval_ativo', 1)
+                ->where('nota_total_calculada IS NOT NULL')
+                ->where('nota_total_calculada > 0')
+                ->countAllResults() > 0;
+                
+            if (!$ja_avaliada) {
+                return $coreografia;
+            }
+        }
+        
+        return null; // Todas já foram avaliadas
+    }
+
+    /**
+     * Lista todas as avaliações de um grupo específico
+     */
+    public function get_avaliacoes_por_grupo(int $grp_id, int $jurd_id = null)
+    {
+        $builder = $this->db->table('tbl_avaliacoes A');
+        $builder->select('A.*, C.corgf_titulo, C.corgf_coreografo, G.grp_titulo');
+        $builder->join('tbl_coreografias C', 'C.corgf_id = A.corgf_id', 'inner');
+        $builder->join('tbl_grupos G', 'G.grp_id = C.grp_id', 'inner');
+        $builder->where('C.grp_id', $grp_id);
+        $builder->where('A.aval_ativo', 1);
+        
+        if ($jurd_id) {
+            $builder->where('A.jurd_id', $jurd_id);
+        }
+        
+        $builder->orderBy('C.corgf_id', 'ASC');
+        return $builder->get()->getResult();
+    }
+
+    /**
+     * Lista todos os grupos com suas avaliações
+     */
+    public function get_grupos_com_avaliacoes(int $jurd_id = null)
+    {
+        $builder = $this->db->table('tbl_grupos G');
+        $builder->select('G.grp_id, G.grp_titulo, COUNT(A.aval_id) as total_avaliacoes');
+        $builder->join('tbl_coreografias C', 'C.grp_id = G.grp_id AND C.corgf_ativo = 1', 'left');
+        $builder->join('tbl_avaliacoes A', 'A.corgf_id = C.corgf_id AND A.aval_ativo = 1', 'left');
+        
+        if ($jurd_id) {
+            $builder->where('A.jurd_id', $jurd_id);
+        }
+        
+        $builder->groupBy('G.grp_id, G.grp_titulo');
+        $builder->orderBy('G.grp_titulo', 'ASC');
+        return $builder->get()->getResult();
     }
 }

@@ -223,3 +223,62 @@ ORDER BY `C`.`crit_titulo` ASC', [...], false)
  8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Jurados))
  9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
 10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2025-10-03 17:37:51 --> mysqli_sql_exception: Unknown column 'A.aval_nota' in 'where clause' in C:\xampp\htdocs\FestOn\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 C:\xampp\htdocs\FestOn\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\FestOn\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\FestOn\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\FestOn\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\FestOn\app\Models\AvaliacoesModel.php(252): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\FestOn\app\Controllers\Jurados.php(1246): App\Models\AvaliacoesModel->verificar_grupo_completo(1, 2, 1)
+#6 C:\xampp\htdocs\FestOn\system\CodeIgniter.php(934): App\Controllers\Jurados->ajaxform('FINALIZAR-COREO...')
+#7 C:\xampp\htdocs\FestOn\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Jurados))
+#8 C:\xampp\htdocs\FestOn\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\FestOn\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2025-10-03 17:37:51 --> Unknown column 'A.aval_nota' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT COUNT(*) AS total
+FROM `tbl_avaliacoes` `A`
+WHERE `A`.`jurd_id` = 1
+AND `A`.`aval_ativo` = 1
+AND `A`.`corgf_id` IN (2,3,16)
+AND `A`.`aval_nota` IS NOT NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS total
+FROM `tbl_avaliacoes` `A`
+WHERE `A`.`jurd_id` = 1
+AND `A`.`aval_ativo` = 1
+AND `A`.`corgf_id` IN (2,3,16)
+AND `A`.`aval_nota` IS NOT NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS total
+FROM `tbl_avaliacoes` `A`
+WHERE `A`.`jurd_id` = 1
+AND `A`.`aval_ativo` = 1
+AND `A`.`corgf_id` IN (2,3,16)
+AND `A`.`aval_nota` IS NOT NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS total
+FROM `tbl_avaliacoes` `A`
+WHERE `A`.`jurd_id` = :A.jurd_id:
+AND `A`.`aval_ativo` = :A.aval_ativo:
+AND `A`.`corgf_id` IN :A.corgf_id:
+AND `A`.`aval_nota` IS NOT NULL', [...], false)
+ 5 APPPATH\Models\AvaliacoesModel.php(252): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Jurados.php(1246): App\Models\AvaliacoesModel->verificar_grupo_completo(1, 2, 1)
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Jurados->ajaxform('FINALIZAR-COREOGRAFIA')
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Jurados))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-03 18:08:05 --> Undefined property: App\Controllers\Jurados::$db
+in APPPATH\Controllers\Jurados.php on line 27.
+ 1 APPPATH\Controllers\Jurados.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Jurados::$db', 'C:\\xampp\\htdocs\\FestOn\\app\\Controllers\\Jurados.php', 27)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Jurados->index('728be09add8dca55929d3bb317673d8c')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Jurados))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2025-10-03 18:08:07 --> Undefined property: App\Controllers\Jurados::$db
+in APPPATH\Controllers\Jurados.php on line 27.
+ 1 APPPATH\Controllers\Jurados.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Controllers\\Jurados::$db', 'C:\\xampp\\htdocs\\FestOn\\app\\Controllers\\Jurados.php', 27)
+ 2 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Jurados->index('728be09add8dca55929d3bb317673d8c')
+ 3 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Jurados))
+ 4 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
